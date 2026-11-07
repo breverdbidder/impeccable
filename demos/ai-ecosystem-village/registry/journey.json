@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "note": "Buyer-journey rules. Input is one row of multi_county_auctions using its real columns (see types/auctions.ts in zonewise-web). Output is the ordered list of trades the buyer needs; the game walks the buyer to one leased vendor per trade in the current county and counts a trade with no vendor as unmet demand.",
+  "always": ["title", "attorney", "insurer"],
+  "rules": [
+    { "when": { "column": "opening_bid", "op": ">", "value": 150000 }, "add": ["lender"], "why": "Larger lots are usually financed after the cash auction close." },
+    { "when": { "column": "is_vacant_land", "op": "==", "value": true }, "add": ["surveyor", "environmental", "landclearing", "architect", "gc", "electrician"], "why": "Vacant land is a ground-up build: scout, clear, design, build." },
+    { "when": { "column": "is_vacant_land", "op": "==", "value": false }, "add": ["inspector", "appraiser"], "why": "Improved property gets inspected and appraised." },
+    { "when": { "column": "year_built", "op": "<", "value": 1990 }, "add": ["roofer", "electrician", "gc"], "why": "Older structures carry roof and wiring work on the Disposition stage." },
+    { "when": { "column": "lot_size", "op": ">", "value": 21780 }, "add": ["surveyor", "engineer"], "why": "Half an acre or more usually needs a boundary and drainage review." },
+    { "when": { "column": "property_type", "op": "in", "value": ["condo", "townhouse"] }, "remove": ["landclearing", "surveyor", "roofer"], "why": "Condo and townhouse buyers do not touch land or roof." },
+    { "when": { "column": "sale_type", "op": "==", "value": "TAXDEED" }, "add": ["attorney"], "why": "Tax deed buyers often need a quiet title action; attorney is already in always, kept here as the reason." },
+    { "when": { "column": "property_type", "op": "in", "value": ["multi_family", "duplex", "triplex", "quadplex"] }, "add": ["propmgmt"], "why": "Income property goes to a manager at Hold." },
+    { "when": { "column": "auction_status", "op": "==", "value": "SOLD" }, "add": ["broker"], "why": "A sold lot that the buyer flips lists with a broker at Exit." }
+  ],
+  "order": "by district order, then trade order within the district (see trades.json)",
+  "matching": {
+    "policy": "one leased vendor per trade in the lot's county; exclusive tier wins over standard; ties break by fewest matches so far",
+    "unmet": "a needed trade with no leased vendor in that county increments unmet[trade][county]; this list is the plot-lease sales queue",
+    "studio": "when the matched trade is architect and the lot is vacant land, the game offers the zonewise.ai Studio link for that lot"
+  }
+}

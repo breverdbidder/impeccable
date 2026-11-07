@@ -1,0 +1,34 @@
+{
+  "$schema": "./trades.schema.json",
+  "version": 1,
+  "note": "Trades that serve a BidDeed.AI buyer, grouped into the four REAI Valley districts along the deal timeline. everestStages are The Everest Ascent stage numbers (1 Discovery, 2 Scraping, 3 Title Search, 4 Lien Priority, 5 Tax Certificates, 6 Demographics, 7 ML Score, 8 Max Bid, 9 Decision Log, 10 Report, 11 Disposition, 12 Archive).",
+  "districts": [
+    { "id": "acquisition", "name": "Acquisition", "order": 0, "anchor": "biddeed", "anchorLink": "https://biddeed.ai", "everestStages": [1, 2, 8, 9, 10] },
+    { "id": "diligence", "name": "Due Diligence", "order": 1, "anchor": "zonewise", "anchorLink": "https://zonewise.ai/explorer", "everestStages": [3, 4, 5, 6] },
+    { "id": "build", "name": "Build", "order": 2, "anchor": null, "anchorLink": "https://zonewise.ai/studio", "everestStages": [11] },
+    { "id": "hold-exit", "name": "Hold and Exit", "order": 3, "anchor": "winnerdata", "anchorLink": "https://winnerdataai.com", "everestStages": [7, 11, 12] }
+  ],
+  "anchors": {
+    "biddeed": { "name": "BidDeed.AI", "neon": "#38bdf8", "produces": "bid recommendations" },
+    "zonewise": { "name": "zonewise.ai", "neon": "#34d399", "produces": "zoning overlays" },
+    "winnerdata": { "name": "winnerdataai.com", "neon": "#c084fc", "produces": "winning metrics" }
+  },
+  "trades": [
+    { "id": "title", "name": "Title company", "district": "acquisition", "order": 0, "glyph": "document", "referralFeeAllowed": false, "note": "RESPA: lease for placement only, no per-referral fee." },
+    { "id": "lender", "name": "Lender", "district": "acquisition", "order": 1, "glyph": "coin", "referralFeeAllowed": false, "note": "RESPA applies." },
+    { "id": "attorney", "name": "Real estate attorney", "district": "acquisition", "order": 2, "glyph": "scales", "referralFeeAllowed": false },
+    { "id": "appraiser", "name": "Appraiser", "district": "acquisition", "order": 3, "glyph": "balance", "referralFeeAllowed": true },
+    { "id": "surveyor", "name": "Surveyor", "district": "diligence", "order": 0, "glyph": "tripod", "referralFeeAllowed": true },
+    { "id": "engineer", "name": "Civil engineer", "district": "diligence", "order": 1, "glyph": "gear", "referralFeeAllowed": true },
+    { "id": "inspector", "name": "Home inspector", "district": "diligence", "order": 2, "glyph": "magnifier", "referralFeeAllowed": true },
+    { "id": "environmental", "name": "Environmental consultant", "district": "diligence", "order": 3, "glyph": "leaf", "referralFeeAllowed": true },
+    { "id": "landclearing", "name": "Land clearing", "district": "build", "order": 0, "glyph": "stump", "referralFeeAllowed": true },
+    { "id": "architect", "name": "Architect", "district": "build", "order": 1, "glyph": "compass", "referralFeeAllowed": true, "studioLink": true },
+    { "id": "gc", "name": "General contractor", "district": "build", "order": 2, "glyph": "hammer", "referralFeeAllowed": true },
+    { "id": "roofer", "name": "Roofer", "district": "build", "order": 3, "glyph": "roof", "referralFeeAllowed": true },
+    { "id": "electrician", "name": "Electrician", "district": "build", "order": 4, "glyph": "bolt", "referralFeeAllowed": true },
+    { "id": "insurer", "name": "Insurer", "district": "hold-exit", "order": 0, "glyph": "shield", "referralFeeAllowed": false, "note": "State insurance referral rules vary; treat as lease-only until counsel confirms." },
+    { "id": "propmgmt", "name": "Property manager", "district": "hold-exit", "order": 1, "glyph": "key", "referralFeeAllowed": true },
+    { "id": "broker", "name": "Real estate broker", "district": "hold-exit", "order": 2, "glyph": "sign", "referralFeeAllowed": false, "note": "Broker referral fees are licensed-to-licensed only." }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "synthetic": true,
+  "note": "Every vendor here is invented for the demo and must be labeled synthetic wherever it renders. Replace with rows from the vendors table once leases exist. One vendor per trade per county is the exclusivity unit.",
+  "plotTiers": {
+    "standard": { "monthlyUsd": 249, "exclusive": false },
+    "exclusive": { "monthlyUsd": 749, "exclusive": true, "note": "Only vendor of that trade in that county's valley." }
+  },
+  "vendors": [
+    { "id": "v-brv-title", "county": "Brevard", "trade": "title", "name": "Space Coast Title", "color": "#f59e0b", "tier": "exclusive" },
+    { "id": "v-brv-lender", "county": "Brevard", "trade": "lender", "name": "Indian River Lending", "color": "#fb7185", "tier": "standard" },
+    { "id": "v-brv-attorney", "county": "Brevard", "trade": "attorney", "name": "Causeway Law", "color": "#a3e635", "tier": "standard" },
+    { "id": "v-brv-surveyor", "county": "Brevard", "trade": "surveyor", "name": "Merritt Survey Co", "color": "#f97316", "tier": "exclusive" },
+    { "id": "v-brv-engineer", "county": "Brevard", "trade": "engineer", "name": "Banana River Civil", "color": "#22d3ee", "tier": "standard" },
+    { "id": "v-brv-inspector", "county": "Brevard", "trade": "inspector", "name": "Shoreline Inspections", "color": "#e879f9", "tier": "standard" },
+    { "id": "v-brv-landclearing", "county": "Brevard", "trade": "landclearing", "name": "Palm Bay Clearing", "color": "#84cc16", "tier": "exclusive" },
+    { "id": "v-brv-architect", "county": "Brevard", "trade": "architect", "name": "Cocoa Studio Architects", "color": "#f472b6", "tier": "standard" },
+    { "id": "v-brv-gc", "county": "Brevard", "trade": "gc", "name": "Viera Builders", "color": "#fbbf24", "tier": "standard" },
+    { "id": "v-brv-insurer", "county": "Brevard", "trade": "insurer", "name": "Atlantic Coast Mutual", "color": "#60a5fa", "tier": "standard" },
+    { "id": "v-brv-propmgmt", "county": "Brevard", "trade": "propmgmt", "name": "Titusville Property Co", "color": "#2dd4bf", "tier": "standard" },
+    { "id": "v-brv-broker", "county": "Brevard", "trade": "broker", "name": "Melbourne Realty Group", "color": "#fb923c", "tier": "exclusive" },
+    { "id": "v-ora-title", "county": "Orange", "trade": "title", "name": "Citrus Title Partners", "color": "#f59e0b", "tier": "standard" },
+    { "id": "v-ora-lender", "county": "Orange", "trade": "lender", "name": "Lake Nona Capital", "color": "#fb7185", "tier": "exclusive" },
+    { "id": "v-ora-appraiser", "county": "Orange", "trade": "appraiser", "name": "Winter Park Valuations", "color": "#c084fc", "tier": "standard" },
+    { "id": "v-ora-surveyor", "county": "Orange", "trade": "surveyor", "name": "Orlando Boundary Survey", "color": "#f97316", "tier": "standard" },
+    { "id": "v-ora-inspector", "county": "Orange", "trade": "inspector", "name": "Apopka Home Inspect", "color": "#e879f9", "tier": "standard" },
+    { "id": "v-ora-gc", "county": "Orange", "trade": "gc", "name": "Kissimmee Construction", "color": "#fbbf24", "tier": "standard" },
+    { "id": "v-ora-roofer", "county": "Orange", "trade": "roofer", "name": "Ocoee Roofing", "color": "#f87171", "tier": "exclusive" },
+    { "id": "v-ora-electrician", "county": "Orange", "trade": "electrician", "name": "Pine Hills Electric", "color": "#facc15", "tier": "standard" },
+    { "id": "v-ora-insurer", "county": "Orange", "trade": "insurer", "name": "Central Florida Assurance", "color": "#60a5fa", "tier": "standard" }
+  ]
+}
