@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-07T17:42:23Z",
+  "title": "Design System: Silicon Valley AI Ecosystem Village",
+  "extensions": {
+    "colorMeta": {
+      "biddeed": { "role": "primary", "displayName": "BidDeed Sky", "canonical": "oklch(75.4% 0.139 233)", "tonalRamp": ["oklch(15% 0.139 233)", "oklch(26% 0.139 233)", "oklch(38% 0.139 233)", "oklch(50% 0.139 233)", "oklch(62% 0.139 233)", "oklch(74% 0.139 233)", "oklch(86% 0.139 233)", "oklch(95% 0.139 233)"] },
+      "zonewise": { "role": "primary", "displayName": "Zonewise Mint", "canonical": "oklch(77.3% 0.153 163)", "tonalRamp": ["oklch(15% 0.153 163)", "oklch(26% 0.153 163)", "oklch(38% 0.153 163)", "oklch(50% 0.153 163)", "oklch(62% 0.153 163)", "oklch(74% 0.153 163)", "oklch(86% 0.153 163)", "oklch(95% 0.153 163)"] },
+      "winner": { "role": "primary", "displayName": "Winner Violet", "canonical": "oklch(72.2% 0.177 306)", "tonalRamp": ["oklch(15% 0.177 306)", "oklch(26% 0.177 306)", "oklch(38% 0.177 306)", "oklch(50% 0.177 306)", "oklch(62% 0.177 306)", "oklch(74% 0.177 306)", "oklch(86% 0.177 306)", "oklch(95% 0.177 306)"] },
+      "amber": { "role": "secondary", "displayName": "Cabinet Amber", "canonical": "oklch(88.0% 0.135 86)", "tonalRamp": ["oklch(15% 0.135 86)", "oklch(26% 0.135 86)", "oklch(38% 0.135 86)", "oklch(50% 0.135 86)", "oklch(62% 0.135 86)", "oklch(74% 0.135 86)", "oklch(86% 0.135 86)", "oklch(95% 0.135 86)"] },
+      "cabinet": { "role": "neutral", "displayName": "Cabinet", "canonical": "oklch(16.5% 0.037 279)", "tonalRamp": ["oklch(15% 0.037 279)", "oklch(26% 0.037 279)", "oklch(38% 0.037 279)", "oklch(50% 0.037 279)", "oklch(62% 0.037 279)", "oklch(74% 0.037 279)", "oklch(86% 0.037 279)", "oklch(95% 0.037 279)"] },
+      "cabinet-2": { "role": "neutral", "displayName": "Cabinet Upper", "canonical": "oklch(22.5% 0.066 277)", "tonalRamp": ["oklch(15% 0.066 277)", "oklch(26% 0.066 277)", "oklch(38% 0.066 277)", "oklch(50% 0.066 277)", "oklch(62% 0.066 277)", "oklch(74% 0.066 277)", "oklch(86% 0.066 277)", "oklch(95% 0.066 277)"] },
+      "bezel": { "role": "neutral", "displayName": "Bezel", "canonical": "oklch(25.2% 0.062 278)", "tonalRamp": ["oklch(15% 0.062 278)", "oklch(26% 0.062 278)", "oklch(38% 0.062 278)", "oklch(50% 0.062 278)", "oklch(62% 0.062 278)", "oklch(74% 0.062 278)", "oklch(86% 0.062 278)", "oklch(95% 0.062 278)"] },
+      "bezel-edge": { "role": "neutral", "displayName": "Bezel Edge", "canonical": "oklch(32.7% 0.079 278)", "tonalRamp": ["oklch(15% 0.079 278)", "oklch(26% 0.079 278)", "oklch(38% 0.079 278)", "oklch(50% 0.079 278)", "oklch(62% 0.079 278)", "oklch(74% 0.079 278)", "oklch(86% 0.079 278)", "oklch(95% 0.079 278)"] },
+      "bezel-dark": { "role": "neutral", "displayName": "Bezel Dark", "canonical": "oklch(15.7% 0.030 279)", "tonalRamp": ["oklch(15% 0.030 279)", "oklch(26% 0.030 279)", "oklch(38% 0.030 279)", "oklch(50% 0.030 279)", "oklch(62% 0.030 279)", "oklch(74% 0.030 279)", "oklch(86% 0.030 279)", "oklch(95% 0.030 279)"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(95.8% 0.020 280)", "tonalRamp": ["oklch(15% 0.020 280)", "oklch(26% 0.020 280)", "oklch(38% 0.020 280)", "oklch(50% 0.020 280)", "oklch(62% 0.020 280)", "oklch(74% 0.020 280)", "oklch(86% 0.020 280)", "oklch(95% 0.020 280)"] },
+      "ink-soft": { "role": "neutral", "displayName": "Ink Soft", "canonical": "oklch(76.3% 0.056 278)", "tonalRamp": ["oklch(15% 0.056 278)", "oklch(26% 0.056 278)", "oklch(38% 0.056 278)", "oklch(50% 0.056 278)", "oklch(62% 0.056 278)", "oklch(74% 0.056 278)", "oklch(86% 0.056 278)", "oklch(95% 0.056 278)"] },
+      "ink-dim": { "role": "neutral", "displayName": "Ink Dim", "canonical": "oklch(69.0% 0.062 278)", "tonalRamp": ["oklch(15% 0.062 278)", "oklch(26% 0.062 278)", "oklch(38% 0.062 278)", "oklch(50% 0.062 278)", "oklch(62% 0.062 278)", "oklch(74% 0.062 278)", "oklch(86% 0.062 278)", "oklch(95% 0.062 278)"] },
+      "line": { "role": "neutral", "displayName": "Line", "canonical": "oklch(31.6% 0.071 278)", "tonalRamp": ["oklch(15% 0.071 278)", "oklch(26% 0.071 278)", "oklch(38% 0.071 278)", "oklch(50% 0.071 278)", "oklch(62% 0.071 278)", "oklch(74% 0.071 278)", "oklch(86% 0.071 278)", "oklch(95% 0.071 278)"] },
+      "button-face": { "role": "neutral", "displayName": "Button Face", "canonical": "oklch(28.8% 0.071 278)", "tonalRamp": ["oklch(15% 0.071 278)", "oklch(26% 0.071 278)", "oklch(38% 0.071 278)", "oklch(50% 0.071 278)", "oklch(62% 0.071 278)", "oklch(74% 0.071 278)", "oklch(86% 0.071 278)", "oklch(95% 0.071 278)"] },
+      "button-edge": { "role": "neutral", "displayName": "Button Edge", "canonical": "oklch(39.4% 0.095 278)", "tonalRamp": ["oklch(15% 0.095 278)", "oklch(26% 0.095 278)", "oklch(38% 0.095 278)", "oklch(50% 0.095 278)", "oklch(62% 0.095 278)", "oklch(74% 0.095 278)", "oklch(86% 0.095 278)", "oklch(95% 0.095 278)"] },
+      "log-well": { "role": "neutral", "displayName": "Log Well", "canonical": "oklch(18.1% 0.047 277)", "tonalRamp": ["oklch(15% 0.047 277)", "oklch(26% 0.047 277)", "oklch(38% 0.047 277)", "oklch(50% 0.047 277)", "oklch(62% 0.047 277)", "oklch(74% 0.047 277)", "oklch(86% 0.047 277)", "oklch(95% 0.047 277)"] },
+      "window-fill": { "role": "neutral", "displayName": "Window Fill", "canonical": "oklch(17.9% 0.052 276 / 0.92)", "tonalRamp": ["oklch(15% 0.052 276)", "oklch(26% 0.052 276)", "oklch(38% 0.052 276)", "oklch(50% 0.052 276)", "oklch(62% 0.052 276)", "oklch(74% 0.052 276)", "oklch(86% 0.052 276)", "oklch(95% 0.052 276)"] },
+      "grass": { "role": "world", "displayName": "Grass", "canonical": "oklch(47.2% 0.116 142)", "tonalRamp": ["oklch(15% 0.116 142)", "oklch(26% 0.116 142)", "oklch(38% 0.116 142)", "oklch(50% 0.116 142)", "oklch(62% 0.116 142)", "oklch(74% 0.116 142)", "oklch(86% 0.116 142)", "oklch(95% 0.116 142)"] },
+      "dirt": { "role": "world", "displayName": "Dirt", "canonical": "oklch(54.7% 0.066 70)", "tonalRamp": ["oklch(15% 0.066 70)", "oklch(26% 0.066 70)", "oklch(38% 0.066 70)", "oklch(50% 0.066 70)", "oklch(62% 0.066 70)", "oklch(74% 0.066 70)", "oklch(86% 0.066 70)", "oklch(95% 0.066 70)"] },
+      "sand": { "role": "world", "displayName": "Sand", "canonical": "oklch(82.1% 0.078 90)", "tonalRamp": ["oklch(15% 0.078 90)", "oklch(26% 0.078 90)", "oklch(38% 0.078 90)", "oklch(50% 0.078 90)", "oklch(62% 0.078 90)", "oklch(74% 0.078 90)", "oklch(86% 0.078 90)", "oklch(95% 0.078 90)"] },
+      "water": { "role": "world", "displayName": "Water", "canonical": "oklch(53.4% 0.126 252)", "tonalRamp": ["oklch(15% 0.126 252)", "oklch(26% 0.126 252)", "oklch(38% 0.126 252)", "oklch(50% 0.126 252)", "oklch(62% 0.126 252)", "oklch(74% 0.126 252)", "oklch(86% 0.126 252)", "oklch(95% 0.126 252)"] },
+      "plaza-stone": { "role": "world", "displayName": "Plaza Stone", "canonical": "oklch(59.6% 0.029 266)", "tonalRamp": ["oklch(15% 0.029 266)", "oklch(26% 0.029 266)", "oklch(38% 0.029 266)", "oklch(50% 0.029 266)", "oklch(62% 0.029 266)", "oklch(74% 0.029 266)", "oklch(86% 0.029 266)", "oklch(95% 0.029 266)"] },
+      "biddeed-wall": { "role": "world", "displayName": "BidDeed Wall", "canonical": "#174b74", "family": "biddeed" },
+      "biddeed-roof": { "role": "world", "displayName": "BidDeed Roof", "canonical": "#2a86c4", "family": "biddeed" },
+      "biddeed-trim": { "role": "world", "displayName": "BidDeed Trim", "canonical": "#63b4ea", "family": "biddeed" },
+      "zonewise-wall": { "role": "world", "displayName": "Zonewise Wall", "canonical": "#145c4e", "family": "zonewise" },
+      "zonewise-roof": { "role": "world", "displayName": "Zonewise Roof", "canonical": "#2a9d8f", "family": "zonewise" },
+      "zonewise-trim": { "role": "world", "displayName": "Zonewise Trim", "canonical": "#6fd3c3", "family": "zonewise" },
+      "winner-wall": { "role": "world", "displayName": "Winner Wall", "canonical": "#4a1a78", "family": "winner" },
+      "winner-roof": { "role": "world", "displayName": "Winner Roof", "canonical": "#7a2fb8", "family": "winner" },
+      "winner-trim": { "role": "world", "displayName": "Winner Trim", "canonical": "#b57ae6", "family": "winner" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The marquee h1 only: white Press Start 2P with the sky-blue tube glow, capped at 24ch." },
+      "headline": { "displayName": "Headline", "purpose": "On-canvas 16px pixel face: clock, counters, hub neon signs, PAUSED. 2x the font's native 8px grid." },
+      "title": { "displayName": "Title", "purpose": "Deal totals in the ledger footer." },
+      "label": { "displayName": "Label", "purpose": "Cabinet buttons, section headings, hub names in the ledger." },
+      "label-small": { "displayName": "Label Small", "purpose": "8px uppercase HUD captions on canvas (IN TRANSIT, DEALS). Native pixel size; never 9 to 11px." },
+      "body": { "displayName": "Body", "purpose": "Everything read as a sentence: page body, ledger cells, log rows, canvas bubbles and inspector lines. 19px under 760px." },
+      "body-small": { "displayName": "Body Small", "purpose": "Hub produces lines and the keyboard hint." },
+      "caption": { "displayName": "Caption", "purpose": "Table headers, kbd keys, the synthetic-data note." }
+    },
+    "shadows": [
+      { "name": "bezel-bands", "value": "0 0 0 4px #2c2f5c, 0 0 0 8px #0a0b19, 0 26px 40px -14px rgba(0,0,0,.9)", "purpose": "The screen frame only: two flat concentric bands and one deep drop under the cabinet screen. Under 760px: 0 0 0 3px #2c2f5c, 0 0 0 6px #0a0b19, 0 18px 30px -12px rgba(0,0,0,.9)." },
+      { "name": "marquee-tube", "value": "0 0 2px #fff, 0 0 10px rgba(56,189,248,.85), 0 0 24px rgba(56,189,248,.45)", "purpose": "text-shadow on the marquee h1 only; the neon tube in the cabinet vocabulary. Breathes to 14px/36px at the midpoint of the 6s tube cycle." },
+      { "name": "canvas-neon-halo", "value": "shadowBlur: 8 + 16 * level * (0.4 + 0.6 * night), shadowColor: hub neon", "purpose": "Canvas-only halo behind a lit hub sign. No other canvas text uses shadowBlur." }
+    ],
+    "motion": [
+      { "name": "button-travel", "value": "transform .08s ease-out, border-bottom-width .08s ease-out, background .15s ease-out", "purpose": "Cabinet button press: 3px translateY and the 5px lower edge shrinking to 2px." },
+      { "name": "log-row-enter", "value": "enter .35s cubic-bezier(.16,1,.3,1); from { opacity: .2; transform: translateY(-6px) }", "purpose": "The newest network-log row only. The sole content-entry animation in the HTML chrome; no section fades." },
+      { "name": "marquee-tube-breath", "value": "tube 6s ease-in-out infinite", "purpose": "Marquee text-shadow breathing between the rest and peak glow. Removed under prefers-reduced-motion." },
+      { "name": "scanlines-fade", "value": "opacity .4s ease-out", "purpose": "Opt-in scanline overlay fading in when the Scanlines toggle is pressed. Off by default." },
+      { "name": "neon-ignition", "value": "thresholds night > 0.55 / 0.60 / 0.65 per hub; 1.2s stutter at hash-driven 1 or 0.12 level; then 0.94 + 0.06 sin(1.7t) breathing; off when night < 0.35", "purpose": "The dusk signature: hub signs ignite one by one, flicker, then hold until dawn. Pulse is permitted on neon only." },
+      { "name": "day-cycle", "value": "DAY_LENGTH 150s; daylight = clamp((0.5 - 0.5 cos(2*pi*phase) - 0.15) / 0.6, 0, 1); night wash rgba(10,12,48, night * 0.62)", "purpose": "Flat night, flat day, soft dusk. Hold night pins phase to 0.95." },
+      { "name": "packet-bob", "value": "y offset round(sin(4t + seed) * 1.2) world px; pulse ring (t % 2.2) / 2.2 at the plaza core", "purpose": "Carried packets bob; the core router emits a fading ring every 2.2s. World motion, not UI motion." },
+      { "name": "reduced-motion", "value": "@media (prefers-reduced-motion: reduce) { .marquee h1 { animation: none } .ticker li:first-child { animation: none } .controls button { transition: none } }", "purpose": "Every HTML animation and transition is removed; the canvas simulation itself continues." }
+    ],
+    "breakpoints": [
+      { "name": "deck-collapse", "value": "760px", "purpose": "max-width: single-column control deck, 19px body, tighter bezel bands, Produces column hidden." },
+      { "name": "overlay-double", "value": "560px", "purpose": "Rendered canvas width below which the overlay multiplier ui becomes 2: windows, fonts and insets double; economy window moves to bottom-right." }
+    ],
+    "canvas": {
+      "logicalSize": "800x600",
+      "worldSize": "400x300 scaled 2x, smoothing off",
+      "tile": "10 world px, 40x30 grid",
+      "dprCap": 2,
+      "evenPixelSnap": true,
+      "icons": "7x7 bitmap glyphs (house, pin, chart, sun, moon) drawn in code at 3px per cell on the overlay"
+    },
+    "detectorExceptions": [
+      { "rule": "dark-glow", "target": ".marquee h1 text-shadow", "reason": "Deliberate: the brief pins neon signage; the marquee glow is the cabinet marquee tube. Recorded in .impeccable/config.json ignoreValues." },
+      { "rule": "scanline-stripes", "target": ".scanlines repeating-linear-gradient", "reason": "Deliberate: opt-in CRT scanlines behind a toggle, opacity 0 by default." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Cabinet Button",
+      "kind": "button",
+      "refersTo": "button-cabinet",
+      "description": "Flat pixel rectangle with a thick lower edge; pressing it travels 3px and shortens the edge. Used for Pause, Speed, Hold night, Scanlines.",
+      "html": "<button type=\"button\" class=\"ds-btn-cabinet\" aria-pressed=\"false\">Pause</button>",
+      "css": ".ds-btn-cabinet { font-family: 'Press Start 2P', 'Courier New', monospace; font-size: 12px; line-height: 1; color: #eef0ff; background: #23264d; border: 2px solid #3b3f78; border-bottom-width: 5px; border-radius: 0; padding: 12px 14px 11px; cursor: pointer; transition: transform .08s ease-out, border-bottom-width .08s ease-out, background .15s ease-out; } .ds-btn-cabinet:hover { background: #2b2f5e; } .ds-btn-cabinet:active, .ds-btn-cabinet[aria-pressed=\"true\"] { transform: translateY(3px); border-bottom-width: 2px; background: #1b1d3e; } .ds-btn-cabinet[aria-pressed=\"true\"] { color: #ffd166; border-color: #6a5a2a; } .ds-btn-cabinet:focus-visible { outline: 3px solid #ffd166; outline-offset: 3px; }"
+    },
+    {
+      "name": "Cabinet Button (toggled on)",
+      "kind": "button",
+      "refersTo": "button-cabinet-pressed",
+      "description": "The same button held down: amber text, dim gold border, 2px lower edge. This is what Hold night and Scanlines look like while active.",
+      "html": "<button type=\"button\" class=\"ds-btn-cabinet ds-btn-cabinet--on\" aria-pressed=\"true\">Hold night</button>",
+      "css": ".ds-btn-cabinet { font-family: 'Press Start 2P', 'Courier New', monospace; font-size: 12px; line-height: 1; color: #eef0ff; background: #23264d; border: 2px solid #3b3f78; border-bottom-width: 5px; border-radius: 0; padding: 12px 14px 11px; cursor: pointer; transition: transform .08s ease-out, border-bottom-width .08s ease-out, background .15s ease-out; } .ds-btn-cabinet--on { transform: translateY(3px); border-bottom-width: 2px; background: #1b1d3e; color: #ffd166; border-color: #6a5a2a; } .ds-btn-cabinet--on:hover { background: #1b1d3e; } .ds-btn-cabinet:focus-visible { outline: 3px solid #ffd166; outline-offset: 3px; }"
+    },
+    {
+      "name": "Status Window",
+      "kind": "card",
+      "refersTo": "status-window",
+      "description": "The JRPG window every in-canvas readout, bubble and inspector shares: translucent navy fill, 2px border in the owning hub's neon, 2px white highlight under the top edge. Rendered here in HTML for the panel; on canvas it is drawn by windowBox().",
+      "html": "<div class=\"ds-window\" style=\"--ds-window-border:#38bdf8\"><div class=\"ds-window-name\">Atlas, Bid Analyst</div><div>Home: BidDeed.AI</div><div>Status: walking to winnerdataai.com</div><div class=\"ds-window-cargo\">Carrying: bid recommendations</div></div>",
+      "css": ".ds-window { position: relative; display: inline-block; min-width: 280px; padding: 14px 12px 12px; background: rgba(12, 14, 40, 0.92); border: 2px solid var(--ds-window-border, rgba(238,240,255,0.8)); border-radius: 0; font-family: 'VT323', 'Courier New', monospace; font-size: 20px; line-height: 1; color: #eef0ff; } .ds-window > div + div { margin-top: 6px; } .ds-window::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: rgba(255,255,255,0.35); } .ds-window-name { color: var(--ds-window-border, #eef0ff); } .ds-window-cargo { color: var(--ds-window-border, #a9afd6); }"
+    },
+    {
+      "name": "HUD Counter Window",
+      "kind": "custom",
+      "refersTo": "status-window",
+      "description": "The top-right economy window: 8px uppercase pixel captions over 16px pixel numerals, deals in amber.",
+      "html": "<div class=\"ds-hud\"><div><span class=\"ds-hud-cap\">IN TRANSIT</span><span class=\"ds-hud-num\">12</span></div><div><span class=\"ds-hud-cap\">DEALS</span><span class=\"ds-hud-num ds-hud-num--deal\">08</span></div></div>",
+      "css": ".ds-hud { position: relative; display: inline-grid; grid-template-columns: 118px 1fr; gap: 0; width: 206px; height: 42px; padding: 10px 12px 0; background: rgba(12, 14, 40, 0.92); border: 2px solid rgba(238,240,255,0.8); border-radius: 0; font-family: 'Press Start 2P', 'Courier New', monospace; color: #eef0ff; } .ds-hud::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: rgba(255,255,255,0.35); } .ds-hud-cap { display: block; font-size: 8px; color: #a9afd6; margin-bottom: 6px; } .ds-hud-num { display: block; font-size: 16px; line-height: 1; } .ds-hud-num--deal { color: #ffd166; }"
+    },
+    {
+      "name": "Exchange Ledger",
+      "kind": "custom",
+      "refersTo": "log-panel",
+      "description": "Flat tabular-numeral table: dim 17px headers over 1px rules, pixel-face hub names in each hub's neon, amber Inside column, right-aligned 72px numeric columns.",
+      "html": "<table class=\"ds-ledger\"><thead><tr><th>Hub</th><th>Produces</th><th class=\"ds-num\">Inside</th><th class=\"ds-num\">Sent</th><th class=\"ds-num\">Recv</th></tr></thead><tbody><tr><td><span class=\"ds-hub\" style=\"color:#38bdf8\">BidDeed.AI</span><span class=\"ds-hub-sub\">Real estate, bidding, transactions</span></td><td>bid recommendations</td><td class=\"ds-num ds-inside\">0</td><td class=\"ds-num\">25</td><td class=\"ds-num\">17</td></tr><tr><td><span class=\"ds-hub\" style=\"color:#34d399\">zonewise.ai</span><span class=\"ds-hub-sub\">Zoning, mapping, spatial data</span></td><td>zoning overlays</td><td class=\"ds-num ds-inside\">1</td><td class=\"ds-num\">13</td><td class=\"ds-num\">12</td></tr><tr><td><span class=\"ds-hub\" style=\"color:#c084fc\">winnerdataai.com</span><span class=\"ds-hub-sub\">Data analytics, processing, winning metrics</span></td><td>winning metrics</td><td class=\"ds-num ds-inside\">2</td><td class=\"ds-num\">13</td><td class=\"ds-num\">10</td></tr></tbody></table>",
+      "css": ".ds-ledger { width: 100%; border-collapse: collapse; font-family: 'VT323', 'Courier New', monospace; font-size: 20px; line-height: 1.4; color: #eef0ff; font-variant-numeric: tabular-nums; } .ds-ledger thead th { text-align: left; font-weight: normal; color: #9298c2; font-size: 17px; padding: 0 10px 6px 0; border-bottom: 1px solid #2a2d55; } .ds-ledger tbody td { padding: 9px 10px 8px 0; border-bottom: 1px solid #2a2d55; vertical-align: top; } .ds-ledger tbody tr:last-child td { border-bottom: 0; } .ds-ledger .ds-num { text-align: right; padding-right: 0; padding-left: 12px; width: 72px; } .ds-ledger .ds-hub { font-family: 'Press Start 2P', 'Courier New', monospace; font-size: 12px; line-height: 1.5; white-space: nowrap; } .ds-ledger .ds-hub-sub { display: block; margin-top: 2px; color: #a9afd6; font-size: 18px; } .ds-ledger .ds-inside { color: #ffd166; }"
+    },
+    {
+      "name": "Network Log",
+      "kind": "custom",
+      "refersTo": "log-panel",
+      "description": "Recessed well with a 2px line border; rows are timestamp plus message colored by the hub neon concerned, deals in amber. The newest row enters over 350ms.",
+      "html": "<div class=\"ds-log-wrap\"><h2 class=\"ds-log-title\">Network log</h2><ol class=\"ds-log\"><li><time>17:02</time><span class=\"ds-log-deal\">Deal closed on PAL-2026-0412 for $120,000</span></li><li><time>16:56</time><span style=\"color:#c084fc\">Gavel left winnerdataai.com carrying winning metrics</span></li><li><time>16:51</time><span style=\"color:#38bdf8\">Lattice left BidDeed.AI carrying bid recommendations</span></li><li><time>16:44</time><span style=\"color:#34d399\">Meridian delivered bid recommendations to zonewise.ai</span></li></ol><p class=\"ds-log-note\">Parcel IDs, counties, zoning codes and dollar amounts are synthetic demo data.</p></div>",
+      "css": ".ds-log-wrap { font-family: 'VT323', 'Courier New', monospace; font-size: 20px; line-height: 1.4; color: #eef0ff; } .ds-log-title { margin: 0 0 8px; font-family: 'Press Start 2P', 'Courier New', monospace; font-size: 12px; font-weight: normal; letter-spacing: .04em; color: #a9afd6; } .ds-log { margin: 0; padding: 12px 14px; list-style: none; background: #0d0f26; border: 2px solid #2a2d55; border-radius: 0; max-height: 220px; overflow-y: auto; scrollbar-color: #3b3f78 #0d0f26; scrollbar-width: thin; } .ds-log li { display: grid; grid-template-columns: 56px 1fr; gap: 10px; padding: 2px 0; } .ds-log li:first-child { animation: ds-log-enter .35s cubic-bezier(.16,1,.3,1); } .ds-log time { color: #9298c2; } .ds-log-deal { color: #ffd166; } .ds-log-note { margin: 8px 0 0; color: #9298c2; font-size: 17px; } @keyframes ds-log-enter { from { opacity: .2; transform: translateY(-6px); } to { opacity: 1; transform: none; } } @media (prefers-reduced-motion: reduce) { .ds-log li:first-child { animation: none; } }"
+    },
+    {
+      "name": "Keyboard Hint",
+      "kind": "chip",
+      "refersTo": "kbd-key",
+      "description": "kbd keys as miniature cabinet buttons: 1px line border with a 2px lower edge, 17px terminal face in soft ink.",
+      "html": "<p class=\"ds-hint\"><kbd class=\"ds-kbd\">Space</kbd> pause, <kbd class=\"ds-kbd\">N</kbd> night, <kbd class=\"ds-kbd\">Esc</kbd> deselect.</p>",
+      "css": ".ds-hint { margin: 0; font-family: 'VT323', 'Courier New', monospace; font-size: 18px; line-height: 1.4; color: #9298c2; } .ds-kbd { font-family: 'VT323', 'Courier New', monospace; font-size: 17px; color: #a9afd6; border: 1px solid #2a2d55; border-bottom-width: 2px; border-radius: 0; padding: 0 5px; }"
+    },
+    {
+      "name": "Neon Marquee",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "The cabinet marquee: white pixel face with a sky-blue tube glow that breathes over 6s. The only glowing text in the HTML chrome; the same vocabulary as the canvas hub signs.",
+      "html": "<div class=\"ds-marquee\"><h1 class=\"ds-marquee-title\">Silicon Valley AI Ecosystem Village</h1><p class=\"ds-marquee-sub\">Autonomous agents moving data between <span style=\"color:#38bdf8;white-space:nowrap\">BidDeed.AI</span>, <span style=\"color:#34d399;white-space:nowrap\">zonewise.ai</span> and <span style=\"color:#c084fc;white-space:nowrap\">winnerdataai.com</span>.</p></div>",
+      "css": ".ds-marquee { text-align: center; padding: 24px 16px; background: linear-gradient(180deg, #15173a 0%, #0b0c1e 100%); } .ds-marquee-title { margin: 0 auto; max-width: 24ch; font-family: 'Press Start 2P', 'Courier New', monospace; font-weight: normal; font-size: clamp(14px, 4.2vw, 22px); line-height: 1.6; letter-spacing: 0.02em; text-wrap: balance; color: #fff; text-shadow: 0 0 2px #fff, 0 0 10px rgba(56,189,248,.85), 0 0 24px rgba(56,189,248,.45); animation: ds-tube 6s ease-in-out infinite; } .ds-marquee-sub { margin: 10px auto 0; max-width: 70ch; font-family: 'VT323', 'Courier New', monospace; font-size: 20px; line-height: 1.4; color: #a9afd6; } @keyframes ds-tube { 0%, 100% { text-shadow: 0 0 2px #fff, 0 0 10px rgba(56,189,248,.85), 0 0 24px rgba(56,189,248,.45); } 50% { text-shadow: 0 0 2px #fff, 0 0 14px rgba(56,189,248,1), 0 0 36px rgba(56,189,248,.6); } } @media (prefers-reduced-motion: reduce) { .ds-marquee-title { animation: none; } }"
+    },
+    {
+      "name": "Screen Bezel",
+      "kind": "card",
+      "refersTo": "bezel",
+      "description": "The cabinet screen frame: 12px bezel padding around a black inner with three flat shadow bands and one deep drop. The only element in the system that casts a shadow.",
+      "html": "<div class=\"ds-screen\"><div class=\"ds-screen-inner\"><div class=\"ds-screen-stub\"></div></div></div>",
+      "css": ".ds-screen { width: 320px; margin: 12px; padding: 12px; background: #1c1e3f; border-radius: 0; box-shadow: 0 0 0 4px #2c2f5c, 0 0 0 8px #0a0b19, 0 26px 40px -14px rgba(0,0,0,.9); } .ds-screen-inner { position: relative; overflow: hidden; background: #000; } .ds-screen-stub { aspect-ratio: 4 / 3; background: #2f6b2a; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Dusk Festival Cabinet",
+    "overview": "One village, one economy, watched through an arcade cabinet at dusk. The page is a cabinet: a deep indigo body, a flat-banded bezel, and a 4:3 CRT inside it where a saturated 32-bit village runs on its own. Everything outside the screen recedes into cabinet furniture (marquee, control deck, ledger, log) so the living artifact leads. The world renders at 400x300 and is blown up 2x with smoothing off, so every world pixel is a crisp 2x2 block; the overlay layer (signs, status windows, bubbles) draws at full resolution on even pixel coordinates so its grid never fights the world's.\n\nThe neon signs are the hero. A 150-second day cycle exists so that dusk can arrive, ambient light fall, and the three hub signs ignite one after another with a short stutter before settling into a slow breathing glow. Day is a lush pastoral; night is lanterns, window light, and three neon names over a dimmed village. The interface never competes with that moment: pulse belongs to neon only, the HTML chrome never fades sections, and the one motion it owns is a new log row sliding into place.\n\nDensity is readable, not busy. The HTML deck uses a bitmap pixel face for anything that names or labels, and a tall terminal face for anything you read in sentences; both are monospaced, so numbers line up without effort. There are no rounded corners anywhere, no gradients on components, no icon glyph fonts: every icon is a 7x7 bitmap drawn in code.",
+    "keyCharacteristics": [
+      "Cabinet-around-CRT composition: indigo body, flat 4px/8px bezel bands, square corners throughout.",
+      "Three brand neons (sky blue, mint, violet) carry identity on canvas and in HTML alike; amber is the only non-brand accent and means \"state\" (pressed, selected, deals, paused).",
+      "Press Start 2P for every name and label; VT323 for every sentence; nothing else.",
+      "JRPG status windows (navy fill, 2px light border, 2px highlight line) for every in-canvas readout and bubble.",
+      "Motion is scarce and diegetic: neon ignition and breathing, bobbing packets, a 350ms log-row entry. No section fades, no parallax, no hover lifts."
+    ],
+    "rules": [
+      { "name": "The Three Neons Rule", "body": "Only the three hub colors and amber may glow, pulse, or cast light. Everything else in the palette is flat and matte, including the cabinet, the bezel, and every HTML control.", "section": "colors" },
+      { "name": "The Amber Means State Rule", "body": "Amber is never a brand and never decoration. If something is amber, it is pressed, selected, paused, focused, or a closed deal.", "section": "colors" },
+      { "name": "The Family Reads Upward Rule", "body": "For each hub, wall is darkest, roof brighter, trim pale, neon brightest. A new hub-colored element picks from that family and keeps that order.", "section": "colors" },
+      { "name": "The Two Faces Rule", "body": "Press Start 2P names and labels; VT323 reads. No third face, no bold, no italic. A new label is 8, 12, 14 or 16px pixel face; a new sentence is 17, 18 or 20px terminal face.", "section": "typography" },
+      { "name": "The Pixel Grid Rule", "body": "On canvas, the pixel face is drawn only at 8px or 16px (times the ui multiplier) and windows snap to even coordinates, so the font's grid lands on whole 2x2 world pixels.", "section": "typography" },
+      { "name": "The Flat Cabinet Rule", "body": "Surfaces are flat bands and recessed wells. Nothing lifts on hover, nothing floats; depth is cut, not cast.", "section": "elevation" },
+      { "name": "The Glow Is Neon Rule", "body": "A glow or blur belongs to a neon tube or a light source in the world. HTML controls, tables and windows never glow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every corner square; border-radius: 0 is the system.",
+      "Do color by hub: any element that belongs to BidDeed.AI, zonewise.ai or winnerdataai.com takes that hub's neon, and the hub's wall/roof/trim family for solid fills.",
+      "Do use amber only to mean a state: pressed, selected, focused, paused, or a closed deal.",
+      "Do draw new on-canvas readouts with windowBox (navy fill, 2px border, 2px highlight) and snap them to even pixels.",
+      "Do set the pixel face at 8, 12, 14 or 16px and the terminal face at 17, 18 or 20px; no sizes between.",
+      "Do make a new control a cabinet button: 2px border, 5px lower edge at rest, 3px travel when pressed, 80ms ease-out.",
+      "Do keep icons as 7x7 bitmaps drawn in code.",
+      "Do honor prefers-reduced-motion by removing the tube breath, the log-row entry and button transitions."
+    ],
+    "donts": [
+      "Don't glow, blur or pulse anything that is not a neon sign or a light source in the world.",
+      "Don't fade sections, lift cards on hover, or add parallax; the only HTML motion is the log row entering and the button travelling.",
+      "Don't introduce a third typeface, a bold weight, or an italic.",
+      "Don't use gradients on components; the one gradient is the page background from cabinet-2 to cabinet.",
+      "Don't add icon fonts, SVG icon packs or emoji; the world's own bitmap glyphs are the icon set.",
+      "Don't turn the scanlines on by default; they are an opt-in toggle.",
+      "Don't put a drop shadow on anything but the screen bezel."
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-07T17:41:16.652Z",
+        "reason": "brief pins neon signage; the marquee h1 glow is the cabinet marquee in that vocabulary, accepted by both finish reviewers"
+      }
+    ]
+  }
+}

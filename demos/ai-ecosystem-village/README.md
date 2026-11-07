@@ -1,6 +1,6 @@
 # Silicon Valley AI Ecosystem Village
 
-A single-file, 32-bit style top-down village where fifteen autonomous agents carry data packets between three hubs: BidDeed.AI, zonewise.ai, and winnerdataai.com. Open `index.html` in a browser; there is no build step and no runtime dependency beyond two web fonts (the page falls back to Courier New offline).
+A single-file, 32-bit style top-down village where fifteen autonomous agents carry data packets between three hubs: BidDeed.AI, zonewise.ai, and winnerdataai.com. Open `index.html` in a browser; there is no build step and no runtime dependency at all: the two pixel fonts are embedded in the file, so it runs from a local file open, offline.
 
 ## Checkpoint status
 
