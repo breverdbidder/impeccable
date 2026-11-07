@@ -1,5 +1,4 @@
 {
-  "$schema": "./trades.schema.json",
   "version": 1,
   "note": "Trades that serve a BidDeed.AI buyer, grouped into the four REAI Valley districts along the deal timeline. everestStages are The Everest Ascent stage numbers (1 Discovery, 2 Scraping, 3 Title Search, 4 Lien Priority, 5 Tax Certificates, 6 Demographics, 7 ML Score, 8 Max Bid, 9 Decision Log, 10 Report, 11 Disposition, 12 Archive).",
   "districts": [
