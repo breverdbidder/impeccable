@@ -1,22 +1,209 @@
 {
-  "version": 1,
-  "note": "Buyer-journey rules. Input is one row of multi_county_auctions using its real columns (see types/auctions.ts in zonewise-web). Output is the ordered list of trades the buyer needs; the game walks the buyer to one leased vendor per trade in the current county and counts a trade with no vendor as unmet demand.",
-  "always": ["title", "attorney", "insurer"],
+  "version": 2,
+  "note": "Buyer-journey rules. Input is one row of multi_county_auctions using columns verified on 2026-11-07: sale_type ('foreclosure' | 'tax_deed'), auction_status (lowercase: 'sold', 'upcoming', 'redeemed', ...), opening_bid, property_type (null on 332,463 of the rows; populated values include 'SFR', 'Land', 'VACANT', 'Condo', 'Multi', 'timeshare'), year_built and lot_size (null on almost every row), county (lowercase). There is no is_vacant_land column. Rules therefore lean on sale_type and tag their inference. Output is the ordered list of trades the buyer needs.",
+  "always": [
+    "title",
+    "attorney",
+    "insurer"
+  ],
   "rules": [
-    { "when": { "column": "opening_bid", "op": ">", "value": 150000 }, "add": ["lender"], "why": "Larger lots are usually financed after the cash auction close." },
-    { "when": { "column": "is_vacant_land", "op": "==", "value": true }, "add": ["surveyor", "environmental", "landclearing", "architect", "gc", "electrician"], "why": "Vacant land is a ground-up build: scout, clear, design, build." },
-    { "when": { "column": "is_vacant_land", "op": "==", "value": false }, "add": ["inspector", "appraiser"], "why": "Improved property gets inspected and appraised." },
-    { "when": { "column": "year_built", "op": "<", "value": 1990 }, "add": ["roofer", "electrician", "gc"], "why": "Older structures carry roof and wiring work on the Disposition stage." },
-    { "when": { "column": "lot_size", "op": ">", "value": 21780 }, "add": ["surveyor", "engineer"], "why": "Half an acre or more usually needs a boundary and drainage review." },
-    { "when": { "column": "property_type", "op": "in", "value": ["condo", "townhouse"] }, "remove": ["landclearing", "surveyor", "roofer"], "why": "Condo and townhouse buyers do not touch land or roof." },
-    { "when": { "column": "sale_type", "op": "==", "value": "TAXDEED" }, "add": ["attorney"], "why": "Tax deed buyers often need a quiet title action; attorney is already in always, kept here as the reason." },
-    { "when": { "column": "property_type", "op": "in", "value": ["multi_family", "duplex", "triplex", "quadplex"] }, "add": ["propmgmt"], "why": "Income property goes to a manager at Hold." },
-    { "when": { "column": "auction_status", "op": "==", "value": "SOLD" }, "add": ["broker"], "why": "A sold lot that the buyer flips lists with a broker at Exit." }
+    {
+      "when": {
+        "column": "opening_bid",
+        "op": ">",
+        "value": 150000
+      },
+      "add": [
+        "lender"
+      ],
+      "why": "Larger lots are usually financed after the cash auction close.",
+      "tag": "INFERRED"
+    },
+    {
+      "when": {
+        "column": "property_type",
+        "op": "in",
+        "value": [
+          "Land",
+          "VACANT",
+          "Vacant Land"
+        ]
+      },
+      "add": [
+        "surveyor",
+        "environmental",
+        "landclearing",
+        "architect",
+        "gc",
+        "electrician"
+      ],
+      "why": "Vacant land is a ground-up build: scout, clear, design, build.",
+      "tag": "VERIFIED column value"
+    },
+    {
+      "when": {
+        "column": "property_type",
+        "op": "in",
+        "value": [
+          "SFR",
+          "SINGLE FAMILY",
+          "Single Family",
+          "MOBILE HOME",
+          "MH - MOBILE - MOBILE HOME RESID"
+        ]
+      },
+      "add": [
+        "inspector",
+        "appraiser"
+      ],
+      "why": "Improved property gets inspected and appraised.",
+      "tag": "VERIFIED column value"
+    },
+    {
+      "when": {
+        "column": "property_type",
+        "op": "in",
+        "value": [
+          "Condo",
+          "Residential Condo",
+          "TOWNHOMES"
+        ]
+      },
+      "add": [
+        "inspector",
+        "appraiser"
+      ],
+      "remove": [
+        "landclearing",
+        "surveyor",
+        "roofer",
+        "environmental"
+      ],
+      "why": "Condo and townhouse buyers do not touch land or roof.",
+      "tag": "VERIFIED column value"
+    },
+    {
+      "when": {
+        "column": "property_type",
+        "op": "in",
+        "value": [
+          "Multi"
+        ]
+      },
+      "add": [
+        "inspector",
+        "appraiser",
+        "propmgmt"
+      ],
+      "why": "Income property goes to a manager at Hold.",
+      "tag": "VERIFIED column value"
+    },
+    {
+      "when": {
+        "column": "property_type",
+        "op": "==",
+        "value": null,
+        "and": {
+          "column": "sale_type",
+          "op": "==",
+          "value": "tax_deed"
+        }
+      },
+      "add": [
+        "surveyor",
+        "landclearing",
+        "architect",
+        "gc"
+      ],
+      "why": "Unclassified tax deed lots skew toward vacant land in Brevard; treated as land-leaning until the row is enriched.",
+      "tag": "INFERRED"
+    },
+    {
+      "when": {
+        "column": "property_type",
+        "op": "==",
+        "value": null,
+        "and": {
+          "column": "sale_type",
+          "op": "==",
+          "value": "foreclosure"
+        }
+      },
+      "add": [
+        "inspector",
+        "appraiser"
+      ],
+      "why": "Unclassified foreclosures skew toward improved homes; treated as improved until enriched.",
+      "tag": "INFERRED"
+    },
+    {
+      "when": {
+        "column": "year_built",
+        "op": "<",
+        "value": 1990
+      },
+      "add": [
+        "roofer",
+        "electrician",
+        "gc"
+      ],
+      "why": "Older structures carry roof and wiring work on the Disposition stage.",
+      "tag": "VERIFIED column, sparse"
+    },
+    {
+      "when": {
+        "column": "lot_size",
+        "op": ">",
+        "value": 21780
+      },
+      "add": [
+        "surveyor",
+        "engineer"
+      ],
+      "why": "Half an acre or more usually needs a boundary and drainage review.",
+      "tag": "VERIFIED column, sparse"
+    },
+    {
+      "when": {
+        "column": "sale_type",
+        "op": "==",
+        "value": "tax_deed"
+      },
+      "add": [
+        "attorney"
+      ],
+      "why": "Tax deed buyers often need a quiet title action.",
+      "tag": "VERIFIED column value"
+    },
+    {
+      "when": {
+        "column": "auction_status",
+        "op": "==",
+        "value": "sold"
+      },
+      "add": [
+        "broker"
+      ],
+      "why": "A sold lot that the buyer flips lists with a broker at Exit.",
+      "tag": "VERIFIED column value"
+    }
   ],
   "order": "by district order, then trade order within the district (see trades.json)",
   "matching": {
     "policy": "one leased vendor per trade in the lot's county; exclusive tier wins over standard; ties break by fewest matches so far",
     "unmet": "a needed trade with no leased vendor in that county increments unmet[trade][county]; this list is the plot-lease sales queue",
-    "studio": "when the matched trade is architect and the lot is vacant land, the game offers the zonewise.ai Studio link for that lot"
+    "studio": "when the matched trade is architect and the lot is vacant land, the game offers the zonewise.ai Studio link for that lot",
+    "county": "match on lower(county); the table stores 'brevard' and 'orange' in lowercase"
+  },
+  "skip": {
+    "when": {
+      "column": "property_type",
+      "op": "in",
+      "value": [
+        "timeshare",
+        "Timeshare"
+      ]
+    },
+    "why": "Timeshare intervals are not valley buyers."
   }
 }

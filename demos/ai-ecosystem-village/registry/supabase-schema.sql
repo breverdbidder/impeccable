@@ -1,7 +1,8 @@
--- REAI Valley marketplace tables. PROPOSAL ONLY: new tables on the production
--- project mocerqjnksmhcjzxrewo are a schema change and wait for the owner's
--- explicit approval. multi_county_auctions is read-only and is referenced,
--- never altered.
+-- REAI Valley marketplace tables. Applied to project mocerqjnksmhcjzxrewo on
+-- 2026-11-07 as migration reai_valley_marketplace (non-destructive CREATE,
+-- allowed without sign-off by the owner's Supabase rules). multi_county_auctions
+-- is referenced by uuid and never altered. Read-only RLS policies are on; writes
+-- go through the service role.
 
 create table if not exists valley_vendors (
   id            text primary key,                 -- 'v-brv-title'
@@ -40,7 +41,7 @@ create table if not exists valley_leases (
 
 create table if not exists valley_buyers (
   id            bigint generated always as identity primary key,
-  auction_id    bigint,                           -- multi_county_auctions.id (read-only source)
+  auction_id    uuid,                             -- multi_county_auctions.id (uuid, read-only source)
   case_number   text,
   parcel_id     text,
   county        text not null,
@@ -61,3 +62,14 @@ create table if not exists valley_matches (
 
 create index if not exists valley_matches_unmet_idx on valley_matches (trade, outcome) where vendor_id is null;
 create index if not exists valley_leases_active_idx on valley_leases (plot_id) where ends_at is null;
+
+alter table valley_vendors enable row level security;
+alter table valley_plots enable row level security;
+alter table valley_leases enable row level security;
+alter table valley_buyers enable row level security;
+alter table valley_matches enable row level security;
+
+create policy "valley_vendors_read" on valley_vendors for select using (true);
+create policy "valley_plots_read" on valley_plots for select using (true);
+create policy "valley_leases_read" on valley_leases for select using (true);
+create policy "valley_matches_read" on valley_matches for select using (true);
