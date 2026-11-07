@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silicon Valley AI Ecosystem Village</title>
+<meta name="description" content="A 32-bit style village where autonomous agents carry data between BidDeed.AI, zonewise.ai, and winnerdataai.com.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cabinet: #0b0c1e;
+    --cabinet-2: #15173a;
+    --bezel: #1c1e3f;
+    --bezel-edge: #2c2f5c;
+    --ink: #eef0ff;
+    --ink-soft: #a9afd6;
+    --ink-dim: #9298c2;
+    --line: #2a2d55;
+    --biddeed: #38bdf8;
+    --zonewise: #34d399;
+    --winner: #c084fc;
+    --amber: #ffd166;
+    --font-display: 'Press Start 2P', 'Courier New', monospace;
+    --font-body: 'VT323', 'Courier New', monospace;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--cabinet); }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 20px;
+    line-height: 1.4;
+    background: linear-gradient(180deg, var(--cabinet-2) 0%, var(--cabinet) 480px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 16px 56px;
+  }
+  ::selection { background: var(--biddeed); color: #06121c; }
+  :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+
+  .cabinet { width: min(1080px, 100%); }
+
+  .marquee { text-align: center; margin: 0 0 18px; }
+  .marquee h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(13px, 2.3vw, 22px);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    color: #fff;
+    text-shadow: 0 0 2px #fff, 0 0 10px rgba(56,189,248,.85), 0 0 24px rgba(56,189,248,.45);
+    animation: tube 6s ease-in-out infinite;
+  }
+  .marquee p {
+    margin: 10px 0 0;
+    color: var(--ink-soft);
+    font-size: 20px;
+  }
+  .marquee .brand { white-space: nowrap; }
+  .brand-biddeed { color: var(--biddeed); }
+  .brand-zonewise { color: var(--zonewise); }
+  .brand-winner { color: var(--winner); }
+  @keyframes tube {
+    0%, 100% { text-shadow: 0 0 2px #fff, 0 0 10px rgba(56,189,248,.85), 0 0 24px rgba(56,189,248,.45); }
+    50% { text-shadow: 0 0 2px #fff, 0 0 14px rgba(56,189,248,1), 0 0 36px rgba(56,189,248,.6); }
+  }
+
+  .screen {
+    position: relative;
+    margin: 0 auto;
+    width: min(800px, 100%);
+    padding: 14px;
+    background: linear-gradient(180deg, var(--bezel-edge), var(--bezel) 30%, #141633);
+    border-radius: 18px;
+    box-shadow: 0 18px 40px -16px rgba(0,0,0,.9), inset 0 2px 0 rgba(255,255,255,.06);
+  }
+  .screen-inner { position: relative; border-radius: 8px; overflow: hidden; background: #000; }
+  canvas {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #2f6b2a;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    cursor: crosshair;
+    touch-action: manipulation;
+  }
+  .scanlines {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    background: repeating-linear-gradient(180deg, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.22) 2px 3px);
+    transition: opacity .4s ease-out;
+  }
+  .screen-inner.is-scanlines .scanlines { opacity: 1; }
+  .screen-inner::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: 8px;
+    box-shadow: inset 0 0 40px rgba(0,0,0,.55);
+  }
+
+  .deck {
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) 1fr;
+    gap: 18px 28px;
+    margin: 22px auto 0;
+    width: min(1080px, 100%);
+  }
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; align-content: start; }
+  .controls button {
+    font-family: var(--font-display);
+    font-size: 12px;
+    line-height: 1;
+    color: var(--ink);
+    background: #23264d;
+    border: 2px solid #3b3f78;
+    border-bottom-width: 5px;
+    border-radius: 0;
+    padding: 12px 14px 11px;
+    cursor: pointer;
+    transition: transform .08s ease-out, border-bottom-width .08s ease-out, background .15s ease-out;
+  }
+  .controls button:hover { background: #2b2f5e; }
+  .controls button:active, .controls button[aria-pressed="true"] {
+    transform: translateY(3px);
+    border-bottom-width: 2px;
+    background: #1b1d3e;
+  }
+  .controls button[aria-pressed="true"] { color: var(--amber); border-color: #6a5a2a; }
+  .controls .hint {
+    flex-basis: 100%;
+    margin: 4px 0 0;
+    color: var(--ink-dim);
+    font-size: 18px;
+  }
+  kbd {
+    font-family: var(--font-body);
+    font-size: 17px;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-bottom-width: 2px;
+    padding: 0 5px;
+  }
+
+  .ledger { width: 100%; }
+  .ledger h2, .ticker h2 {
+    margin: 0 0 8px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--ink-soft);
+  }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  thead th {
+    text-align: left;
+    font-weight: normal;
+    color: var(--ink-dim);
+    font-size: 17px;
+    padding: 0 10px 6px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  tbody td { padding: 9px 10px 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr.is-selected td { background: rgba(255,255,255,.04); }
+  td.num, th.num { text-align: right; padding-right: 0; width: 64px; }
+  .hub-name { font-family: var(--font-display); font-size: 12px; line-height: 1.5; white-space: nowrap; }
+  .hub-produces { color: var(--ink-soft); font-size: 18px; display: block; margin-top: 2px; }
+  .inside { color: var(--amber); }
+  .deals {
+    margin-top: 12px;
+    display: flex;
+    gap: 18px;
+    align-items: baseline;
+    flex-wrap: wrap;
+    color: var(--ink-soft);
+  }
+  .deals strong { color: var(--ink); font-family: var(--font-display); font-size: 14px; }
+
+  .ticker { grid-column: 1 / -1; margin-top: 6px; }
+  .ticker ol {
+    margin: 0; padding: 12px 14px;
+    list-style: none;
+    background: #0d0f26;
+    border: 2px solid var(--line);
+    max-height: 220px;
+    overflow-y: auto;
+    scrollbar-color: #3b3f78 #0d0f26;
+    scrollbar-width: thin;
+  }
+  .ticker ol::-webkit-scrollbar { width: 10px; }
+  .ticker ol::-webkit-scrollbar-track { background: #0d0f26; }
+  .ticker ol::-webkit-scrollbar-thumb { background: #3b3f78; border-radius: 2px; }
+  .ticker li { display: grid; grid-template-columns: 56px 1fr; gap: 10px; padding: 2px 0; }
+  .ticker li:first-child { animation: enter .35s cubic-bezier(.16,1,.3,1); }
+  .ticker time { color: var(--ink-dim); }
+  .ticker .deal { color: var(--amber); }
+  .ticker li.is-empty { grid-template-columns: 1fr; color: var(--ink-dim); }
+  @keyframes enter { from { opacity: .2; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+  .ticker .note { margin: 8px 0 0; color: var(--ink-dim); font-size: 17px; }
+
+  @media (max-width: 760px) {
+    body { padding: 18px 12px 40px; font-size: 19px; }
+    .screen { padding: 8px; border-radius: 12px; }
+    .deck { grid-template-columns: 1fr; gap: 16px; }
+    td.num, th.num { width: 52px; padding-left: 8px; }
+    thead th:nth-child(3), tbody td:nth-child(3) { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee h1 { animation: none; }
+    .ticker li:first-child { animation: none; }
+    .controls button { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="cabinet">
+  <header class="marquee">
+    <h1>Silicon Valley AI Ecosystem Village</h1>
+    <p>Autonomous agents moving data between
+      <span class="brand brand-biddeed">BidDeed.AI</span>,
+      <span class="brand brand-zonewise">zonewise.ai</span> and
+      <span class="brand brand-winner">winnerdataai.com</span>.
+      Click an agent or a building to inspect it.</p>
+  </header>
+
+  <div class="screen">
+    <div class="screen-inner" id="screenInner">
+      <canvas id="villageCanvas" width="800" height="600" role="img" aria-label="Animated pixel-art village. Agents walk between the three hubs carrying glowing data packets."></canvas>
+      <div class="scanlines" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <section class="deck" aria-label="Control deck">
+    <div class="controls" role="group" aria-label="Simulation controls">
+      <button type="button" id="btnPause" aria-pressed="false">Pause</button>
+      <button type="button" id="btnSpeed" aria-pressed="false">Speed 2x</button>
+      <button type="button" id="btnNight" aria-pressed="false">Hold night</button>
+      <button type="button" id="btnScan" aria-pressed="false">Scanlines</button>
+      <p class="hint"><kbd>Space</kbd> pause, <kbd>N</kbd> night, <kbd>Esc</kbd> deselect.</p>
+    </div>
+
+    <div class="ledger">
+      <h2>Exchange ledger</h2>
+      <table>
+        <thead>
+          <tr><th>Hub</th><th>Produces</th><th class="num">Inside</th><th class="num">Sent</th><th class="num">Recv</th></tr>
+        </thead>
+        <tbody id="ledgerBody"></tbody>
+      </table>
+      <p class="deals">
+        <span>Deals closed <strong id="dealCount">0</strong></span>
+        <span>Volume <strong id="dealVolume">$0</strong></span>
+        <span>In transit <strong id="transitCount">0</strong></span>
+      </p>
+    </div>
+
+    <div class="ticker">
+      <h2>Network log</h2>
+      <ol id="log" aria-live="polite" aria-relevant="additions">
+        <li class="is-empty">Waiting for the first packet to leave a hub.</li>
+      </ol>
+      <p class="note">Parcel IDs, counties, zoning codes and dollar amounts are synthetic demo data.</p>
+    </div>
+  </section>
+</div>
+
+<script>
+'use strict';
+
+// ---------------------------------------------------------------------------
+// World constants. The world renders at 400x300 and is scaled 2x onto the
+// 800x600 canvas with smoothing off, so every world pixel is a crisp 2x2 block.
+// ---------------------------------------------------------------------------
+const W = 800, H = 600, SCALE = 2;
+const LW = W / SCALE, LH = H / SCALE;
+const TILE = 10, COLS = LW / TILE, ROWS = LH / TILE;
+const DAY_LENGTH = 150; // seconds per full day/night cycle
+
+const canvas = document.getElementById('villageCanvas');
+const ctx = canvas.getContext('2d');
+ctx.imageSmoothingEnabled = false;
+
+const world = document.createElement('canvas');
+world.width = LW; world.height = LH;
+const wctx = world.getContext('2d');
+
+const bg = document.createElement('canvas');
+bg.width = LW; bg.height = LH;
+const bctx = bg.getContext('2d');
+
+// Seeded RNG so the map is identical on every load.
+function mulberry32(seed) {
+  let a = seed >>> 0;
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+const mapRand = mulberry32(20261107);
+const rnd = Math.random;
+function hash2(a, b) {
+  let h = (a * 374761393 + b * 668265263) | 0;
+  h = (h ^ (h >>> 13)) * 1274126177 | 0;
+  return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
+}
+const pick = arr => arr[Math.floor(rnd() * arr.length)];
+
+// ---------------------------------------------------------------------------
+// Hubs
+// ---------------------------------------------------------------------------
+const GLYPH = {
+  house: ['...##..', '..####.', '.######', '#######', '.##.##.', '.##.##.', '.##.##.'],
+  pin:   ['..###..', '.#####.', '.##.##.', '.#####.', '..###..', '...#...', '...#...'],
+  chart: ['......#', '....#.#', '....#.#', '..#.#.#', '..#.#.#', '#.#.#.#', '#.#.#.#'],
+  sun:   ['..###..', '.#####.', '#######', '#######', '#######', '.#####.', '..###..'],
+  moon:  ['..###..', '.##....', '##.....', '##.....', '##.....', '.##....', '..###..'],
+  deal:  ['.......', '.#...#.', '..#.#..', '...#...', '..#.#..', '.#...#.', '.......'],
+};
+
+const hubs = [
+  { id: 'biddeed', name: 'BidDeed.AI', focus: 'Real estate, bidding, transactions',
+    cx: 200, top: 24, w: 66, h: 44, wall: '#174b74', roof: '#2a86c4', trim: '#63b4ea', neon: '#38bdf8',
+    taskTime: 2.2, produces: 'bid', glyph: GLYPH.house },
+  { id: 'zonewise', name: 'zonewise.ai', focus: 'Zoning, mapping, spatial data',
+    cx: 76, top: 196, w: 62, h: 44, wall: '#145c4e', roof: '#2a9d8f', trim: '#6fd3c3', neon: '#34d399',
+    taskTime: 1.7, produces: 'zoning', glyph: GLYPH.pin },
+  { id: 'winnerdata', name: 'winnerdataai.com', focus: 'Data analytics, processing, winning metrics',
+    cx: 324, top: 196, w: 70, h: 44, wall: '#4a1a78', roof: '#7a2fb8', trim: '#b57ae6', neon: '#c084fc',
+    taskTime: 3.0, produces: 'metrics', glyph: GLYPH.chart },
+];
+const hubById = Object.fromEntries(hubs.map(h => [h.id, h]));
+
+const CARGO = {
+  bid:     { label: 'bid recommendations', short: 'bids',   color: '#38bdf8' },
+  zoning:  { label: 'zoning overlays',     short: 'zoning', color: '#34d399' },
+  metrics: { label: 'winning metrics',     short: 'metrics', color: '#c084fc' },
+};
+
+for (const h of hubs) {
+  h.x0 = h.cx - h.w / 2; h.x1 = h.x0 + h.w; h.y0 = h.top; h.y1 = h.top + h.h;
+  h.c0 = Math.floor(h.x0 / TILE); h.c1 = Math.floor((h.x1 - 1) / TILE);
+  h.r0 = Math.floor(h.y0 / TILE); h.r1 = Math.floor((h.y1 - 1) / TILE);
+  h.doorC = Math.floor(h.cx / TILE); h.doorR = h.r1 + 1;
+  h.workers = 0; h.sent = 0; h.received = 0; h.doorOpen = 0; h.flash = 0;
+  h.inventory = { bid: 0, zoning: 0, metrics: 0 };
+}
+
+// ---------------------------------------------------------------------------
+// Tile map
+// ---------------------------------------------------------------------------
+const T = { GRASS: 0, PATH: 1, PLAZA: 2, WATER: 3, BUILDING: 4, MONUMENT: 5, TREE: 6, DOCK: 7, LAMP: 8 };
+const grid = new Uint8Array(COLS * ROWS);
+const decor = [];   // { kind, c, r, v } flowers and bushes baked into the background
+const lamps = [];
+const idx = (c, r) => r * COLS + c;
+const inBounds = (c, r) => c >= 0 && r >= 0 && c < COLS && r < ROWS;
+const tileAt = (c, r) => inBounds(c, r) ? grid[idx(c, r)] : T.WATER;
+const isWalkable = t => t === T.PATH || t === T.PLAZA || t === T.DOCK;
+const walkableAt = (c, r) => inBounds(c, r) && isWalkable(grid[idx(c, r)]);
+
+function fillRectTiles(c0, r0, c1, r1, type, onlyGrass) {
+  for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) {
+    if (!inBounds(c, r)) continue;
+    if (onlyGrass && grid[idx(c, r)] !== T.GRASS) continue;
+    grid[idx(c, r)] = type;
+  }
+}
+
+function buildMap() {
+  // Pond, top-left, with softened corners.
+  fillRectTiles(2, 9, 8, 14, T.WATER);
+  grid[idx(2, 9)] = T.GRASS; grid[idx(8, 9)] = T.GRASS; grid[idx(2, 14)] = T.GRASS;
+
+  // Plaza and the core router monument at its center.
+  fillRectTiles(17, 12, 22, 17, T.PLAZA);
+  fillRectTiles(19, 14, 20, 15, T.MONUMENT);
+
+  // Roads: a ring around the plaza, a bottom avenue, and spurs to each hub door.
+  const roads = [
+    [19, 7, 20, 11],   // BidDeed.AI door down to the plaza
+    [10, 9, 31, 10],   // north road
+    [10, 9, 11, 15],   // west side
+    [30, 9, 31, 15],   // east side
+    [10, 14, 16, 15],  // west spur into the plaza
+    [24, 14, 31, 15],  // east spur into the plaza
+    [15, 14, 16, 26],  // west descent
+    [23, 14, 24, 26],  // east descent
+    [7, 25, 33, 26],   // south avenue
+    [7, 24, 8, 24],    // zonewise.ai door stub
+    [32, 24, 33, 24],  // winnerdataai.com door stub
+  ];
+  for (const [c0, r0, c1, r1] of roads) fillRectTiles(c0, r0, c1, r1, T.PATH, true);
+  grid[idx(9, 14)] = T.DOCK;
+
+  // Buildings and their doors.
+  for (const h of hubs) {
+    fillRectTiles(h.c0, h.r0, h.c1, h.r1, T.BUILDING);
+    grid[idx(h.doorC, h.doorR)] = T.PATH;
+  }
+
+  // Street lamps on grass beside the roads.
+  for (const [c, r] of [[14, 8], [26, 8], [16, 11], [23, 11], [14, 18], [25, 18], [12, 24], [28, 24], [9, 12]]) {
+    if (grid[idx(c, r)] === T.GRASS) { grid[idx(c, r)] = T.LAMP; lamps.push({ c, r }); }
+  }
+
+  // Trees keep one tile of clearance from anything walkable or built.
+  for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+    if (grid[idx(c, r)] !== T.GRASS) continue;
+    let clear = true;
+    for (let dr = -1; dr <= 1 && clear; dr++) for (let dc = -1; dc <= 1; dc++) {
+      const t = tileAt(c + dc, r + dr);
+      if (t !== T.GRASS && t !== T.TREE) { clear = false; break; }
+    }
+    const underSign = hubs.some(h => c >= h.c0 - 1 && c <= h.c1 + 1 && r >= h.r0 - 2 && r < h.r0);
+    const v = mapRand();
+    if (clear && !underSign && v < 0.16) grid[idx(c, r)] = T.TREE;
+    else if (v > 0.90) decor.push({ kind: 'bush', c, r, v: mapRand() });
+    else if (v > 0.82) decor.push({ kind: 'flower', c, r, v: mapRand() });
+  }
+}
+buildMap();
+
+// ---------------------------------------------------------------------------
+// Background pre-render: grass, dirt, plaza stone, water base, docks, trees.
+// ---------------------------------------------------------------------------
+const GRASS = ['#2f6b2a', '#327030', '#2b6427'];
+const DIRT = ['#8a6a45', '#92714b', '#84653f'];
+const px = (g, x, y, w, h, color) => { g.fillStyle = color; g.fillRect(x, y, w, h); };
+
+function drawGlyph(g, glyph, x, y, scale, color) {
+  g.fillStyle = color;
+  for (let r = 0; r < glyph.length; r++) for (let c = 0; c < glyph[r].length; c++) {
+    if (glyph[r][c] === '#') g.fillRect(x + c * scale, y + r * scale, scale, scale);
+  }
+}
+
+function renderBackground() {
+  for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+    const x = c * TILE, y = r * TILE, t = grid[idx(c, r)];
+    const h = hash2(c, r);
+    // Every tile starts as grass so trees, lamps and buildings sit on a lawn.
+    px(bctx, x, y, TILE, TILE, GRASS[Math.floor(h * 3)]);
+    for (let i = 0; i < 3; i++) {
+      const bx = Math.floor(hash2(c * 7 + i, r * 13) * TILE), by = Math.floor(hash2(c * 3, r * 11 + i) * TILE);
+      px(bctx, x + bx, y + by, 1, 1, i === 0 ? '#3c7f36' : '#28581f');
+    }
+    if (t === T.PATH) {
+      px(bctx, x, y, TILE, TILE, DIRT[Math.floor(h * 3)]);
+      if (!walkableAt(c, r - 1)) px(bctx, x, y, TILE, 1, '#6d5233');
+      if (!walkableAt(c, r + 1)) px(bctx, x, y + TILE - 1, TILE, 1, '#6d5233');
+      if (!walkableAt(c - 1, r)) px(bctx, x, y, 1, TILE, '#6d5233');
+      if (!walkableAt(c + 1, r)) px(bctx, x + TILE - 1, y, 1, TILE, '#6d5233');
+      if (h > 0.6) px(bctx, x + Math.floor(h * 8), y + Math.floor(hash2(r, c) * 8), 2, 1, '#a68a60');
+    } else if (t === T.PLAZA || t === T.MONUMENT) {
+      px(bctx, x, y, TILE, TILE, h > 0.5 ? '#7d8597' : '#747c8f');
+      px(bctx, x + TILE - 1, y, 1, TILE, '#5b6273');
+      px(bctx, x, y + TILE - 1, TILE, 1, '#5b6273');
+      px(bctx, x, y, 1, 1, '#9aa3b5');
+    } else if (t === T.WATER) {
+      px(bctx, x, y, TILE, TILE, '#2d6fb3');
+      if (tileAt(c, r - 1) !== T.WATER) px(bctx, x, y, TILE, 2, '#d8c38a');
+      if (tileAt(c, r + 1) !== T.WATER) px(bctx, x, y + TILE - 2, TILE, 2, '#d8c38a');
+      if (tileAt(c - 1, r) !== T.WATER) px(bctx, x, y, 2, TILE, '#d8c38a');
+      if (tileAt(c + 1, r) !== T.WATER) px(bctx, x + TILE - 2, y, 2, TILE, '#d8c38a');
+    } else if (t === T.DOCK) {
+      px(bctx, x, y, TILE, TILE, '#8b5e34');
+      for (let i = 1; i < TILE; i += 3) px(bctx, x, y + i, TILE, 1, '#6b4523');
+      px(bctx, x + 1, y, 1, TILE, '#a9774a');
+    }
+  }
+  for (const d of decor) {
+    const x = d.c * TILE, y = d.r * TILE;
+    if (d.kind === 'bush') {
+      px(bctx, x + 2, y + 4, 6, 4, '#245a1f'); px(bctx, x + 3, y + 3, 4, 1, '#245a1f');
+      px(bctx, x + 3, y + 4, 2, 1, '#3f8f38');
+    } else {
+      const colors = ['#ffd166', '#f8f0ff', '#ff8fa3', '#9be9ff'];
+      px(bctx, x + 3, y + 3, 1, 1, colors[Math.floor(d.v * 4)]);
+      px(bctx, x + 7, y + 6, 1, 1, colors[Math.floor(hash2(d.c, d.r) * 4)]);
+    }
+  }
+  for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+    if (grid[idx(c, r)] !== T.TREE) continue;
+    const x = c * TILE, y = r * TILE, h = hash2(c * 5, r * 3);
+    px(bctx, x + 2, y + 8, 6, 2, 'rgba(0,0,0,0.25)');
+    px(bctx, x + 4, y + 6, 2, 3, '#5a3a1e');
+    const leaf = h > 0.5 ? '#1f6b2e' : '#247a35', light = h > 0.5 ? '#2f8d41' : '#37a04c';
+    px(bctx, x + 1, y + 2, 8, 5, leaf); px(bctx, x + 2, y + 1, 6, 1, leaf); px(bctx, x + 3, y, 4, 1, leaf);
+    px(bctx, x + 2, y + 2, 3, 1, light); px(bctx, x + 2, y + 3, 1, 2, light);
+  }
+  for (const l of lamps) {
+    const x = l.c * TILE, y = l.r * TILE;
+    px(bctx, x + 4, y + 2, 2, 7, '#2f3140'); px(bctx, x + 3, y + 9, 4, 1, '#2f3140');
+    px(bctx, x + 3, y, 4, 3, '#4b4f66');
+  }
+}
+renderBackground();
+
+// ---------------------------------------------------------------------------
+// A* pathfinding over walkable tiles. A per-agent cost jitter spreads traffic
+// across the two-tile-wide roads instead of stacking everyone on one lane.
+// ---------------------------------------------------------------------------
+const gScore = new Float32Array(COLS * ROWS);
+const cameFrom = new Int32Array(COLS * ROWS);
+const closed = new Uint8Array(COLS * ROWS);
+function findPath(sc, sr, tc, tr, seed) {
+  if (!walkableAt(sc, sr) || !walkableAt(tc, tr)) return null;
+  gScore.fill(Infinity); cameFrom.fill(-1); closed.fill(0);
+  const start = idx(sc, sr), goal = idx(tc, tr);
+  const heur = (c, r) => Math.abs(c - tc) + Math.abs(r - tr);
+  const open = [{ k: start, f: heur(sc, sr) }];
+  gScore[start] = 0;
+  while (open.length) {
+    let bi = 0;
+    for (let i = 1; i < open.length; i++) if (open[i].f < open[bi].f) bi = i;
+    const { k } = open[bi];
+    open[bi] = open[open.length - 1]; open.pop();
+    if (closed[k]) continue;
+    closed[k] = 1;
+    if (k === goal) {
+      const path = [];
+      for (let n = k; n !== -1; n = cameFrom[n]) path.push({ c: n % COLS, r: Math.floor(n / COLS) });
+      return path.reverse();
+    }
+    const c = k % COLS, r = Math.floor(k / COLS);
+    for (const [dc, dr] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+      const nc = c + dc, nr = r + dr;
+      if (!walkableAt(nc, nr)) continue;
+      const nk = idx(nc, nr);
+      if (closed[nk]) continue;
+      const ng = gScore[k] + 1 + hash2(nk, seed) * 0.6;
+      if (ng < gScore[nk]) { gScore[nk] = ng; cameFrom[nk] = k; open.push({ k: nk, f: ng + heur(nc, nr) }); }
+    }
+  }
+  return null;
+}
+const walkableTiles = [];
+for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) if (walkableAt(c, r)) walkableTiles.push({ c, r });
+
+// ---------------------------------------------------------------------------
+// Mock-data layer (Checkpoint 5). Agents talk through Ecosystem.say(); a future
+// backend plugs in with Ecosystem.connectBackend(async ctx => "line of text").
+// ---------------------------------------------------------------------------
+const Ecosystem = {
+  backend: null,
+  connectBackend(fn) { this.backend = fn; },
+  counties: ['Brevard', 'Orange', 'Volusia', 'Hillsborough', 'Duval', 'Lee', 'Polk'],
+  zones: ['R-1', 'R-2', 'C-2', 'PUD', 'AU', 'MU-1', 'IL'],
+  parcel() { return `${pick(['BRV', 'ORA', 'VOL', 'HIL', 'DUV'])}-${2024 + Math.floor(rnd() * 3)}-${String(1000 + Math.floor(rnd() * 9000))}`; },
+  amount() { return 45000 + Math.floor(rnd() * 42) * 5000; },
+  money(n) { return '$' + n.toLocaleString('en-US'); },
+  templates: {
+    pickup: {
+      winnerdata: ['Pulled winning metrics for {county}: {score}% hit rate', 'Compiled bidder histogram for {parcel}', 'Exporting auction outcomes, {rows} rows', 'Trained the max-bid model on {county} results'],
+      zonewise:   ['Zoning verified: {parcel} is {zone}', 'Fetched setback and FLU overlay for {parcel}', 'Flood zone check complete for {county}', 'Parcel map tiles refreshed for {county}'],
+      biddeed:    ['Max bid computed: {amount} on {parcel}', 'Title search queued for {parcel}', 'Auction calendar synced for {county}', 'Bid sheet signed for {parcel}'],
+    },
+    deliver: {
+      biddeed:    ['Delivering {cargo} to BidDeed.AI', 'Handing {cargo} to the bid engine', 'BidDeed.AI, incoming {cargo}'],
+      zonewise:   ['Requesting zoning data from zonewise.ai', 'Cross-checking {cargo} against the parcel map', 'zonewise.ai, annotate these {cargo}'],
+      winnerdata: ['Feeding {cargo} into winnerdataai.com models', 'Logging outcomes for analytics', 'winnerdataai.com, score these {cargo}'],
+    },
+    greet: ['Ping.', 'ACK.', 'Latency looks good today.', 'Checkpoint synced.', 'Seen the {county} list?', 'Shabbat mode at sundown.', 'Cache is warm.'],
+    wander: ['Taking a lap on the ring road', 'Stretching legs by the data pond', 'Cooling down after a long query', 'Walking the south avenue'],
+    deal: ['DEAL CLOSED: {parcel}, {county}, {amount}'],
+  },
+  fill(text, ctx) {
+    return text.replace(/\{(\w+)\}/g, (_, k) => {
+      switch (k) {
+        case 'county': return ctx.county || pick(this.counties);
+        case 'zone': return pick(this.zones);
+        case 'parcel': return ctx.parcel || this.parcel();
+        case 'amount': return this.money(ctx.amount || this.amount());
+        case 'score': return String(68 + Math.floor(rnd() * 27));
+        case 'rows': return String(1200 + Math.floor(rnd() * 8000));
+        case 'cargo': return ctx.cargo ? CARGO[ctx.cargo].label : 'data';
+        default: return k;
+      }
+    });
+  },
+  async say(agent, kind, ctx = {}) {
+    let line = null;
+    if (this.backend) {
+      try {
+        line = await Promise.race([
+          this.backend({ agent: agent.name, role: agent.role, home: agent.home.id, kind, ...ctx }),
+          new Promise(res => setTimeout(() => res(null), 1500)),
+        ]);
+      } catch (e) { line = null; }
+    }
+    if (!line) {
+      const pool = this.templates[kind];
+      const list = Array.isArray(pool) ? pool : pool[ctx.hub];
+      line = this.fill(pick(list), ctx);
+    }
+    return line;
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Agents
+// ---------------------------------------------------------------------------
+const ROSTER = [
+  ['Atlas', 'Bid Analyst', 'biddeed'], ['Harbor', 'Title Runner', 'biddeed'], ['Ledger', 'Auction Clerk', 'biddeed'],
+  ['Gavel', 'Deal Closer', 'biddeed'], ['Keystone', 'Escrow Courier', 'biddeed'],
+  ['Meridian', 'Zoning Scout', 'zonewise'], ['Compass', 'Survey Runner', 'zonewise'], ['Sol', 'Overlay Analyst', 'zonewise'],
+  ['Cadastre', 'Map Keeper', 'zonewise'], ['Lattice', 'FLU Mapper', 'zonewise'],
+  ['Vector', 'Metrics Runner', 'winnerdata'], ['Quill', 'Report Writer', 'winnerdata'], ['Delta', 'Outcome Tracker', 'winnerdata'],
+  ['Tally', 'Histogram Clerk', 'winnerdata'], ['Sigma', 'Model Trainer', 'winnerdata'],
+];
+const SKIN = ['#f1c27d', '#e0ac69', '#c68642', '#8d5524', '#ffdbac'];
+const HAIR = ['#2b1b0e', '#5a3a1e', '#d9a441', '#1a1a2e', '#b5542f', '#e8e8f0'];
+
+class Agent {
+  constructor(name, role, home, i) {
+    this.name = name; this.role = role; this.home = hubById[home]; this.seed = 1000 + i * 7919;
+    this.skin = pick(SKIN); this.hair = pick(HAIR); this.shirt = this.home.trim; this.pants = pick(['#2b2d42', '#3a3f6b', '#4a3b2a']);
+    this.speed = 26 + rnd() * 12;
+    this.laneOx = Math.round((rnd() - 0.5) * 6); this.laneOy = Math.round((rnd() - 0.5) * 6);
+    const spawn = walkableTiles[Math.floor(rnd() * walkableTiles.length)];
+    this.c = spawn.c; this.r = spawn.r;
+    this.x = spawn.c * TILE + TILE / 2 + this.laneOx; this.y = spawn.r * TILE + TILE / 2 + this.laneOy;
+    this.state = 'IDLE'; this.path = null; this.wp = 0; this.target = null; this.destHub = null; this.lastHub = null;
+    this.cargo = null; this.workTimer = 0; this.inside = false; this.facing = 1; this.walked = 0;
+    this.bubble = null; this.talkCooldown = rnd() * 4; this.idleTimer = rnd() * 1.5;
+  }
+  tileCenter(c, r) { return { x: c * TILE + TILE / 2 + this.laneOx, y: r * TILE + TILE / 2 + this.laneOy }; }
+  goTo(c, r, purpose) {
+    const path = findPath(this.c, this.r, c, r, this.seed);
+    if (!path || path.length < 2) { this.state = 'IDLE'; this.idleTimer = 0.5; return false; }
+    this.path = path; this.wp = 1; this.state = 'WALKING'; this.purpose = purpose; return true;
+  }
+  chooseHub() {
+    let options = hubs.filter(h => h !== this.lastHub);
+    if (this.cargo) {
+      // Metrics and zoning mostly flow to BidDeed.AI; bids flow back out.
+      if ((this.cargo === 'metrics' || this.cargo === 'zoning') && rnd() < 0.65) options = [hubById.biddeed];
+    } else if (this.lastHub === null && rnd() < 0.7) options = [this.home];
+    this.destHub = pick(options);
+    this.goTo(this.destHub.doorC, this.destHub.doorR, 'hub');
+  }
+  update(dt) {
+    this.talkCooldown -= dt;
+    if (this.bubble) { this.bubble.t -= dt; if (this.bubble.t <= 0) this.bubble = null; }
+    if (this.state === 'IDLE') {
+      this.idleTimer -= dt;
+      if (this.idleTimer <= 0) {
+        if (!this.cargo && this.lastHub && rnd() < 0.3) {
+          const t = walkableTiles[Math.floor(rnd() * walkableTiles.length)];
+          if (this.goTo(t.c, t.r, 'wander') && rnd() < 0.5) this.speak('wander');
+        } else this.chooseHub();
+      }
+    } else if (this.state === 'WALKING') {
+      const node = this.path[this.wp], tgt = this.tileCenter(node.c, node.r);
+      const dx = tgt.x - this.x, dy = tgt.y - this.y, dist = Math.hypot(dx, dy), step = this.speed * dt;
+      if (Math.abs(dx) > 0.2) this.facing = dx > 0 ? 1 : -1;
+      if (dist <= step) {
+        this.x = tgt.x; this.y = tgt.y; this.c = node.c; this.r = node.r; this.wp++;
+        if (this.wp >= this.path.length) this.arrive();
+      } else { this.x += dx / dist * step; this.y += dy / dist * step; this.walked += step; }
+      if (this.cargo && rnd() < dt * 12) particles.push({ x: this.x + (rnd() - .5) * 2, y: this.y - 14 + (rnd() - .5) * 2, life: 0.7, max: 0.7, color: CARGO[this.cargo].color });
+    } else if (this.state === 'WORKING') {
+      this.workTimer -= dt;
+      if (this.workTimer <= 0) this.leaveHub();
+    }
+  }
+  arrive() {
+    this.path = null;
+    if (this.purpose === 'hub') {
+      const hub = this.destHub;
+      if (this.cargo) {
+        hub.received++; hub.inventory[this.cargo]++; stats.transit--;
+        log(`${this.name} delivered ${CARGO[this.cargo].label} to ${hub.name}`, hub.neon);
+        if (rnd() < 0.5) this.speak('deliver', { hub: hub.id, cargo: this.cargo });
+        this.cargo = null;
+        if (hub.id === 'biddeed') tryCloseDeal(hub, this);
+      }
+      this.inside = true; this.state = 'WORKING'; hub.workers++; hub.doorOpen = 0.6;
+      this.workTimer = hub.taskTime + rnd() * 1.5;
+    } else { this.state = 'IDLE'; this.idleTimer = 0.8 + rnd() * 1.5; }
+  }
+  leaveHub() {
+    const hub = this.destHub;
+    hub.workers--; hub.doorOpen = 0.6; this.inside = false; this.lastHub = hub;
+    this.cargo = hub.produces; hub.sent++; stats.transit++;
+    this.x = hub.doorC * TILE + TILE / 2 + this.laneOx; this.y = hub.doorR * TILE + TILE / 2 + this.laneOy;
+    this.c = hub.doorC; this.r = hub.doorR;
+    log(`${this.name} left ${hub.name} carrying ${CARGO[this.cargo].label}`, hub.neon);
+    if (rnd() < 0.6) this.speak('pickup', { hub: hub.id });
+    this.state = 'IDLE'; this.idleTimer = 0.3 + rnd() * 0.6;
+  }
+  speak(kind, ctx) {
+    if (muted) return;
+    if (this.talkCooldown > 0 && kind !== 'deal') return;
+    if (activeBubbles() >= 4 && kind !== 'deal') return;
+    this.talkCooldown = 5 + rnd() * 4;
+    const color = kind === 'deal' ? '#ffd166' : (ctx && ctx.hub ? hubById[ctx.hub].neon : this.home.neon);
+    Ecosystem.say(this, kind, ctx || {}).then(text => { this.bubble = { text, t: 2.6 + text.length * 0.03, color }; });
+  }
+  draw(g, t) {
+    if (this.inside) return;
+    const x = Math.round(this.x), y = Math.round(this.y);
+    const frame = this.state === 'WALKING' ? Math.floor(this.walked / 5) % 2 : 0;
+    const bob = this.state === 'WALKING' ? 0 : Math.round(Math.sin(t * 3 + this.seed) * 0.5 + 0.5) - 1;
+    g.fillStyle = 'rgba(0,0,0,0.3)'; g.fillRect(x - 3, y - 1, 6, 2);
+    const by = y + bob;
+    px(g, x - 2, by - 3, 2, 3, this.pants); px(g, x, by - 3, 2, 3, this.pants);
+    if (frame === 1) { px(g, x - 2, by - 1, 2, 1, '#111'); px(g, x, by - 3, 2, 1, this.pants); px(g, x, by - 1, 2, 1, this.pants); }
+    else { px(g, x - 2, by - 1, 2, 1, this.pants); px(g, x, by - 1, 2, 1, '#111'); }
+    px(g, x - 2, by - 7, 4, 4, this.shirt);
+    px(g, x - 3, by - 7, 1, 3, this.skin); px(g, x + 2, by - 7, 1, 3, this.skin);
+    px(g, x - 2, by - 11, 4, 4, this.skin);
+    px(g, x - 2, by - 11, 4, 1, this.hair); px(g, x - 2, by - 10, 1, 1, this.hair); px(g, x + 1, by - 10, 1, 1, this.hair);
+    px(g, x + (this.facing > 0 ? 1 : -2), by - 9, 1, 1, '#1a1a2e');
+    if (this.cargo) {
+      const col = CARGO[this.cargo].color, py = by - 16 + Math.round(Math.sin(t * 4 + this.seed) * 1.2);
+      const grad = g.createRadialGradient(x, py, 0, x, py, 6);
+      grad.addColorStop(0, col + 'aa'); grad.addColorStop(1, col + '00');
+      g.fillStyle = grad; g.fillRect(x - 6, py - 6, 12, 12);
+      px(g, x - 1, py - 2, 2, 1, col); px(g, x - 2, py - 1, 4, 2, col); px(g, x - 1, py + 1, 2, 1, col);
+      px(g, x - 1, py - 1, 1, 1, '#ffffff');
+    }
+  }
+}
+
+const agents = ROSTER.map(([n, r, h], i) => new Agent(n, r, h, i));
+const particles = [];
+const stats = { transit: 0, deals: 0, volume: 0 };
+const activeBubbles = () => agents.reduce((n, a) => n + (a.bubble ? 1 : 0), 0);
+
+function tryCloseDeal(hub, agent) {
+  if (hub.inventory.zoning < 1 || hub.inventory.metrics < 1) return;
+  hub.inventory.zoning--; hub.inventory.metrics--;
+  const parcel = Ecosystem.parcel(), county = pick(Ecosystem.counties), amount = Ecosystem.amount();
+  stats.deals++; stats.volume += amount; hub.flash = 1.4;
+  log(`Deal closed: ${parcel} in ${county} County at ${Ecosystem.money(amount)}`, '#ffd166', true);
+  agent.speak('deal', { parcel, county, amount });
+  for (let i = 0; i < 26; i++) {
+    const a = rnd() * Math.PI * 2, s = 10 + rnd() * 30;
+    particles.push({ x: hub.cx, y: hub.y0 + 8, vx: Math.cos(a) * s, vy: Math.sin(a) * s - 20, life: 1.2, max: 1.2, color: i % 2 ? '#ffd166' : hub.neon, spark: true });
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Log and ledger (DOM)
+// ---------------------------------------------------------------------------
+const logEl = document.getElementById('log');
+const entries = [];
+function log(text, color, isDeal) {
+  entries.unshift({ text, color, isDeal, time: clockString() });
+  if (entries.length > 40) entries.pop();
+  logDirty = true;
+}
+let logDirty = false;
+function renderLog() {
+  if (!logDirty) return; logDirty = false;
+  logEl.innerHTML = '';
+  for (const e of entries) {
+    const li = document.createElement('li');
+    const time = document.createElement('time'); time.textContent = e.time;
+    const span = document.createElement('span'); span.textContent = e.text;
+    if (e.isDeal) li.className = 'deal'; else if (e.color) span.style.color = e.color;
+    li.append(time, span); logEl.appendChild(li);
+  }
+}
+const ledgerBody = document.getElementById('ledgerBody');
+const ledgerRows = {};
+for (const h of hubs) {
+  const tr = document.createElement('tr');
+  tr.dataset.hub = h.id;
+  tr.innerHTML = `<td><span class="hub-name" style="color:${h.neon}"></span><span class="hub-produces"></span></td><td></td><td class="num inside"></td><td class="num"></td><td class="num"></td>`;
+  tr.children[0].children[0].textContent = h.name;
+  tr.children[0].children[1].textContent = h.focus;
+  tr.children[1].textContent = CARGO[h.produces].label;
+  ledgerBody.appendChild(tr);
+  ledgerRows[h.id] = tr;
+}
+const dealCountEl = document.getElementById('dealCount'), dealVolumeEl = document.getElementById('dealVolume'), transitEl = document.getElementById('transitCount');
+function renderLedger() {
+  for (const h of hubs) {
+    const tr = ledgerRows[h.id];
+    tr.children[2].textContent = h.workers; tr.children[3].textContent = h.sent; tr.children[4].textContent = h.received;
+    tr.classList.toggle('is-selected', selected === h);
+  }
+  dealCountEl.textContent = stats.deals; dealVolumeEl.textContent = Ecosystem.money(stats.volume); transitEl.textContent = stats.transit;
+}
+
+// ---------------------------------------------------------------------------
+// Time of day
+// ---------------------------------------------------------------------------
+let simTime = DAY_LENGTH * 0.05; // the warm-up below advances this to mid-morning, so dusk arrives while people watch
+let holdNight = false;
+function daylight() {
+  if (holdNight) return 0;
+  const phase = (simTime % DAY_LENGTH) / DAY_LENGTH;        // 0 = midnight
+  const d = 0.5 - 0.5 * Math.cos(phase * Math.PI * 2);        // 1 at noon
+  return Math.min(1, Math.max(0, (d - 0.15) / 0.6));           // flat night, flat day, soft dusk
+}
+function clockString() {
+  const phase = holdNight ? 0.95 : (simTime % DAY_LENGTH) / DAY_LENGTH;
+  const mins = Math.floor(phase * 24 * 60);
+  return `${String(Math.floor(mins / 60)).padStart(2, '0')}:${String(mins % 60).padStart(2, '0')}`;
+}
+
+// ---------------------------------------------------------------------------
+// World drawing
+// ---------------------------------------------------------------------------
+function drawWater(g, t) {
+  for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+    if (grid[idx(c, r)] !== T.WATER) continue;
+    const x = c * TILE, y = r * TILE, h = hash2(c, r);
+    const off = (Math.floor(t * 3 + h * 10) % 10);
+    g.fillStyle = '#5a9bd6';
+    g.fillRect(x + (off + 2) % 8, y + 2 + Math.floor(h * 4), 3, 1);
+    g.fillRect(x + (off + 6) % 8, y + 6 + Math.floor(h * 3), 2, 1);
+    if (h > 0.7) { g.fillStyle = '#9bc9f0'; g.fillRect(x + (off + 1) % 9, y + 4, 1, 1); }
+  }
+}
+
+function drawMonument(g, t) {
+  const x = 200, y = 150;
+  const pulse = (t % 2.2) / 2.2;
+  g.strokeStyle = `rgba(103, 232, 249, ${0.45 * (1 - pulse)})`; g.lineWidth = 1;
+  g.beginPath(); g.arc(x, y + 2, 4 + pulse * 22, 0, Math.PI * 2); g.stroke();
+  px(g, x - 7, y + 3, 14, 5, '#5b6273'); px(g, x - 6, y + 2, 12, 1, '#9aa3b5');
+  px(g, x - 3, y - 10, 6, 13, '#2b2f45'); px(g, x - 3, y - 10, 1, 13, '#4a4f6b');
+  for (let i = 0; i < 4; i++) {
+    const yy = y + 1 - ((t * 10 + i * 4) % 13);
+    px(g, x - 2, Math.round(yy), 4, 1, i % 2 ? '#67e8f9' : '#38bdf8');
+  }
+  px(g, x - 1, y - 12, 2, 2, '#e0fbff');
+}
+
+function drawHub(g, h, t, dark) {
+  const { x0, y0, w, hgt = h.h } = { x0: h.x0, y0: h.y0, w: h.w };
+  g.fillStyle = 'rgba(0,0,0,0.28)'; g.fillRect(x0 + 2, y0 + 3, w, hgt);
+  const roofH = hgt - 14;
+  px(g, x0, y0, w, roofH, h.roof);
+  px(g, x0, y0, w, 1, h.trim); px(g, x0, y0, 1, roofH, h.trim);
+  px(g, x0 + w - 1, y0, 1, roofH, h.wall); px(g, x0, y0 + roofH - 1, w, 1, h.wall);
+  // Solar array on the left of the roof.
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 4; c++) {
+    px(g, x0 + 4 + c * 5, y0 + 4 + r * 4, 4, 3, '#1b2a4a'); px(g, x0 + 4 + c * 5, y0 + 4 + r * 4, 4, 1, '#3c5a8f');
+  }
+  // Brand glyph, centered on the roof.
+  drawGlyph(g, h.glyph, Math.round(h.cx - 7 + 4), y0 + 6, 2, 'rgba(255,255,255,0.9)');
+  // Rooftop units and antenna.
+  px(g, x0 + w - 14, y0 + 6, 8, 6, '#8e94a8'); px(g, x0 + w - 14, y0 + 6, 8, 1, '#c3c7d6');
+  px(g, x0 + w - 5, y0 - 6, 1, 8, '#2f3140'); px(g, x0 + w - 7, y0 - 4, 5, 1, '#2f3140');
+  px(g, x0 + w - 5, y0 - 7, 1, 1, Math.floor(t * 2) % 2 ? '#ff4d6d' : '#5a1020');
+  // Front wall with windows and the door.
+  const wy = y0 + roofH;
+  px(g, x0, wy, w, 14, h.wall); px(g, x0, wy, w, 1, h.trim);
+  const slots = Math.floor((w - 14) / 9), lit = Math.min(slots, h.workers + (dark ? 2 : 0));
+  for (let i = 0; i < slots; i++) {
+    const wx = x0 + 4 + i * 9;
+    if (wx + 5 > h.cx - 5 && wx < h.cx + 5) continue; // leave room for the door
+    const on = i < lit && (Math.floor(t * 7 + i * 3) % 23 !== 0);
+    px(g, wx, wy + 3, 5, 5, on ? '#ffd166' : '#121426'); px(g, wx + 2, wy + 3, 1, 5, h.wall); px(g, wx, wy + 5, 5, 1, h.wall);
+  }
+  const dx = Math.round(h.cx) - 3;
+  px(g, dx, wy + 5, 6, 9, h.doorOpen > 0 ? '#ffe9a8' : '#15172b');
+  if (h.doorOpen > 0) px(g, dx, wy + 5, 2, 9, '#2b1b0e');
+  px(g, dx - 1, wy + 4, 8, 1, h.trim);
+  if (h.flash > 0) {
+    g.fillStyle = `rgba(255, 209, 102, ${Math.min(0.5, h.flash * 0.4)})`; g.fillRect(x0 - 2, y0 - 2, w + 4, hgt + 4);
+  }
+}
+
+function drawLights(g, t, night) {
+  if (night <= 0.02) return;
+  g.save(); g.globalCompositeOperation = 'lighter';
+  const glow = (x, y, r, color, a) => {
+    const grad = g.createRadialGradient(x, y, 0, x, y, r);
+    grad.addColorStop(0, color.replace('A', (a * night).toFixed(3))); grad.addColorStop(1, color.replace('A', '0'));
+    g.fillStyle = grad; g.fillRect(x - r, y - r, r * 2, r * 2);
+  };
+  for (const l of lamps) {
+    const x = l.c * TILE + 5, y = l.r * TILE + 1;
+    glow(x, y + 6, 18, 'rgba(255,209,102,A)', 0.45);
+    px(g, x - 2, y, 4, 3, `rgba(255,236,170,${night})`);
+  }
+  for (const h of hubs) glow(h.cx, h.y0 - 6, 34, hexToRgba(h.neon), 0.35);
+  glow(200, 148, 20, 'rgba(103,232,249,A)', 0.35);
+  for (const a of agents) if (!a.inside && a.cargo) glow(a.x, a.y - 16, 12, hexToRgba(CARGO[a.cargo].color), 0.5);
+  g.restore();
+}
+function hexToRgba(hex) {
+  const n = parseInt(hex.slice(1), 16);
+  return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},A)`;
+}
+
+function drawParticles(g, dt) {
+  for (let i = particles.length - 1; i >= 0; i--) {
+    const p = particles[i];
+    p.life -= dt;
+    if (p.life <= 0) { particles.splice(i, 1); continue; }
+    if (p.spark) { p.vy += 40 * dt; p.x += p.vx * dt; p.y += p.vy * dt; }
+    else { p.y -= 6 * dt; }
+    g.globalAlpha = Math.max(0, p.life / p.max);
+    px(g, Math.round(p.x), Math.round(p.y), 1, 1, p.color);
+  }
+  g.globalAlpha = 1;
+}
+
+// ---------------------------------------------------------------------------
+// Overlay drawing (full resolution): neon signs, windows, bubbles.
+// ---------------------------------------------------------------------------
+const FONT_DISPLAY = '"Press Start 2P", "Courier New", monospace';
+const FONT_BODY = 'VT323, "Courier New", monospace';
+
+function windowBox(x, y, w, h, border) {
+  ctx.fillStyle = 'rgba(12, 14, 40, 0.92)'; ctx.fillRect(x, y, w, h);
+  ctx.fillStyle = border; ctx.fillRect(x, y, w, 2); ctx.fillRect(x, y + h - 2, w, 2); ctx.fillRect(x, y, 2, h); ctx.fillRect(x + w - 2, y, 2, h);
+  ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.fillRect(x + 2, y + 2, w - 4, 1);
+}
+
+function drawNeon(t, night) {
+  ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  ctx.font = `10px ${FONT_DISPLAY}`;
+  for (let i = 0; i < hubs.length; i++) {
+    const h = hubs[i];
+    const x = h.cx * SCALE, y = (h.y0 - 9) * SCALE;
+    const pulse = 0.7 + 0.3 * Math.sin(t * 1.7 + i * 2.1);
+    const flicker = hash2(Math.floor(t * 12), i) > 0.965 ? 0.35 : 1;
+    const strength = (0.55 + 0.45 * night) * pulse * flicker;
+    ctx.save();
+    ctx.shadowColor = h.neon; ctx.shadowBlur = 6 + 14 * strength;
+    ctx.fillStyle = h.neon; ctx.fillText(h.name, x, y);
+    ctx.shadowBlur = 2; ctx.fillStyle = `rgba(255,255,255,${0.55 + 0.4 * flicker})`; ctx.fillText(h.name, x, y);
+    ctx.restore();
+    // Sign bracket under the letters.
+    ctx.fillStyle = h.neon; ctx.globalAlpha = 0.6 * flicker;
+    const tw = ctx.measureText(h.name).width;
+    ctx.fillRect(x - tw / 2, y + 5, tw, 2);
+    ctx.globalAlpha = 1;
+  }
+}
+
+function wrapText(text, maxWidth) {
+  const words = text.split(' '), lines = []; let line = '';
+  for (const w of words) {
+    const test = line ? line + ' ' + w : w;
+    if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = w; } else line = test;
+  }
+  if (line) lines.push(line);
+  return lines.slice(0, 3);
+}
+
+function drawBubbles() {
+  ctx.font = `17px ${FONT_BODY}`; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  const placed = [];
+  for (const a of agents) {
+    if (!a.bubble || a.inside) continue;
+    const lines = wrapText(a.bubble.text, 190);
+    const w = Math.max(...lines.map(l => ctx.measureText(l).width)) + 20, h = lines.length * 18 + 12;
+    let x = a.x * SCALE - w / 2, y = (a.y - 20) * SCALE - h - 10;
+    x = Math.max(6, Math.min(W - w - 6, x)); if (y < 6) y = (a.y + 4) * SCALE;
+    for (let guard = 0; guard < 6; guard++) {
+      const hit = placed.find(p => x < p.x + p.w + 4 && x + w + 4 > p.x && y < p.y + p.h + 4 && y + h + 4 > p.y);
+      if (!hit) break;
+      y = hit.y - h - 6; if (y < 6) { y = hit.y + hit.h + 6; }
+    }
+    placed.push({ x, y, w, h });
+    const alpha = Math.min(1, a.bubble.t / 0.3);
+    ctx.globalAlpha = alpha;
+    windowBox(x, y, w, h, a.bubble.color);
+    ctx.fillStyle = a.bubble.color;
+    const tx = Math.max(x + 8, Math.min(x + w - 14, a.x * SCALE - 3));
+    if (y < a.y * SCALE) ctx.fillRect(tx, y + h, 6, 4);
+    ctx.fillStyle = '#eef0ff';
+    lines.forEach((l, i) => ctx.fillText(l, x + 10, y + 21 + i * 18));
+    ctx.globalAlpha = 1;
+  }
+}
+
+function drawHud(night) {
+  // Clock window, top-left.
+  ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  windowBox(10, 10, 150, 40, 'rgba(238,240,255,0.8)');
+  const isNight = night < 0.5;
+  const gcol = isNight ? '#c7d2fe' : '#ffd166';
+  const gl = isNight ? GLYPH.moon : GLYPH.sun;
+  ctx.fillStyle = gcol;
+  for (let r = 0; r < 7; r++) for (let c = 0; c < 7; c++) if (gl[r][c] === '#') ctx.fillRect(22 + c * 3, 20 + r * 3, 3, 3);
+  ctx.font = `10px ${FONT_DISPLAY}`; ctx.fillStyle = '#eef0ff'; ctx.fillText(clockString(), 52, 28);
+  ctx.font = `16px ${FONT_BODY}`; ctx.fillStyle = '#a9afd6';
+  ctx.fillText(holdNight ? 'night held' : (isNight ? 'night shift' : (night < 0.85 ? 'golden hour' : 'daylight')), 52, 44);
+  // Economy window, top-right.
+  const ew = 196;
+  windowBox(W - ew - 10, 10, ew, 40, 'rgba(238,240,255,0.8)');
+  ctx.font = `16px ${FONT_BODY}`; ctx.fillStyle = '#a9afd6';
+  ctx.fillText('IN TRANSIT', W - ew + 2, 26); ctx.fillText('DEALS', W - 86, 26);
+  ctx.font = `10px ${FONT_DISPLAY}`; ctx.fillStyle = '#eef0ff';
+  ctx.fillText(String(stats.transit).padStart(2, '0'), W - ew + 2, 44);
+  ctx.fillStyle = '#ffd166'; ctx.fillText(String(stats.deals).padStart(2, '0'), W - 86, 44);
+  // Inspector window, bottom-left, for the selected agent or hub.
+  if (selected) {
+    const lines = selected instanceof Agent ? agentLines(selected) : hubLines(selected);
+    ctx.font = `17px ${FONT_BODY}`;
+    const w = Math.max(...lines.map(l => ctx.measureText(l.text).width)) + 24, h = lines.length * 18 + 16;
+    windowBox(10, H - h - 10, w, h, selected.neon || selected.home.neon);
+    lines.forEach((l, i) => { ctx.fillStyle = l.color || '#eef0ff'; ctx.fillText(l.text, 22, H - h - 10 + 22 + i * 18); });
+    if (selected instanceof Agent && !selected.inside) {
+      ctx.strokeStyle = '#ffd166'; ctx.lineWidth = 2;
+      ctx.strokeRect(selected.x * SCALE - 12, selected.y * SCALE - 28, 24, 32);
+    } else if (!(selected instanceof Agent)) {
+      ctx.strokeStyle = selected.neon; ctx.lineWidth = 2;
+      ctx.strokeRect(selected.x0 * SCALE - 3, selected.y0 * SCALE - 3, selected.w * SCALE + 6, selected.h * SCALE + 6);
+    }
+  }
+  if (paused) {
+    ctx.font = `12px ${FONT_DISPLAY}`; ctx.textAlign = 'center';
+    windowBox(W / 2 - 70, H / 2 - 22, 140, 44, '#ffd166');
+    ctx.fillStyle = '#ffd166'; ctx.fillText('PAUSED', W / 2, H / 2 + 5);
+    ctx.textAlign = 'left';
+  }
+}
+function agentLines(a) {
+  const state = a.inside ? `working inside ${a.destHub.name}` : a.state === 'WALKING' ? (a.purpose === 'hub' ? `walking to ${a.destHub.name}` : 'wandering') : 'idle';
+  return [
+    { text: `${a.name}, ${a.role}`, color: a.home.neon },
+    { text: `Home: ${a.home.name}` },
+    { text: `Status: ${state}` },
+    { text: a.cargo ? `Carrying: ${CARGO[a.cargo].label}` : 'Carrying: nothing', color: a.cargo ? CARGO[a.cargo].color : '#a9afd6' },
+  ];
+}
+function hubLines(h) {
+  return [
+    { text: h.name, color: h.neon },
+    { text: h.focus },
+    { text: `Produces ${CARGO[h.produces].label}` },
+    { text: `Inside now: ${h.workers}   Sent: ${h.sent}   Received: ${h.received}` },
+    { text: `Holding: ${h.inventory.bid} bids, ${h.inventory.zoning} zoning, ${h.inventory.metrics} metrics`, color: '#a9afd6' },
+  ];
+}
+
+// ---------------------------------------------------------------------------
+// Input
+// ---------------------------------------------------------------------------
+let selected = null, paused = false, speedMul = 1, muted = false;
+function canvasPoint(ev) {
+  const rect = canvas.getBoundingClientRect();
+  return { x: (ev.clientX - rect.left) / rect.width * LW, y: (ev.clientY - rect.top) / rect.height * LH };
+}
+function hitTest(p) {
+  let best = null, bestD = 9;
+  for (const a of agents) {
+    if (a.inside) continue;
+    const d = Math.hypot(a.x - p.x, a.y - 6 - p.y);
+    if (d < bestD) { bestD = d; best = a; }
+  }
+  if (best) return best;
+  return hubs.find(h => p.x >= h.x0 && p.x <= h.x1 && p.y >= h.y0 - 12 && p.y <= h.y1) || null;
+}
+canvas.addEventListener('click', ev => { selected = hitTest(canvasPoint(ev)); });
+canvas.addEventListener('mousemove', ev => { canvas.style.cursor = hitTest(canvasPoint(ev)) ? 'pointer' : 'crosshair'; });
+
+const btnPause = document.getElementById('btnPause'), btnSpeed = document.getElementById('btnSpeed'), btnNight = document.getElementById('btnNight'), btnScan = document.getElementById('btnScan');
+const screenInner = document.getElementById('screenInner');
+function setPaused(v) { paused = v; btnPause.setAttribute('aria-pressed', String(v)); btnPause.textContent = v ? 'Resume' : 'Pause'; }
+function setNight(v) { holdNight = v; btnNight.setAttribute('aria-pressed', String(v)); }
+btnPause.addEventListener('click', () => setPaused(!paused));
+btnSpeed.addEventListener('click', () => { speedMul = speedMul === 1 ? 2 : 1; btnSpeed.setAttribute('aria-pressed', String(speedMul === 2)); });
+btnNight.addEventListener('click', () => setNight(!holdNight));
+btnScan.addEventListener('click', () => { const on = screenInner.classList.toggle('is-scanlines'); btnScan.setAttribute('aria-pressed', String(on)); });
+window.addEventListener('keydown', ev => {
+  if (ev.target.tagName === 'BUTTON' && ev.key === ' ') return;
+  if (ev.key === ' ') { ev.preventDefault(); setPaused(!paused); }
+  else if (ev.key === 'n' || ev.key === 'N') setNight(!holdNight);
+  else if (ev.key === 'Escape') selected = null;
+});
+
+// Occasional greetings when two walking agents cross paths.
+let greetTimer = 0;
+function greetings(dt) {
+  greetTimer -= dt; if (greetTimer > 0) return; greetTimer = 0.7;
+  for (let i = 0; i < agents.length; i++) for (let j = i + 1; j < agents.length; j++) {
+    const a = agents[i], b = agents[j];
+    if (a.inside || b.inside || a.state !== 'WALKING' || b.state !== 'WALKING') continue;
+    if (Math.hypot(a.x - b.x, a.y - b.y) < 9 && rnd() < 0.25 && a.talkCooldown <= 0 && !a.bubble) { a.speak('greet'); return; }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Main loop
+// ---------------------------------------------------------------------------
+let last = performance.now(), elapsed = 0, uiTimer = 0;
+function frame(now) {
+  let dt = Math.min(0.05, (now - last) / 1000); last = now;
+  if (paused) dt = 0;
+  dt *= speedMul;
+  elapsed += dt; simTime += dt;
+  const light = daylight(), night = 1 - light;
+
+  if (dt > 0) {
+    for (const a of agents) a.update(dt);
+    for (const h of hubs) { h.doorOpen = Math.max(0, h.doorOpen - dt); h.flash = Math.max(0, h.flash - dt); }
+    greetings(dt);
+  }
+
+  // World layer.
+  wctx.drawImage(bg, 0, 0);
+  drawWater(wctx, elapsed);
+  drawMonument(wctx, elapsed);
+  for (const h of hubs) drawHub(wctx, h, elapsed, night > 0.5);
+  const visible = agents.filter(a => !a.inside).sort((a, b) => a.y - b.y);
+  for (const a of visible) a.draw(wctx, elapsed);
+  drawParticles(wctx, dt);
+  wctx.fillStyle = `rgba(10, 12, 48, ${(night * 0.62).toFixed(3)})`; wctx.fillRect(0, 0, LW, LH);
+  if (light > 0.3 && light < 0.85) { wctx.fillStyle = `rgba(255, 140, 60, ${(0.12 * (1 - Math.abs(light - 0.57) / 0.28)).toFixed(3)})`; wctx.fillRect(0, 0, LW, LH); }
+  drawLights(wctx, elapsed, night);
+
+  // Composite and overlay.
+  ctx.imageSmoothingEnabled = false;
+  ctx.clearRect(0, 0, W, H);
+  ctx.drawImage(world, 0, 0, W, H);
+  drawNeon(elapsed, night);
+  drawBubbles();
+  drawHud(light);
+
+  uiTimer += (now - (frame.prev || now)) / 1000; frame.prev = now;
+  if (uiTimer > 0.25) { uiTimer = 0; renderLedger(); renderLog(); }
+  requestAnimationFrame(frame);
+}
+// Warm up: run the economy for a while before the first frame so the village
+// is already busy and the log has history. Speech stays muted meanwhile.
+muted = true;
+for (let i = 0; i < 1500; i++) {
+  const step = 1 / 30;
+  for (const a of agents) a.update(step);
+  for (const h of hubs) { h.doorOpen = Math.max(0, h.doorOpen - step); h.flash = Math.max(0, h.flash - step); }
+  elapsed += step; simTime += step;
+}
+particles.length = 0;
+for (const h of hubs) h.flash = 0;
+muted = false;
+renderLedger(); renderLog();
+requestAnimationFrame(frame);
+
+// Public surface for a future backend or a debugging console.
+window.VILLAGE = { agents, hubs, Ecosystem, stats, get paused() { return paused; }, setPaused, setNight };
+</script>
+</body>
+</html>
