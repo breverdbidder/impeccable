@@ -37,3 +37,41 @@ Reference supplied by Ariel Shapira on 2026-11-07 for deciding whether the Ecosy
 ## How this relates to the village
 
 The village in this directory is a zero-dependency canvas page and costs nothing to host on Cloudflare Pages. None of the platforms above is needed to keep improving it. They become relevant only if the decision is to turn it into a playable product with owned parcels or on-chain deeds; the $0 prototype path (Unity Personal, Thirdweb free tier, Polygon Amoy testnet) is the one that fits the current spend ceiling, and any paid tier above $10 per month is an explicit approval item under the team's operating rules.
+
+## Stack guidance (second reference, same date)
+
+Two platform layers are involved: a world-building layer (visual world, 3D space, physics, gameplay) and a blockchain layer (parcels, contracts, deeds, rental yields).
+
+### World-building layer
+
+- **Unreal Engine 5.** AAA photorealistic worlds, digital twins, luxury archviz. Nanite and Lumen make virtual architecture read as real. Web3 via Thirdweb, Moralis, or the ChainSafe Gaming SDK to read wallet holdings and gate building access on NFT ownership.
+- **Unity.** Cross-platform (mobile, browser, PC, VR) and casual simulations. Deepest off-the-shelf Web3 tooling; light enough for WebGL in a browser or iOS and Android without large downloads.
+- **The Sandbox Game Maker and VoxEdit.** No-code voxel development on an existing player base; buy or lease parcels and script mini-games, social hubs, quests.
+- **Decentraland SDK.** Browser-native, open source, TypeScript scenes. Suited to galleries, leased storefronts, and kiosks that open instantly in a browser.
+
+### Blockchain layer
+
+Real estate games are built from frequent micro-actions (rent, decorating, leasing, upgrades, maintenance), so mainnet gas breaks the economy. Chains with fast finality and negligible fees:
+
+| Network | Advantage | Cost per action | Scope |
+|---|---|---|---|
+| Polygon (PoS / zkEVM) | Liquidity, EVM native, every major NFT market | under $0.01 | Browser and mobile land simulators, virtual shops |
+| Immutable zkEVM | Zero-gas minting, gamer pass, unified orderbook | gas-free or subsidized for players | Dedicated gaming ecosystems with heavy asset trading |
+| Solana | Sub-second finality, cheap high-frequency state | under $0.001 | High-velocity rent economies |
+| Avalanche Subnets | Dedicated blockspace, no congestion spikes | configurable, custom token | Large MMOs with custom transaction rules |
+
+### Middleware layer
+
+- **Thirdweb.** ERC-721 and ERC-1155 parcel and rental contract templates, embedded social-login wallets, Unity and Unreal SDKs.
+- **Openfort or Biconomy (ERC-4337 account abstraction).** Sponsored gas and session keys so players never sign a wallet prompt per action.
+- **Plume Network.** L2 built for compliant real-world asset tokenization; the fit when the game merges physical rental properties with token distributions.
+
+### Recommended stacks as quoted
+
+- High-end visual metaverse (PC, VR): Unreal Engine 5 + Immutable zkEVM or Polygon + Thirdweb SDK + Openfort.
+- Web or mobile real estate simulator: Unity (WebGL, mobile) + Solana or Polygon + Privy + Thirdweb Engine.
+- Rapid low-code prototype: The Sandbox Game Maker or Decentraland SDK.
+
+### Open decision
+
+The source asked whether the focus is purely virtual metaverse land or gamified fractional ownership of real-world properties. That is a product decision for the owner; the note in the section above stands either way.
