@@ -21,6 +21,7 @@ A single-file, 32-bit style top-down village where fifteen autonomous agents car
 - A day lasts 150 seconds. The page pre-simulates about 50 seconds on load so the village is already busy, with dusk arriving roughly a minute in.
 - Click an agent or a building to open the inspector window. Space pauses, N holds night, Escape deselects. The control deck toggles speed and an optional CRT scanline overlay.
 - The exchange ledger and network log below the screen are the same data the HUD shows, laid out for reading.
+- The vendor plots table is live: it reads `valley_plots`, `valley_leases` and `valley_vendors` from the shared Supabase project over the REST API with the publishable key (read-only through row-level security), per county, refreshed every minute. Leased plots show the vendor, tier and monthly rate; open plots show "For lease". Each closed deal sends a buyer through the chain and counts matched and unmet trades in memory; nothing is written back. When Supabase is unreachable the table says so and shows nothing in its place. The HUD's PLOTS readout is leased over total for the viewed county.
 
 All parcel IDs, counties, zoning codes, and dollar figures are synthetic demo data and the page says so.
 

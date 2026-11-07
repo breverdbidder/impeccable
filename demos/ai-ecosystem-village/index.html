@@ -181,6 +181,25 @@
     color: var(--ink-soft);
   }
   .deals strong { color: var(--ink); font-family: var(--font-display); font-size: 14px; }
+  .plots-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+  .plots-head h2 { margin: 0; }
+  .live { font-family: var(--font-body); font-size: 17px; letter-spacing: 0; color: var(--ink-dim); margin-left: 10px; }
+  .live::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 6px; background: var(--ink-dim); vertical-align: 1px; }
+  .live.is-live { color: var(--zonewise); } .live.is-live::before { background: var(--zonewise); }
+  .live.is-offline { color: var(--amber); } .live.is-offline::before { background: var(--amber); }
+  .county-select {
+    font-family: var(--font-display); font-size: 12px; line-height: 1; color: var(--ink);
+    background-color: #23264d; border: 2px solid #3b3f78; border-bottom-width: 5px; border-radius: 0;
+    padding: 12px 34px 11px 14px; cursor: pointer; appearance: none; -webkit-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%), linear-gradient(135deg, var(--ink-soft) 50%, transparent 50%);
+    background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%; background-size: 6px 6px; background-repeat: no-repeat;
+  }
+  .county-select:hover { background-color: #2b2f5e; }
+  .plots td.open { color: var(--amber); }
+  .plots .vendor { white-space: nowrap; }
+  .plots .vendor i { display: inline-block; width: 10px; height: 10px; margin-right: 8px; vertical-align: 0; }
+  .plots .tag { color: var(--ink-dim); font-size: 17px; margin-left: 6px; }
+  .plots-note { margin: 8px 0 0; color: var(--ink-dim); font-size: 17px; }
 
   .ticker { grid-column: 1 / -1; margin-top: 6px; }
   .ticker ol {
@@ -210,6 +229,8 @@
     .deck { grid-template-columns: 1fr; gap: 16px; }
     td.num, th.num { width: 60px; padding-left: 10px; }
     thead th:nth-child(3), tbody td:nth-child(3) { display: none; }
+    table.plots thead th:nth-child(3), table.plots tbody td:nth-child(3) { display: table-cell; }
+    table.plots thead th:nth-child(1), table.plots tbody td:nth-child(1) { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
     .marquee h1 { animation: none; }
@@ -258,6 +279,20 @@
         <span>Volume <strong id="dealVolume">$0</strong></span>
         <span>In transit <strong id="transitCount">0</strong></span>
       </p>
+      <div class="plots-head">
+        <h2>Vendor plots <span class="live" id="liveBadge">connecting</span></h2>
+        <select class="county-select" id="countySelect" aria-label="County">
+          <option value="brevard">Brevard County</option>
+          <option value="orange">Orange County</option>
+        </select>
+      </div>
+      <table class="plots">
+        <thead>
+          <tr><th>Stage</th><th>Trade</th><th>Vendor</th><th class="num">$/mo</th><th class="num">Matched</th><th class="num">Unmet</th></tr>
+        </thead>
+        <tbody id="plotsBody"><tr><td colspan="6" class="lease">Reading plots from Supabase.</td></tr></tbody>
+      </table>
+      <p class="plots-note" id="plotsNote">Plots, vendors and leases are read live from the valley tables on Supabase. Seeded vendors are flagged synthetic. Matched and unmet counts come from the buyers this page closes and are not written back.</p>
     </div>
 
     <div class="ticker">
@@ -858,10 +893,12 @@ const activeBubbles = () => agents.reduce((n, a) => n + (a.bubble ? 1 : 0), 0);
 function tryCloseDeal(hub, agent) {
   if (hub.inventory.zoning < 1 || hub.inventory.metrics < 1) return;
   hub.inventory.zoning--; hub.inventory.metrics--;
-  const parcel = Ecosystem.parcel(), county = pick(Ecosystem.counties), amount = Ecosystem.amount();
+  const viewed = plots.county.charAt(0).toUpperCase() + plots.county.slice(1);
+  const parcel = Ecosystem.parcel(), county = rnd() < 0.6 ? viewed : pick(Ecosystem.counties), amount = Ecosystem.amount();
   stats.deals++; stats.volume += amount; hub.flash = 1.4;
   log(`Deal closed: ${parcel} in ${county} County at ${Ecosystem.money(amount)}`, '#ffd166', true);
   agent.speak('deal', { parcel, county, amount });
+  runBuyer(county, amount);
   for (let i = 0; i < 26; i++) {
     const a = rnd() * Math.PI * 2, s = 10 + rnd() * 30;
     particles.push({ x: hub.cx, y: hub.y0 + 8, vx: Math.cos(a) * s, vy: Math.sin(a) * s - 20, life: 1.2, max: 1.2, color: i % 2 ? '#ffd166' : hub.neon, spark: true });
@@ -1178,7 +1215,7 @@ function bubbleObstacles() {
   const list = hubs.map(h => ({ x: h.x0 * SCALE - 8, y: (h.y0 - 23) * SCALE, w: h.w * SCALE + 16, h: (h.h + 24) * SCALE }));
   for (const h of hubs) list.push({ x: (h.cx - h.signW / 2) * SCALE - 4, y: (h.y0 - 23) * SCALE, w: h.signW * SCALE + 8, h: 30 });
   list.push({ x: 0, y: 0, w: 150 * ui, h: 52 * ui });
-  if (ui === 1) list.push({ x: W - 216 * ui, y: 0, w: 216 * ui, h: 52 * ui }); else list.push({ x: W - 216 * ui, y: H - 52 * ui, w: 216 * ui, h: 52 * ui });
+  if (ui === 1) list.push({ x: W - 290 * ui, y: 0, w: 290 * ui, h: 52 * ui }); else list.push({ x: W - 290 * ui, y: H - 52 * ui, w: 290 * ui, h: 52 * ui });
   if (selected) list.push({ x: 0, y: H - 130 * ui, w: W * 0.62, h: 130 * ui });
   return list;
 }
@@ -1235,12 +1272,14 @@ function drawHud(light) {
   ctx.fillText(holdNight ? 'night held' : (isNight ? 'night shift' : (light < 0.85 ? 'golden hour' : 'daylight')), cw.x + 40 * ui, cw.y + 38 * ui);
   // Economy window: top-right on desktop; on a phone it drops to the bottom-right and yields to the inspector.
   if (ui === 1 || !selected) {
-    const ew = windowBox(W - 206 * ui - 10, ui === 1 ? 10 : H - 42 * ui - 10, 206 * ui, 42 * ui, 'rgba(238,240,255,0.8)');
+    const ew = windowBox(W - 280 * ui - 10, ui === 1 ? 10 : H - 42 * ui - 10, 280 * ui, 42 * ui, 'rgba(238,240,255,0.8)');
     ctx.font = small; ctx.fillStyle = '#a9afd6';
-    ctx.fillText('IN TRANSIT', ew.x + 12 * ui, ew.y + 18 * ui); ctx.fillText('DEALS', ew.x + 130 * ui, ew.y + 18 * ui);
+    ctx.fillText('IN TRANSIT', ew.x + 12 * ui, ew.y + 18 * ui); ctx.fillText('DEALS', ew.x + 110 * ui, ew.y + 18 * ui); ctx.fillText('PLOTS', ew.x + 184 * ui, ew.y + 18 * ui);
     ctx.font = big; ctx.fillStyle = '#eef0ff';
     ctx.fillText(String(stats.transit).padStart(2, '0'), ew.x + 12 * ui, ew.y + 36 * ui);
-    ctx.fillStyle = '#ffd166'; ctx.fillText(String(stats.deals).padStart(2, '0'), ew.x + 130 * ui, ew.y + 36 * ui);
+    ctx.fillStyle = '#ffd166'; ctx.fillText(String(stats.deals).padStart(2, '0'), ew.x + 110 * ui, ew.y + 36 * ui);
+    ctx.fillStyle = plots.status === 'live' ? '#34d399' : '#9298c2';
+    ctx.fillText(plots.status === 'live' ? `${plots.leased}/${plots.rows.length}` : (plots.status === 'offline' ? 'OFF' : '..'), ew.x + 184 * ui, ew.y + 36 * ui);
   }
   // Inspector window, bottom-left, for the selected agent or hub.
   if (selected) {
@@ -1382,6 +1421,91 @@ function frame(now) {
   requestAnimationFrame(frame);
 }
 
+// ---------------------------------------------------------------------------
+// Live vendor plots from Supabase. The publishable key is a browser key by
+// design; the valley tables carry read-only row-level security, so this page
+// can read leases and vendors and cannot write anything. One vendor per trade
+// per county is the exclusivity unit.
+// ---------------------------------------------------------------------------
+const SUPABASE_URL = 'https://mocerqjnksmhcjzxrewo.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_btGVcWgKtRRVFof1FNmrOw_fBcZR1iZ';
+const DISTRICTS = { acquisition: { name: 'Acquisition', order: 0 }, diligence: { name: 'Due Diligence', order: 1 }, build: { name: 'Build', order: 2 }, 'hold-exit': { name: 'Hold and Exit', order: 3 } };
+const TRADE_NAMES = { title: 'Title company', lender: 'Lender', attorney: 'Real estate attorney', appraiser: 'Appraiser', surveyor: 'Surveyor', engineer: 'Civil engineer', inspector: 'Home inspector', environmental: 'Environmental consultant', landclearing: 'Land clearing', architect: 'Architect', gc: 'General contractor', roofer: 'Roofer', electrician: 'Electrician', insurer: 'Insurer', propmgmt: 'Property manager', broker: 'Real estate broker' };
+const plots = { county: 'brevard', rows: [], leased: 0, status: 'connecting', matched: {}, unmet: {}, error: null };
+const plotsBody = document.getElementById('plotsBody'), liveBadge = document.getElementById('liveBadge'), countySelect = document.getElementById('countySelect');
+
+async function loadPlots() {
+  const county = plots.county;
+  const url = SUPABASE_URL + '/rest/v1/valley_plots?select=id,county,district,trade,slot,exclusive,valley_leases(tier,monthly_usd,ends_at,valley_vendors(name,color,synthetic,status))&county=eq.' + encodeURIComponent(county) + '&valley_leases.ends_at=is.null';
+  try {
+    const res = await fetch(url, { headers: { apikey: SUPABASE_KEY, Authorization: 'Bearer ' + SUPABASE_KEY, Accept: 'application/json' } });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (county !== plots.county) return;
+    plots.rows = data.map(r => {
+      const lease = (r.valley_leases || [])[0] || null;
+      return { id: r.id, county: r.county, district: r.district, trade: r.trade, slot: r.slot, exclusive: r.exclusive,
+        vendor: lease && lease.valley_vendors ? lease.valley_vendors : null, tier: lease ? lease.tier : null, monthly: lease ? Number(lease.monthly_usd) : null };
+    }).sort((a, b) => (DISTRICTS[a.district].order - DISTRICTS[b.district].order) || (a.slot - b.slot));
+    plots.leased = plots.rows.filter(r => r.vendor).length;
+    plots.status = 'live'; plots.error = null;
+  } catch (e) {
+    plots.status = 'offline'; plots.error = e.message;
+  }
+  renderPlots();
+}
+function renderPlots() {
+  liveBadge.textContent = plots.status === 'live' ? 'live from Supabase' : plots.status === 'offline' ? 'Supabase unreachable' : 'connecting';
+  liveBadge.className = 'live' + (plots.status === 'live' ? ' is-live' : plots.status === 'offline' ? ' is-offline' : '');
+  plotsBody.innerHTML = '';
+  if (plots.status !== 'live') {
+    const tr = document.createElement('tr'); const td = document.createElement('td'); td.colSpan = 6; td.className = 'lease';
+    td.textContent = plots.status === 'offline' ? 'This page could not reach Supabase (' + plots.error + '). Nothing is shown in its place; retrying every minute.' : 'Reading plots from Supabase.';
+    tr.appendChild(td); plotsBody.appendChild(tr); return;
+  }
+  for (const r of plots.rows) {
+    const tr = document.createElement('tr');
+    const stage = document.createElement('td'); stage.className = 'stage'; stage.textContent = DISTRICTS[r.district].name;
+    const trade = document.createElement('td'); trade.textContent = TRADE_NAMES[r.trade] || r.trade;
+    const vendor = document.createElement('td'); vendor.className = 'vendor';
+    if (r.vendor) {
+      const sw = document.createElement('i'); sw.style.background = r.vendor.color || '#9298c2'; vendor.appendChild(sw);
+      vendor.appendChild(document.createTextNode(r.vendor.name));
+      if (r.tier === 'exclusive') { const t = document.createElement('span'); t.className = 'tag'; t.textContent = 'exclusive'; vendor.appendChild(t); }
+      if (r.vendor.synthetic) { const t = document.createElement('span'); t.className = 'tag'; t.textContent = 'synthetic'; vendor.appendChild(t); }
+    } else { vendor.classList.add('open'); vendor.textContent = 'For lease'; }
+    const money = document.createElement('td'); money.className = 'num'; money.textContent = r.monthly ? Ecosystem.money(r.monthly) : '';
+    const matched = document.createElement('td'); matched.className = 'num'; matched.textContent = plots.matched[r.id] || 0;
+    const unmet = document.createElement('td'); unmet.className = 'num' + (plots.unmet[r.id] ? ' unmet' : ''); unmet.textContent = plots.unmet[r.id] || 0;
+    tr.append(stage, trade, vendor, money, matched, unmet); plotsBody.appendChild(tr);
+  }
+}
+// A closed deal sends a buyer down the chain. Needs follow registry/journey.json
+// in spirit: the always trades, plus a land-leaning or improved-home set chosen
+// by sale type, plus a lender above the financing threshold.
+function runBuyer(county, amount) {
+  if (plots.status !== 'live') return;
+  const c = county.toLowerCase();
+  const taxDeed = rnd() < 0.4;
+  const needs = new Set(['title', 'attorney', 'insurer']);
+  if (amount > 150000) needs.add('lender');
+  for (const t of (taxDeed ? ['surveyor', 'landclearing', 'architect', 'gc'] : ['inspector', 'appraiser'])) needs.add(t);
+  if (rnd() < 0.5) needs.add('broker');
+  const rows = plots.rows.filter(r => r.county === c);
+  if (!rows.length) { log(`Buyer in ${county} County: no valley plots leased there yet`, '#9298c2'); return; }
+  const matched = [], unmet = [];
+  for (const r of rows) {
+    if (!needs.has(r.trade)) continue;
+    if (r.vendor) { plots.matched[r.id] = (plots.matched[r.id] || 0) + 1; matched.push(r.vendor.name); }
+    else { plots.unmet[r.id] = (plots.unmet[r.id] || 0) + 1; unmet.push(TRADE_NAMES[r.trade]); }
+  }
+  log(`Buyer in ${county} needed ${needs.size} trades: ${matched.length} matched${unmet.length ? ', unmet: ' + unmet.join(', ') : ''}`, '#a9afd6');
+  renderPlots();
+}
+countySelect.addEventListener('change', () => { plots.county = countySelect.value; plots.status = 'connecting'; plots.rows = []; plots.matched = {}; plots.unmet = {}; renderPlots(); loadPlots(); });
+loadPlots();
+setInterval(loadPlots, 60000);
+
 // Warm up: run the economy for a while before the first frame so the village
 // is already busy and the log has history. Speech stays muted meanwhile.
 muted = true;
@@ -1398,7 +1522,7 @@ renderLedger(); renderLog();
 requestAnimationFrame(frame);
 
 // Public surface for a future backend or a debugging console.
-window.VILLAGE = { agents, hubs, Ecosystem, stats, get paused() { return paused; }, setPaused, setNight };
+window.VILLAGE = { agents, hubs, Ecosystem, stats, plots, loadPlots, get paused() { return paused; }, setPaused, setNight };
 </script>
 </body>
 </html>
