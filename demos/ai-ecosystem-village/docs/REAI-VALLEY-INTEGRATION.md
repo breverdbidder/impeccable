@@ -40,7 +40,7 @@ Verified against the live table on the same day: `multi_county_auctions.id` is a
 
 ## Owner actions, in order
 
-1. Create the private repo `breverdbidder/reai-valley` (both sessions get 403 on repo creation; this session is also barred from the create-repository tool). The game session then pushes its 23 files and connects Cloudflare Workers Builds, which needs one Cloudflare login.
+1. Done: `breverdbidder/reai-valley` exists and `main` holds this package (data, docs, DESIGN.md, explainer). The game session pushes its 23 files to the root and connects Cloudflare Workers Builds, which needs one Cloudflare login.
 2. Done without you, per your Supabase rules: the valley tables are live and seeded. Reversing it is a DROP, which does need you.
 3. Allow `zonewise.ai` and `biddeed.ai` in this session's network settings if this session should verify live routes; they do not resolve here today.
 4. Pick the marketing connector: the MCP registry lists an official "TikTok for Business" connector (campaign create, manage, analyze) plus Supermetrics, Adspirer Social Ads and AdWhispr. It is connected from claude.ai connector settings, not from a session.
