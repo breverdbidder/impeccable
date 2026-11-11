@@ -2,10 +2,12 @@
 // runs monitors on a cron trigger. Everything runs on our Cloudflare account.
 import { verifyAccess, type AccessEnv, type Identity } from "./lib/access";
 import { assertVerifiedHost, verifyOwnership } from "./lib/ownership";
-import { audit, connected, crawlSummary, dismissFinding, listFindings, listSites, markVerified, recordUptime, type StoreEnv } from "./lib/store";
+import { audit, connected, crawlSummary, dismissFinding, latestPageChecks, listFindings, listSites, markVerified, recordUptime, type StoreEnv } from "./lib/store";
 import { crawlTick, type TickReport } from "./lib/crawl";
+import { pageCheckTick, type CheckBrowser, type CheckReport, type ShotStore } from "./lib/pagecheck";
 
-export type Env = AccessEnv & StoreEnv & { ASSETS?: { fetch: (r: Request) => Promise<Response> } };
+type Shots = ShotStore & { get(key: string): Promise<{ arrayBuffer(): Promise<ArrayBuffer>; body?: ReadableStream } | null> };
+export type Env = AccessEnv & StoreEnv & { ASSETS?: { fetch: (r: Request) => Promise<Response> }; BROWSER?: unknown; SHOTS?: Shots };
 type Fetcher = (input: string, init?: RequestInit) => Promise<Response>;
 
 const json = (body: unknown, status = 200) => Response.json(body, { status, headers: { "cache-control": "no-store" } });
@@ -27,6 +29,16 @@ export async function handleApi(req: Request, env: Env, f: Fetcher = fetch): Pro
   if (req.method === "GET" && pathname === "/api/findings") return json({ findings: await listFindings(env) });
 
   if (req.method === "GET" && pathname === "/api/crawl") return json({ sites: await crawlSummary(env) });
+
+  if (req.method === "GET" && pathname === "/api/page-checks") return json({ checks: await latestPageChecks(env) });
+
+  // Screenshots are private: served only through this signed-in route, never from a public bucket.
+  const shot = pathname.match(/^\/api\/shots\/([a-z0-9-]+\/[A-Za-z0-9-]+\.png)$/);
+  if (req.method === "GET" && shot) {
+    const obj = env.SHOTS ? await env.SHOTS.get(shot[1]!) : null;
+    if (!obj) return json({ error: "not_found" }, 404);
+    return new Response(await obj.arrayBuffer(), { headers: { "content-type": "image/png", "cache-control": "private, max-age=3600" } });
+  }
 
   const dis = pathname.match(/^\/api\/findings\/(\d+)\/dismiss$/);
   if (req.method === "POST" && dis) {
@@ -99,6 +111,17 @@ export async function runCrawl(env: Env, f: Fetcher = fetch): Promise<TickReport
   }
 }
 
+/** One page check, when a browser and a screenshot bucket are bound. */
+export async function runPageCheck(env: Env, open: (binding: unknown) => Promise<CheckBrowser>): Promise<CheckReport | { error: string } | { skipped: string }> {
+  const { BROWSER: binding, SHOTS: shots, DB: db } = env;
+  if (!db || !binding || !shots) return { skipped: "browser or screenshot storage not bound" };
+  try {
+    return await pageCheckTick({ DB: db, SHOTS: shots }, await listSites(env), () => open(binding));
+  } catch (e) {
+    return { error: (e as Error).message };
+  }
+}
+
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     if (new URL(req.url).pathname.startsWith("/api/")) return handleApi(req, env);
@@ -108,6 +131,8 @@ export default {
     ctx.waitUntil((async () => {
       console.log(JSON.stringify({ job: "uptime", r: await runUptime(env) }));
       console.log(JSON.stringify({ job: "crawl", r: await runCrawl(env) }));
+      const { openCloudflareBrowser } = await import("./lib/browser-cf");
+      console.log(JSON.stringify({ job: "pagecheck", r: await runPageCheck(env, openCloudflareBrowser) }));
     })());
   },
 };

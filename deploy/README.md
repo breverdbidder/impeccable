@@ -16,10 +16,11 @@ An internal tool that watches the websites we own and ships fixes as pull reques
 | `GET /api/sites/{id}/token`, `POST /api/sites/{id}/verify` | Working; DNS TXT, file and meta tag proofs |
 | Uptime cron, every 5 minutes | Skips unverified sites; one deduplicated finding per outage |
 | Crawl, same cron | One verified site per run: robots.txt and sitemap daily, then the 8 most overdue pages, same-host links queued. Findings for broken pages and links, missing sitemap, robots blocking everything, a shrinking sitemap, noindex in the sitemap, a canonical on another host, a missing title. A trial against biddeed.ai read 268 sitemap URLs and 16 pages with no findings |
-| Monitors page, `GET /api/crawl`, `POST /api/findings/{id}/dismiss` | Working in a local run |
-| Tests | 33 passing against real SQLite with the real migrations; typecheck clean |
+| Page checks, same cron | A real browser (Cloudflare Browser Rendering) loads one home page per run when it is first verified, when its content changes (how a deploy shows up) and once a day. Records largest paint, layout shift, weight and console errors, stores a screenshot in R2 and compares it with the previous one in the browser. These are lab numbers from one load, not Lighthouse scores |
+| Monitors page, `GET /api/crawl`, `GET /api/page-checks`, `GET /api/shots/{key}`, `POST /api/findings/{id}/dismiss` | Live |
+| Tests | 43 passing against real SQLite with the real migrations; typecheck clean. The browser adapter itself (`src/lib/browser-cf.ts`) is checked live, not in unit tests |
 
-Not built yet: Lighthouse and visual diff after each deploy (CP-15), and everything after it in `../docs/deploy/CHECKPOINTS.md`.
+Not built yet: a true Lighthouse score (the page check records lab metrics instead), checks triggered directly by a deploy event, and everything from Home polish (CP-16) onward in `../docs/deploy/CHECKPOINTS.md`.
 
 ## Deploy it
 

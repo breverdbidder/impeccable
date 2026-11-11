@@ -13,6 +13,15 @@ import Shell from "../layouts/Shell.astro";
     </table>
   </div>
 
+  <h2>Page checks</h2>
+  <p class="muted" style="margin:0 0 10px;max-width:68ch">A real browser loads each home page when it is first verified, when its content changes (a new deploy) and once a day. These are lab numbers from one load, not Lighthouse scores.</p>
+  <div class="card tablewrap">
+    <table>
+      <thead><tr><th>Site</th><th>Largest paint</th><th>Layout shift</th><th>Weight</th><th>Console errors</th><th>Visual change</th><th>Checked</th><th></th></tr></thead>
+      <tbody id="checks"><tr><td colspan="8" class="muted">Loading page checks…</td></tr></tbody>
+    </table>
+  </div>
+
   <h2>Open findings</h2>
   <div class="card tablewrap">
     <table>
@@ -25,14 +34,31 @@ import Shell from "../layouts/Shell.astro";
 
 <script>
   type Row = { site_id: string; pages: number; crawled: number; broken: number; sitemap_count: number | null; sitemap_url: string | null; last_tick: string | null };
+  type Check = { site_id: string; lcp_ms: number | null; cls: number | null; transfer_bytes: number | null; requests: number | null; console_errors: number | null; diff_pct: number | null; shot_key: string | null; error: string | null; ran_at: string };
   type Finding = { id: number; site_id: string; source: string; severity: string; title: string; created_at: string };
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
   const when = (iso: string | null) => (iso ? new Date(iso).toLocaleString(undefined, { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }) : "Never");
+  const checks = document.getElementById("checks")!;
+  const grade = (v: number | null, ok: number, poor: number, fmt: (n: number) => string) => v === null ? '<span class="muted">n/a</span>' : `<span class="pill ${v <= ok ? "ok" : v <= poor ? "warn" : "bad"}">${fmt(v)}</span>`;
   const crawl = document.getElementById("crawl")!, list = document.getElementById("findings")!, msg = document.getElementById("msg")!;
   const fail = (el: HTMLElement, cols: number, status: number) => (el.innerHTML = `<tr><td colspan="${cols}"><span class="pill bad">Could not load</span> The API answered ${status}.</td></tr>`);
 
   async function load() {
-    const [c, f] = await Promise.all([fetch("/api/crawl"), fetch("/api/findings")]);
+    const [c, f, k] = await Promise.all([fetch("/api/crawl"), fetch("/api/findings"), fetch("/api/page-checks")]);
+    if (!k.ok) fail(checks, 8, k.status);
+    else {
+      const rows = ((await k.json()) as { checks: Check[] }).checks;
+      checks.innerHTML = rows.length ? rows.map((x) => x.error ? `<tr><td><strong>${esc(x.site_id)}</strong></td><td colspan="5"><span class="pill bad">Check failed</span> ${esc(x.error)}</td><td>${esc(when(x.ran_at))}</td><td></td></tr>` : `<tr>
+        <td><strong>${esc(x.site_id)}</strong></td>
+        <td>${grade(x.lcp_ms, 2500, 4000, (n) => (n / 1000).toFixed(1) + " s")}</td>
+        <td>${grade(x.cls, 0.1, 0.25, (n) => n.toFixed(2))}</td>
+        <td>${x.transfer_bytes === null ? "n/a" : (x.transfer_bytes / 1048576).toFixed(1) + " MB"}${x.requests ? `, ${x.requests} requests` : ""}</td>
+        <td>${x.console_errors ? `<span class="pill warn">${x.console_errors}</span>` : "0"}</td>
+        <td>${x.diff_pct === null ? '<span class="muted">First check</span>' : grade(x.diff_pct, 1, 5, (n) => n.toFixed(1) + "%")}</td>
+        <td>${esc(when(x.ran_at))}</td>
+        <td>${x.shot_key ? `<a href="/api/shots/${esc(x.shot_key)}" target="_blank" rel="noopener">Screenshot</a>` : ""}</td></tr>`).join("")
+        : '<tr><td colspan="8" class="muted">No page checks yet. The first one runs within a few minutes of a site being verified.</td></tr>';
+    }
     if (!c.ok) fail(crawl, 6, c.status);
     else {
       const { sites } = (await c.json()) as { sites: Row[] };

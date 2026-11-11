@@ -11,16 +11,17 @@
     "typecheck": "tsc --noEmit",
     "deploy": "astro build && wrangler deploy",
     "dev:worker": "astro build && wrangler dev",
-    "bundle": "astro build && esbuild src/worker-inline.ts --bundle --format=esm --minify --charset=ascii --loader:.html=text --loader:.json=json --target=es2022 --outfile=api-upload/worker.js"
+    "bundle": "astro build && esbuild src/worker-inline.ts --bundle --format=esm --minify --charset=ascii --loader:.html=text --loader:.json=json --target=es2022 --platform=neutral --main-fields=module,main --conditions=worker,workerd,import --external:node:* --external:cloudflare:* --outfile=api-upload/worker.js"
   },
   "dependencies": {
     "astro": "^7.4.10"
   },
   "devDependencies": {
+    "@cloudflare/puppeteer": "^2.0.0",
     "@types/node": "^26.6.6",
+    "esbuild": "*",
     "typescript": "^7.0.2",
     "vitest": "^5.1.0",
-    "wrangler": "^4",
-    "esbuild": "*"
+    "wrangler": "^4"
   }
 }

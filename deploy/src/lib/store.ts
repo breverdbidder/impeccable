@@ -68,3 +68,14 @@ export async function dismissFinding(env: StoreEnv, id: number): Promise<boolean
   await env.DB.prepare("UPDATE findings SET status = 'dismissed', updated_at = strftime('%Y-%m-%dT%H:%M:%fZ','now') WHERE id = ?").bind(id).run();
   return true;
 }
+
+export type PageCheckRow = { site_id: string; url: string; reason: string; status: number | null; lcp_ms: number | null; cls: number | null; ttfb_ms: number | null; load_ms: number | null; transfer_bytes: number | null; requests: number | null; console_errors: number | null; shot_key: string | null; diff_pct: number | null; error: string | null; ran_at: string };
+
+/** The most recent check for each site. */
+export async function latestPageChecks(env: StoreEnv): Promise<PageCheckRow[]> {
+  if (!connected(env)) return [];
+  const r = await env.DB.prepare(
+    "SELECT c.site_id, c.url, c.reason, c.status, c.lcp_ms, c.cls, c.ttfb_ms, c.load_ms, c.transfer_bytes, c.requests, c.console_errors, c.shot_key, c.diff_pct, c.error, c.ran_at FROM page_checks c JOIN (SELECT site_id, MAX(id) AS id FROM page_checks GROUP BY site_id) m ON m.id = c.id ORDER BY c.site_id",
+  ).all<PageCheckRow>();
+  return r.results;
+}

@@ -10,6 +10,9 @@
   "d1_databases": [
     { "binding": "DB", "database_name": "deploy-internal", "database_id": "d913e974-a802-45a6-93cf-60eb76c21716", "migrations_dir": "migrations" }
   ],
+  "compatibility_flags": ["nodejs_compat"],
+  "browser": { "binding": "BROWSER" },
+  "r2_buckets": [{ "binding": "SHOTS", "bucket_name": "deploy-internal-shots" }],
   "triggers": { "crons": ["*/5 * * * *"] },
   "observability": { "enabled": true },
   // Cloudflare Access application "Deploy (internal)" guards the workers.dev hostname.
