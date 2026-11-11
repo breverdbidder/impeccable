@@ -1,0 +1,16 @@
+---
+import Shell from "../layouts/Shell.astro";
+---
+<Shell title="Page not found">
+  <div class="head">
+    <div>
+      <h1>That page does not exist</h1>
+      <p>Deploy has three pages. The address may be mistyped, or the link may be out of date.</p>
+    </div>
+  </div>
+  <p style="display:flex;flex-wrap:wrap;gap:var(--s2)">
+    <a class="btn primary" href="/">Home</a>
+    <a class="btn" href="/monitors/">Monitors</a>
+    <a class="btn" href="/settings/">Settings</a>
+  </p>
+</Shell>

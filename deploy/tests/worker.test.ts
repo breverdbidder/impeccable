@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { handleApi, runUptime, type Env } from "../src/worker";
 import type { D1, D1Stmt } from "../src/lib/store";
+import { testDb } from "./d1";
 
 // Minimal in-memory stand-in for the D1 calls the Worker makes.
 function fakeDb(sites: Record<string, unknown>[]) {
@@ -76,5 +77,39 @@ describe("uptime job", () => {
     const ins = log.filter((l) => l.sql.startsWith("INSERT INTO findings"));
     expect(ins).toHaveLength(1);
     expect(ins[0]!.sql).toContain("ON CONFLICT (site_id, dedupe_key)");
+  });
+});
+
+describe("status and undo, against the real schema", () => {
+  const env = () => { const t = testDb(); t.raw.exec("UPDATE sites SET verified_at = '2026-11-11T00:00:00.000Z' WHERE id IN ('biddeed','dealdeed')"); return { t, e: { ...dev, DB: t.db } as Env }; };
+  const call = async (e: Env, path: string, method = "GET") => handleApi(new Request("https://x" + path, { method }), e);
+
+  it("reports the latest uptime result per site, when an outage began, and spend against the cap", async () => {
+    const { t, e } = env();
+    await runUptime(e, async (u: string) => new Response("", { status: u.includes("biddeed") ? 503 : 200 }));
+    await runUptime(e, async (u: string) => new Response("", { status: u.includes("biddeed") ? 503 : 200 }));
+    t.raw.exec("INSERT INTO usage (provider, model, cost_cents) VALUES ('x', 'y', 125)");
+    const j = (await (await call(e, "/api/status")).json()) as { sites: { site_id: string; ok: number; status: number; down_since: string | null }[]; spend_cents: number; cap_cents: number };
+    expect(j.sites.map((s) => [s.site_id, s.ok, s.status, s.down_since !== null])).toEqual([["biddeed", 0, 503, true], ["dealdeed", 1, 200, false]]);
+    expect([j.spend_cents, j.cap_cents]).toEqual([125, 10000]);
+  });
+
+  it("lets a dismissal be undone, once, and records both in the audit log", async () => {
+    const { t, e } = env();
+    t.raw.exec("INSERT INTO findings (site_id, source, severity, title, evidence, dedupe_key) VALUES ('biddeed','crawl','low','t','{}','k')");
+    expect((await call(e, "/api/findings/1/reopen", "POST")).status).toBe(404);
+    expect((await call(e, "/api/findings/1/dismiss", "POST")).status).toBe(200);
+    expect((await call(e, "/api/findings/1/reopen", "POST")).status).toBe(200);
+    expect((await call(e, "/api/findings/1/reopen", "POST")).status).toBe(404);
+    expect(t.raw.prepare("SELECT status FROM findings WHERE id = 1").get()).toEqual({ status: "open" });
+    expect(t.raw.prepare("SELECT action FROM audit_log ORDER BY id").all().map((r) => r.action)).toEqual(["finding.dismissed", "finding.reopened"]);
+  });
+
+  it("includes how each site was verified, never the proof token", async () => {
+    const { t, e } = env();
+    t.raw.exec("UPDATE sites SET verify_method = 'dns_txt' WHERE id = 'biddeed'");
+    const body = await (await call(e, "/api/sites")).text();
+    expect(body).toContain('"verify_method":"dns_txt"');
+    expect(body).not.toContain("verify_token");
   });
 });

@@ -1,58 +1,74 @@
 ---
 import Shell from "../layouts/Shell.astro";
 ---
-<Shell title="Home" active="Home" crumb="Home / All sites">
-  <h1>Sites we own</h1>
-  <p class="lede">Deploy watches only sites that have passed ownership verification. Unverified sites are listed here and nothing fetches them.</p>
+<Shell title="Home" active="Home">
+  <div class="head">
+    <div>
+      <h1>How our sites are doing</h1>
+      <p>Uptime every 5 minutes, a crawl of every page, and a real-browser check of each home page.</p>
+    </div>
+    <div class="fresh" id="fresh"></div>
+  </div>
 
-  <section class="kpis" aria-label="Summary">
-    <div class="card kpi"><span>Sites registered</span><b id="k-sites">–</b></div>
-    <div class="card kpi"><span>Verified</span><b id="k-verified">–</b></div>
-    <div class="card kpi"><span>Open findings</span><b id="k-findings">–</b></div>
-    <div class="card kpi"><span>Spend this month</span><b>$0.00</b></div>
+  <p class="panel summary" id="summary" aria-live="polite"><span class="skel" style="width:60%"></span></p>
+
+  <section aria-labelledby="h-sites">
+    <h2 id="h-sites">Sites</h2>
+    <div class="panel">
+      <table class="stack">
+        <thead><tr><th scope="col">Site</th><th scope="col">Status</th><th scope="col">Response</th><th scope="col">Home page paint</th><th scope="col">Open findings</th><th scope="col">Last checked</th></tr></thead>
+        <tbody id="sites"></tbody>
+      </table>
+    </div>
   </section>
 
-  <h2>Sites</h2>
-  <div class="card tablewrap">
-    <table>
-      <thead><tr><th>Site</th><th>Hostname</th><th>Repository</th><th>Ownership</th><th>Monitoring</th></tr></thead>
-      <tbody id="rows"><tr><td colspan="5" class="muted">Loading sites…</td></tr></tbody>
-    </table>
-  </div>
-  <p class="muted" id="storage" style="margin-top:10px"></p>
-
-  <h2>Needs you</h2>
-  <div class="card" id="needs"><span class="muted">Nothing yet. Findings appear here once a verified site has monitors running.</span></div>
+  <section aria-labelledby="h-needs">
+    <h2 id="h-needs">Needs you</h2>
+    <div class="panel"><ul class="feed" id="needs"></ul></div>
+    <p class="notice" id="needs-status" role="status"></p>
+    <p style="margin-top: var(--s3)"><a href="/monitors/">All monitors and findings</a></p>
+  </section>
 </Shell>
 
-<script>
-  type Site = { id: string; name: string; hostname: string | null; github_repo: string | null; verified: boolean };
-  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
-  const rows = document.getElementById("rows")!;
-  const set = (id: string, v: string) => (document.getElementById(id)!.textContent = v);
-  fetch("/api/sites", { headers: { accept: "application/json" } })
-    .then(async (r) => {
-      if (!r.ok) throw new Error(r.status === 401 ? "Sign-in through Cloudflare Access is required." : `The sites API answered ${r.status}.`);
-      return r.json() as Promise<{ storage: string; sites: Site[] }>;
-    })
-    .then(({ storage, sites }) => {
-      set("k-sites", String(sites.length));
-      set("k-verified", String(sites.filter((s) => s.verified).length));
-      fetch("/api/findings").then((r) => r.json()).then((j: { findings: { title: string; severity: string }[] }) => {
-        set("k-findings", String(j.findings.length));
-        if (j.findings.length) document.getElementById("needs")!.innerHTML = j.findings.map((x) =>
-          `<p style="margin:6px 0"><span class="pill ${x.severity === "high" ? "bad" : "warn"}">${esc(x.severity)}</span> ${esc(x.title)}</p>`).slice(0, 8).join("") + '<p style="margin:10px 0 0"><a href="/monitors/">All findings</a></p>';
-      }).catch(() => set("k-findings", "–"));
-      rows.innerHTML = sites.map((s) => `<tr>
-        <td><strong>${esc(s.name)}</strong></td>
-        <td>${s.hostname ? `<code>${esc(s.hostname)}</code>` : '<span class="pill warn">Hostname needed</span>'}</td>
-        <td>${s.github_repo ? `<code>${esc(s.github_repo)}</code>` : '<span class="muted">Not connected</span>'}</td>
-        <td>${s.verified ? '<span class="pill ok">Verified</span>' : '<span class="pill warn">Not verified</span>'}</td>
-        <td>${s.verified ? '<span class="pill">Ready</span>' : '<span class="muted">Blocked until verified</span>'}</td></tr>`).join("");
-      set("storage", storage === "seed" ? "Showing the seed list. The database is not connected." : "");
-      const todo = sites.filter((s) => !s.verified);
-      if (todo.length && document.getElementById("needs")!.querySelector(".muted")) document.getElementById("needs")!.innerHTML =
-        `<strong>${todo.length} site${todo.length > 1 ? "s" : ""} to verify.</strong> <a href="/settings/">Open Settings</a> for the steps.`;
-    })
-    .catch((e: Error) => { rows.innerHTML = `<tr><td colspan="5"><span class="pill bad">Could not load</span> ${esc(e.message)}</td></tr>`; });
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    var UI = window.UI, sitesEl = document.getElementById("sites"), needs = document.getElementById("needs"), summary = document.getElementById("summary");
+    sitesEl.innerHTML = UI.skeleton(6);
+    var plural = function (n, one, many) { return n + " " + (n === 1 ? one : many); };
+    var load = async function () {
+      try {
+        var r = await Promise.all([UI.get("/api/sites"), UI.get("/api/status"), UI.get("/api/findings"), UI.get("/api/page-checks")]);
+        var sites = r[0].sites, status = {}, checks = {}, open = {}, names = {};
+        r[1].sites.forEach(function (s) { status[s.site_id] = s; });
+        r[3].checks.forEach(function (c) { checks[c.site_id] = c; });
+        r[2].findings.forEach(function (f) { open[f.site_id] = (open[f.site_id] || 0) + 1; });
+        sites.forEach(function (s) { names[s.id] = s.name; });
+
+        var verified = sites.filter(function (s) { return s.verified; }), down = verified.filter(function (s) { return status[s.id] && !status[s.id].ok; });
+        var waiting = sites.length - verified.length, n = r[2].findings.length;
+        summary.innerHTML = !sites.length ? "No sites are registered yet."
+          : !verified.length ? "No site is being watched yet. <a href=\"/settings/\">Verify a site</a> to start."
+          : (down.length ? "<strong>" + plural(down.length, "site is", "sites are") + " down:</strong> " + down.map(function (s) { return UI.esc(s.name); }).join(", ") + ". "
+              : "<strong>" + (verified.length === 1 ? "The monitored site is up." : "All " + verified.length + " monitored sites are up.") + "</strong> ")
+            + (n ? plural(n, "finding needs", "findings need") + " a look." : "Nothing needs you.")
+            + (waiting ? " " + plural(waiting, "site is", "sites are") + " waiting to be <a href=\"/settings/\">verified</a>." : "");
+
+        sitesEl.innerHTML = sites.map(function (s) {
+          var st = status[s.id], c = checks[s.id], host = s.hostname ? UI.esc(s.hostname) : "No hostname yet";
+          var name = '<td class="site"><b>' + UI.esc(s.name) + "</b><span>" + host + "</span></td>";
+          if (!s.verified) return "<tr>" + name + '<td data-label="Status"><span class="pill warn">Not verified</span></td><td colspan="4" class="muted">Nothing is fetched until this site proves it is ours. <a href="/settings/">Verify it</a></td></tr>';
+          var state = !st ? '<span class="pill">Waiting for first check</span>' : st.ok ? '<span class="pill ok">Up</span>' : '<span class="pill bad">Down</span>';
+          var resp = !st ? "" : st.ok ? '<span class="num">' + st.ms + " ms</span>" : "<span>Answered " + (st.status || "nothing") + (st.down_since ? ", since " + UI.ago(st.down_since) : "") + "</span>";
+          var paint = !c || c.lcp_ms == null ? '<span class="muted">Not measured yet</span>' : '<span class="pill ' + (c.lcp_ms <= 2500 ? "ok" : c.lcp_ms <= 4000 ? "warn" : "bad") + '">' + (c.lcp_ms / 1000).toFixed(1) + " s</span>";
+          var k = open[s.id] || 0;
+          return "<tr>" + name + '<td data-label="Status">' + state + '</td><td data-label="Response">' + resp + '</td><td data-label="Home page paint">' + paint +
+            '</td><td data-label="Open findings" class="num">' + (k ? '<a href="/monitors/#findings">' + k + "</a>" : "0") + '</td><td data-label="Last checked" class="muted">' + (st ? UI.ago(st.ran_at) : "") + "</td></tr>";
+        }).join("") || '<tr><td colspan="6" class="empty"><strong>No sites yet.</strong>Sites are added to the registry in the database, then verified in Settings.</td></tr>';
+
+        UI.findings(needs, r[2].findings, names, 6);
+      } catch (e) { sitesEl.innerHTML = ""; needs.innerHTML = ""; UI.failed(summary, e); }
+    };
+    var refresh = UI.freshness(document.getElementById("fresh"), load);
+    UI.wireFindings(needs, document.getElementById("needs-status"), refresh);
+  });
 </script>

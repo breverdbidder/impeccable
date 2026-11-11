@@ -11,7 +11,7 @@ An internal tool that watches the websites we own and ships fixes as pull reques
 | D1 database `deploy-internal` | Created on the account, schema applied, three sites seeded, none verified |
 | Worker `deploy-internal` | Deployed 2026-11-11 from `api-upload/worker.js` at `https://deploy-internal.brevardbidderai.workers.dev`, cron every 5 minutes |
 | Cloudflare Access | Application "Deploy (internal)" in front of the hostname, policy "Owner only". An unauthenticated request to `/` and to `/api/sites` lands on the Access sign-in page. The signed-in experience has not been checked yet |
-| App shell: Home and Settings | Built, responsive, light and dark |
+| App: Home, Monitors, Settings, 404 | Design pass done 2026-11-11: one shared layout and token set, light and dark, tables that become labelled records on phones, skip link, visible focus, 44 px touch targets on small screens, loading, empty and error states, Dismiss with Undo. Each page is one self-contained file |
 | `GET /api/sites`, `GET /api/findings` | Working against D1 in a local run; not yet exercised on the deployed Worker behind Access |
 | `GET /api/sites/{id}/token`, `POST /api/sites/{id}/verify` | Working; DNS TXT, file and meta tag proofs |
 | Uptime cron, every 5 minutes | Skips unverified sites; one deduplicated finding per outage |

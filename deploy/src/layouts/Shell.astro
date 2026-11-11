@@ -1,10 +1,8 @@
 ---
-interface Props { title: string; active: string; crumb: string }
-const { title, active, crumb } = Astro.props;
-const nav = [
-  ["Home", "/"], ["Deploys", null], ["Analytics", null], ["AI visibility", null], ["SEO", null],
-  ["Monitors", "/monitors/"], ["Playbooks", null],
-] as const;
+interface Props { title: string; active?: string }
+const { title, active } = Astro.props;
+const nav = [["Home", "/"], ["Monitors", "/monitors/"], ["Settings", "/settings/"]] as const;
+const icon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f5a49'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E";
 ---
 <!doctype html>
 <html lang="en">
@@ -12,77 +10,245 @@ const nav = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href={icon} />
     <title>{title} · Deploy</title>
     <style is:global>
       :root {
-        --bg: #f6f5f1; --surface: #ffffff; --ink: #17201c; --muted: #5d6762; --line: #dcdad2;
-        --accent: #1f5a49; --accent-ink: #ffffff; --warn: #9a5b00; --bad: #a3271f; --ok: #1f5a49;
-        --radius: 10px; --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+        color-scheme: light dark;
+        --bg: #f5f4ef; --surface: #ffffff; --sunken: #efede6;
+        --ink: #17201c; --muted: #56605b;
+        --line: #dedcd3; --line-strong: #878f8a;
+        --accent: #1f5a49; --accent-ink: #ffffff; --accent-soft: #e2eee8;
+        --ok: #1f5a49; --ok-soft: #e2eee8;
+        --warn: #855000; --warn-soft: #f9eed6;
+        --bad: #a3271f; --bad-soft: #fae7e4;
+        --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
+        --radius: 12px; --radius-sm: 8px;
+        --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        --ease: cubic-bezier(0.16, 1, 0.3, 1);
       }
       @media (prefers-color-scheme: dark) {
-        :root { --bg: #111613; --surface: #19201c; --ink: #e9ece8; --muted: #9aa49e; --line: #2c3530; --accent: #7fc8ae; --accent-ink: #0d1411; --warn: #e0a84a; --bad: #f08a80; --ok: #7fc8ae; }
+        :root {
+          --bg: #101512; --surface: #171e1a; --sunken: #0c100e;
+          --ink: #e9ece8; --muted: #a3ada7;
+          --line: #2a332e; --line-strong: #6f7a74;
+          --accent: #7fc8ae; --accent-ink: #0d1411; --accent-soft: #1b2e27;
+          --ok: #7fc8ae; --ok-soft: #1b2e27;
+          --warn: #e0a84a; --warn-soft: #2e2514;
+          --bad: #f08a80; --bad-soft: #341c19;
+        }
       }
-      * { box-sizing: border-box; }
-      body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font); }
-      a { color: inherit; }
-      .app { display: grid; grid-template-columns: 216px 1fr; min-height: 100vh; }
-      .side { border-right: 1px solid var(--line); padding: 20px 12px; display: flex; flex-direction: column; gap: 2px; }
-      .brand { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; padding: 0 12px 16px; }
-      .side a, .side span { display: block; padding: 7px 12px; border-radius: 8px; text-decoration: none; }
-      .side a[aria-current="page"] { background: var(--ink); color: var(--bg); font-weight: 600; }
-      .side span { color: var(--muted); }
-      .side span small { font-size: 11px; margin-left: 6px; }
-      .side .foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 10px; }
-      main { padding: 24px 28px 56px; min-width: 0; }
-      .crumb { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
-      h1 { font-size: 24px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.01em; }
-      h2 { font-size: 15px; margin: 28px 0 10px; }
-      p.lede { color: var(--muted); margin: 0 0 20px; max-width: 68ch; }
-      .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
-      .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
-      .kpi b { display: block; font-size: 26px; line-height: 1.2; }
-      .kpi span { color: var(--muted); font-size: 12px; font-weight: 600; }
-      .tablewrap { overflow-x: auto; }
-      table { width: 100%; border-collapse: collapse; }
-      th { text-align: left; font-size: 12px; color: var(--muted); font-weight: 600; padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-      td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-      tr:last-child td { border-bottom: 0; }
-      .pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
-      .pill.ok { color: var(--ok); border-color: currentColor; }
-      .pill.warn { color: var(--warn); border-color: currentColor; }
-      .pill.bad { color: var(--bad); border-color: currentColor; }
-      code { font-family: var(--mono); font-size: 13px; background: color-mix(in srgb, var(--ink) 7%, transparent); padding: 1px 5px; border-radius: 5px; overflow-wrap: anywhere; }
-      button { font: inherit; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); cursor: pointer; }
-      button.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
-      button:disabled { opacity: 0.5; cursor: not-allowed; }
-      :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+      *, *::before, *::after { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--line-strong) transparent; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 var(--font); accent-color: var(--accent); }
+      ::selection { background: var(--accent); color: var(--accent-ink); }
+      a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+      a:hover { text-decoration-thickness: 2px; }
+      :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+      h1, h2, p { margin: 0; }
+      h1 { font-size: 26px; line-height: 1.2; letter-spacing: -0.015em; font-weight: 700; text-wrap: balance; }
+      h2 { font-size: 16px; line-height: 1.3; font-weight: 650; }
       .muted { color: var(--muted); }
-      ol.steps { padding-left: 20px; margin: 0; }
-      ol.steps li { margin: 6px 0; }
-      @media (max-width: 760px) {
-        .app { grid-template-columns: 1fr; }
-        .side { flex-direction: row; flex-wrap: wrap; border-right: 0; border-bottom: 1px solid var(--line); padding: 12px 16px; }
-        .brand { padding: 4px 8px 4px 0; width: 100%; }
-        .side span { display: none; }
-        .side .foot { margin: 0; border: 0; padding: 0; }
-        main { padding: 20px 16px 48px; }
+      .num { font-variant-numeric: tabular-nums; }
+      .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+      code { font-family: var(--mono); font-size: 0.87em; background: var(--sunken); border-radius: 5px; padding: 2px 6px; overflow-wrap: anywhere; }
+
+      .skip { position: absolute; left: var(--s4); top: -60px; z-index: 10; background: var(--ink); color: var(--bg); padding: 10px 14px; border-radius: var(--radius-sm); font-weight: 600; text-decoration: none; }
+      .skip:focus { top: var(--s3); }
+
+      .app { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: 100vh; }
+      .side { border-right: 1px solid var(--line); background: var(--sunken); }
+      .side-in { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; gap: var(--s1); padding: var(--s5) var(--s3); }
+      .brand { display: flex; align-items: center; gap: 10px; padding: 0 var(--s3) var(--s5); font-weight: 750; font-size: 18px; letter-spacing: -0.02em; text-decoration: none; }
+      .brand img { width: 24px; height: 24px; display: block; }
+      .side nav { display: flex; flex-direction: column; gap: 2px; }
+      .side nav a { display: flex; align-items: center; min-height: 40px; padding: 0 var(--s3); border-radius: var(--radius-sm); text-decoration: none; color: var(--muted); font-weight: 500; transition: background-color 160ms var(--ease), color 160ms var(--ease); }
+      .side nav a:hover { background: color-mix(in srgb, var(--ink) 7%, transparent); color: var(--ink); }
+      .side nav a[aria-current="page"] { background: var(--surface); color: var(--ink); font-weight: 650; box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(0 0 0 / 0.05); }
+      .side .note { margin-top: auto; padding: var(--s3); font-size: 13px; color: var(--muted); }
+
+      main { min-width: 0; padding: var(--s6) var(--s6) var(--s7); max-width: 1180px; }
+      .head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--s3) var(--s5); margin-bottom: var(--s5); }
+      .head p { color: var(--muted); max-width: 68ch; margin-top: var(--s2); }
+      .fresh { display: flex; align-items: center; gap: var(--s3); color: var(--muted); font-size: 13px; white-space: nowrap; }
+      section { margin-top: var(--s6); }
+      section > h2 { margin-bottom: var(--s2); }
+      section > p { color: var(--muted); max-width: 68ch; margin-bottom: var(--s3); }
+      .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+      .summary { font-size: 18px; line-height: 1.45; max-width: 60ch; padding: var(--s4) var(--s5); }
+      .summary strong { font-weight: 650; }
+
+      button, .btn { font: inherit; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); cursor: pointer; text-decoration: none; transition: background-color 160ms var(--ease), border-color 160ms var(--ease), transform 160ms var(--ease); }
+      button:hover, .btn:hover { border-color: var(--ink); background: var(--sunken); }
+      button:active, .btn:active { transform: translateY(1px); }
+      button.primary, .btn.primary { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+      button.primary:hover, .btn.primary:hover { background: color-mix(in srgb, var(--ink) 86%, var(--bg)); }
+      button:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+      button[aria-busy="true"] { cursor: progress; }
+      .linkbtn { min-height: 0; padding: 0; border: 0; border-radius: 4px; background: none; color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+      .linkbtn:hover { background: none; text-decoration-thickness: 2px; }
+
+      .pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; line-height: 1; padding: 5px 9px; border-radius: 999px; background: var(--sunken); color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+      .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+      .pill.plain::before { display: none; }
+      .pill.ok { background: var(--ok-soft); color: var(--ok); }
+      .pill.warn { background: var(--warn-soft); color: var(--warn); }
+      .pill.bad { background: var(--bad-soft); color: var(--bad); }
+
+      table { width: 100%; border-collapse: collapse; }
+      th { text-align: left; font-size: 12.5px; font-weight: 600; color: var(--muted); padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); white-space: nowrap; }
+      td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); vertical-align: middle; }
+      tbody tr:last-child td { border-bottom: 0; }
+      td.end, th.end { text-align: right; }
+      .site b { display: block; font-weight: 650; }
+      .site span { font-size: 13px; color: var(--muted); overflow-wrap: anywhere; }
+      .thumb { display: block; width: 72px; aspect-ratio: 4 / 3; border-radius: 6px; border: 1px solid var(--line); background: var(--sunken); overflow: hidden; }
+      .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+      .feed { list-style: none; margin: 0; padding: 0; }
+      .feed li { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: var(--s2) var(--s4); padding: var(--s4); border-bottom: 1px solid var(--line); }
+      .feed li:last-child { border-bottom: 0; }
+      .feed .what { font-weight: 550; }
+      .feed .meta { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--muted); }
+      .empty { padding: var(--s5); color: var(--muted); }
+      .empty strong { display: block; color: var(--ink); font-weight: 650; margin-bottom: 2px; }
+      .notice { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s4); padding: var(--s3) var(--s4); border-radius: var(--radius-sm); background: var(--sunken); margin-top: var(--s3); }
+      .notice:empty { display: none; }
+      .notice.bad { background: var(--bad-soft); color: var(--bad); }
+      .proof { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3); }
+
+      .skel { display: block; height: 12px; border-radius: 6px; background: linear-gradient(90deg, var(--sunken) 25%, color-mix(in srgb, var(--sunken) 55%, var(--surface)) 50%, var(--sunken) 75%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+      @keyframes shimmer { to { background-position: -200% 0; } }
+
+      ol.steps { margin: 0; padding: var(--s4) var(--s5) var(--s4) calc(var(--s5) + 20px); }
+      ol.steps li { margin: var(--s2) 0; padding-left: var(--s1); }
+
+      @media (max-width: 820px) {
+        .app { grid-template-columns: minmax(0, 1fr); }
+        .side { border-right: 0; border-bottom: 1px solid var(--line); }
+        .side-in { position: static; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s4); padding: var(--s3) var(--s4); }
+        .brand { padding: 0; margin-right: auto; }
+        .side nav { flex-direction: row; }
+        .side nav a { min-height: 44px; }
+        .side .note { display: none; }
+        main { padding: var(--s5) var(--s4) var(--s7); }
+        h1 { font-size: 23px; }
+        .summary { font-size: 17px; padding: var(--s4); }
+        button, .btn { min-height: 44px; }
+        .linkbtn { min-height: 44px; }
+
+        /* Tables become one record per block, each value under its own label. */
+        table.stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+        table.stack, table.stack tbody, table.stack tr, table.stack td { display: block; width: 100%; }
+        table.stack tr { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); }
+        table.stack tbody tr:last-child { border-bottom: 0; }
+        table.stack td { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: var(--s3); align-items: center; padding: 5px 0; border: 0; text-align: left; }
+        table.stack td::before { content: attr(data-label); font-size: 12.5px; font-weight: 600; color: var(--muted); }
+        table.stack td > * { justify-self: start; }
+        table.stack td:first-child { display: block; padding-bottom: var(--s2); }
+        table.stack td:first-child::before, table.stack td.act::before, table.stack td[colspan]::before { display: none; }
+        table.stack td.act, table.stack td[colspan] { display: flex; flex-wrap: wrap; gap: var(--s2); padding-top: var(--s2); }
+        table.stack td:empty { display: none; }
+        .feed li { grid-template-columns: auto minmax(0, 1fr); }
+        .feed li > .act { grid-column: 1 / -1; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .skel { animation: none; }
+        button, .btn, .side nav a { transition: none; }
+        button:active, .btn:active { transform: none; }
       }
     </style>
   </head>
   <body>
+    <a class="skip" href="#main">Skip to content</a>
     <div class="app">
-      <nav class="side" aria-label="Main">
-        <div class="brand">deploy</div>
-        {nav.map(([label, href]) => href
-          ? <a href={href} aria-current={active === label ? "page" : undefined}>{label}</a>
-          : <span>{label}<small>soon</small></span>)}
-        <div class="foot"><a href="/settings/" aria-current={active === "Settings" ? "page" : undefined}>Settings</a></div>
-      </nav>
-      <main>
-        <div class="crumb">{crumb}</div>
+      <header class="side"><div class="side-in">
+        <a class="brand" href="/"><img src={icon} alt="" />deploy</a>
+        <nav aria-label="Main">
+          {nav.map(([label, href]) => <a href={href} aria-current={active === label ? "page" : undefined}>{label}</a>)}
+        </nav>
+        <p class="note">Internal. Watches only sites that have proven they are ours.</p>
+      </div></header>
+      <main id="main" tabindex="-1">
         <slot />
       </main>
     </div>
+    <script is:inline>
+      // Shared page helpers. Plain script so every page stays one self-contained file.
+      window.UI = (function () {
+        var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+        var ago = function (iso) {
+          if (!iso) return "";
+          var d = new Date(iso), s = Math.max(0, (Date.now() - d.getTime()) / 1000), t;
+          if (s < 50) t = "just now"; else if (s < 3300) t = Math.round(s / 60) + " min ago"; else if (s < 82800) t = Math.round(s / 3600) + " h ago";
+          else if (s < 6 * 86400) t = Math.round(s / 86400) + " d ago"; else t = d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+          return '<time datetime="' + esc(iso) + '" title="' + esc(d.toLocaleString()) + '">' + t + "</time>";
+        };
+        var get = async function (path) {
+          var r = await fetch(path, { headers: { accept: "application/json" } });
+          if (!r.ok) { var e = new Error(r.status === 401 ? "Your sign-in has expired. Reload the page to sign in again." : "The server answered " + r.status + " for " + path + "."); e.status = r.status; throw e; }
+          return r.json();
+        };
+        var post = async function (path) { var r = await fetch(path, { method: "POST" }); var j = await r.json().catch(function () { return {}; }); return { ok: r.ok, status: r.status, body: j }; };
+        var skeleton = function (cols, rows) {
+          var out = "";
+          for (var i = 0; i < (rows || 3); i++) { out += "<tr>"; for (var c = 0; c < cols; c++) out += '<td><span class="skel" style="width:' + (c === 0 ? 70 : 40 + ((i + c) % 3) * 15) + '%"></span></td>'; out += "</tr>"; }
+          return out + '<tr class="sr"><td colspan="' + cols + '">Loading</td></tr>';
+        };
+        var failed = function (el, err) {
+          el.innerHTML = '<div class="notice bad" role="alert"><span>' + esc(err.message) + '</span><button type="button" data-reload>Reload</button></div>';
+        };
+        var sev = function (s) { return '<span class="pill ' + (s === "high" ? "bad" : s === "medium" ? "warn" : "") + '">' + esc(s.charAt(0).toUpperCase() + s.slice(1)) + "</span>"; };
+        var sources = { uptime: "Uptime", crawl: "Crawl", pagecheck: "Page check" };
+        // One findings list for Home and Monitors: same markup, same Dismiss and Undo behaviour.
+        var findings = function (list, items, names, limit) {
+          if (!items.length) { list.innerHTML = '<li class="empty" style="display:block"><strong>Nothing needs you.</strong>New problems appear here as soon as a check finds one.</li>'; return; }
+          list.innerHTML = items.slice(0, limit || items.length).map(function (f) {
+            return '<li data-finding="' + f.id + '">' + sev(f.severity) + '<span class="what">' + esc(f.title) +
+              '<span class="meta">' + esc(names[f.site_id] || f.site_id) + " · " + esc(sources[f.source] || f.source) + " · found " + ago(f.created_at) + "</span></span>" +
+              '<span class="act"><button type="button" data-dismiss="' + f.id + '" aria-label="Dismiss: ' + esc(f.title) + '">Dismiss</button></span></li>';
+          }).join("");
+        };
+        var wireFindings = function (list, status, reload) {
+          list.addEventListener("click", async function (e) {
+            var b = e.target.closest("button[data-dismiss]"); if (!b) return;
+            b.disabled = true; b.setAttribute("aria-busy", "true");
+            var id = b.dataset.dismiss, r = await post("/api/findings/" + id + "/dismiss");
+            if (!r.ok) { b.disabled = false; b.removeAttribute("aria-busy"); status.className = "notice bad"; status.textContent = "Could not dismiss that finding (the server answered " + r.status + ")."; return; }
+            status.className = "notice";
+            status.innerHTML = '<span>Dismissed. It stays dismissed if the same problem is seen again.</span><button type="button" class="linkbtn" data-undo="' + id + '">Undo</button>';
+            await reload();
+          });
+          status.addEventListener("click", async function (e) {
+            var b = e.target.closest("button[data-undo]"); if (!b) return;
+            var r = await post("/api/findings/" + b.dataset.undo + "/reopen");
+            status.className = r.ok ? "notice" : "notice bad";
+            status.textContent = r.ok ? "Restored." : "Could not restore that finding (the server answered " + r.status + ").";
+            await reload();
+          });
+        };
+        // "Updated 2 min ago" with a Refresh button; also refreshes when a stale tab is reopened.
+        var freshness = function (el, load) {
+          var at = 0, busy = false;
+          var run = async function () {
+            if (busy) return; busy = true;
+            var b = el.querySelector("button"); if (b) { b.disabled = true; b.setAttribute("aria-busy", "true"); }
+            try { await load(); at = Date.now(); } finally { busy = false; paint(); }
+          };
+          var paint = function () {
+            el.innerHTML = '<span>' + (at ? "Updated " + ago(new Date(at).toISOString()) : "Not loaded") + '</span><button type="button">Refresh</button>';
+            el.querySelector("button").addEventListener("click", run);
+          };
+          document.addEventListener("visibilitychange", function () { if (!document.hidden && Date.now() - at > 120000) run(); });
+          setInterval(function () { if (at && !busy) paint(); }, 60000);
+          paint(); run();
+          return run;
+        };
+        document.addEventListener("click", function (e) { if (e.target.closest("[data-reload]")) location.reload(); });
+        return { esc: esc, ago: ago, get: get, post: post, skeleton: skeleton, failed: failed, sev: sev, findings: findings, wireFindings: wireFindings, freshness: freshness };
+      })();
+    </script>
   </body>
 </html>

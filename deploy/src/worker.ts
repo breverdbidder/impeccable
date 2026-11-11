@@ -2,7 +2,7 @@
 // runs monitors on a cron trigger. Everything runs on our Cloudflare account.
 import { verifyAccess, type AccessEnv, type Identity } from "./lib/access";
 import { assertVerifiedHost, verifyOwnership } from "./lib/ownership";
-import { audit, connected, crawlSummary, dismissFinding, latestPageChecks, listFindings, listSites, markVerified, recordUptime, type StoreEnv } from "./lib/store";
+import { audit, connected, crawlSummary, dismissFinding, latestPageChecks, reopenFinding, statusSummary, listFindings, listSites, markVerified, recordUptime, type StoreEnv } from "./lib/store";
 import { crawlTick, type TickReport } from "./lib/crawl";
 import { pageCheckTick, type CheckBrowser, type CheckReport, type ShotStore } from "./lib/pagecheck";
 
@@ -45,6 +45,15 @@ export async function handleApi(req: Request, env: Env, f: Fetcher = fetch): Pro
     const done = await dismissFinding(env, Number(dis[1]));
     if (done) await audit(env, { actor_type: "member", actor_id: who.email, action: "finding.dismissed", target: dis[1] });
     return done ? json({ dismissed: true }) : json({ error: "not_found" }, 404);
+  }
+
+  if (req.method === "GET" && pathname === "/api/status") return json(await statusSummary(env));
+
+  const reo = pathname.match(/^\/api\/findings\/(\d+)\/reopen$/);
+  if (req.method === "POST" && reo) {
+    const done = await reopenFinding(env, Number(reo[1]));
+    if (done) await audit(env, { actor_type: "member", actor_id: who.email, action: "finding.reopened", target: reo[1] });
+    return done ? json({ reopened: true }) : json({ error: "not_found" }, 404);
   }
 
   // The proof token is shown only to a signed-in member, one site at a time.

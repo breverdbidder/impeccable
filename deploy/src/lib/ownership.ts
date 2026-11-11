@@ -8,6 +8,7 @@ export type Site = {
   name: string;
   github_repo?: string | null;
   verify_token?: string | null;
+  verify_method?: string | null;
   verified_at: string | null;
 };
 

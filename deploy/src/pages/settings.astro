@@ -1,61 +1,76 @@
 ---
 import Shell from "../layouts/Shell.astro";
 ---
-<Shell title="Settings" active="Settings" crumb="Settings / Sites">
-  <h1>Sites and ownership</h1>
-  <p class="lede">A site must prove it is ours before Deploy fetches a single page from it. Any one of the three proofs is enough.</p>
+<Shell title="Settings" active="Settings">
+  <div class="head">
+    <div>
+      <h1>Sites and ownership</h1>
+      <p>A site has to prove it is ours before a single page is fetched from it. Any one of these three proofs is enough.</p>
+    </div>
+  </div>
 
-  <div class="card">
+  <div class="panel">
     <ol class="steps">
-      <li><strong>DNS record.</strong> Add a TXT record at <code>_deploy-verify.&lt;hostname&gt;</code> with the value <code>deploy-verify=&lt;token&gt;</code>.</li>
-      <li><strong>File.</strong> Serve <code>/.well-known/deploy-verify.txt</code> containing <code>deploy-verify=&lt;token&gt;</code>.</li>
-      <li><strong>Meta tag.</strong> Add <code>&lt;meta name="deploy-verify" content="&lt;token&gt;"&gt;</code> to the home page.</li>
+      <li><strong>DNS record.</strong> A TXT record at <code>_deploy-verify.&lt;hostname&gt;</code> with the proof value.</li>
+      <li><strong>File.</strong> <code>/.well-known/deploy-verify.txt</code> containing the proof value.</li>
+      <li><strong>Meta tag.</strong> <code>&lt;meta name="deploy-verify" content="&lt;token&gt;"&gt;</code> on the home page, where the token is the part of the proof value after the equals sign.</li>
     </ol>
   </div>
 
-  <h2>Registered sites</h2>
-  <div class="card tablewrap">
-    <table>
-      <thead><tr><th>Site</th><th>Hostname</th><th>Status</th><th></th></tr></thead>
-      <tbody id="rows"><tr><td colspan="4" class="muted">Loading sites…</td></tr></tbody>
-    </table>
-  </div>
-  <p class="muted" id="msg" role="status" style="margin-top:10px"></p>
+  <section aria-labelledby="h-sites">
+    <h2 id="h-sites">Registered sites</h2>
+    <div class="panel">
+      <table class="stack">
+        <thead><tr><th scope="col">Site</th><th scope="col">Ownership</th><th scope="col">Repository</th><th scope="col"><span class="sr">Actions</span></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="notice" id="msg" role="status"></div>
+  </section>
 </Shell>
 
-<script>
-  type Site = { id: string; name: string; hostname: string | null; verified: boolean };
-  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
-  const rows = document.getElementById("rows")!;
-  const msg = document.getElementById("msg")!;
-  async function load() {
-    const r = await fetch("/api/sites");
-    if (!r.ok) { rows.innerHTML = `<tr><td colspan="4"><span class="pill bad">Could not load</span> The sites API answered ${r.status}.</td></tr>`; return; }
-    const { storage, sites } = (await r.json()) as { storage: string; sites: Site[] };
-    const seed = storage === "seed";
-    rows.innerHTML = sites.map((s) => `<tr>
-      <td><strong>${esc(s.name)}</strong></td>
-      <td>${s.hostname ? `<code>${esc(s.hostname)}</code>` : '<span class="pill warn">Hostname needed</span>'}</td>
-      <td>${s.verified ? '<span class="pill ok">Verified</span>' : '<span class="pill warn">Not verified</span>'}</td>
-      <td>${s.verified ? "" : `<button class="ghost" data-token="${esc(s.id)}" ${seed ? "disabled" : ""}>Show proof</button> <button data-id="${esc(s.id)}" ${seed || !s.hostname ? "disabled" : ""}>Check now</button>`}</td></tr>`).join("");
-    msg.textContent = seed ? "Verification is off: the database is not connected, so there are no proof tokens." : "";
-  }
-  rows.addEventListener("click", async (e) => {
-    const t = (e.target as HTMLElement).closest("button[data-token]") as HTMLButtonElement | null;
-    if (t) {
-      const r = await fetch(`/api/sites/${t.dataset.token}/token`);
-      const j = (await r.json()) as { token?: string; hostname?: string | null; error?: string };
-      msg.textContent = j.token ? `Proof value for ${j.hostname ?? t.dataset.token}: deploy-verify=${j.token}` : `Could not load the proof: ${j.error}.`;
-      return;
-    }
-    const b = (e.target as HTMLElement).closest("button[data-id]") as HTMLButtonElement | null;
-    if (!b) return;
-    b.disabled = true; msg.textContent = "Checking DNS, file and meta tag…";
-    const r = await fetch(`/api/sites/${b.dataset.id}/verify`, { method: "POST" });
-    const j = (await r.json()) as { verified?: boolean; method?: string; tried?: Record<string, string>; error?: string };
-    msg.textContent = j.verified ? `Verified by ${j.method}.`
-      : j.tried ? `Not verified. DNS: ${j.tried.dns_txt}. File: ${j.tried.file}. Meta tag: ${j.tried.meta}.` : `Could not check: ${j.error}.`;
-    await load();
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    var UI = window.UI, rows = document.getElementById("rows"), msg = document.getElementById("msg");
+    rows.innerHTML = UI.skeleton(4);
+    var how = { dns_txt: "DNS record", file: "file", meta: "meta tag" };
+    var say = function (html, bad) { msg.className = bad ? "notice bad" : "notice"; msg.innerHTML = html; };
+    var load = async function () {
+      try {
+        var d = await UI.get("/api/sites"), seed = d.storage === "seed";
+        rows.innerHTML = d.sites.map(function (s) {
+          var label = UI.esc(s.name);
+          var own = s.verified ? '<span><span class="pill ok">Verified</span> <span class="muted">' + (how[s.verify_method] ? "by " + how[s.verify_method] + ", " : "") + UI.ago(s.verified_at) + "</span></span>" : '<span class="pill warn">Not verified</span>';
+          var act = s.verified ? "" : '<button type="button" data-token="' + UI.esc(s.id) + '" aria-label="Show the proof value for ' + label + '"' + (seed ? " disabled" : "") + '>Show proof</button> <button type="button" class="primary" data-check="' + UI.esc(s.id) + '" aria-label="Check ownership of ' + label + ' now"' + (seed || !s.hostname ? " disabled" : "") + ">Check now</button>";
+          return '<tr><td class="site"><b>' + label + "</b><span>" + (s.hostname ? UI.esc(s.hostname) : "No hostname yet: it cannot be verified") + '</span></td><td data-label="Ownership">' + own +
+            '</td><td data-label="Repository">' + (s.github_repo ? "<code>" + UI.esc(s.github_repo) + "</code>" : '<span class="muted">Not connected</span>') + '</td><td class="act end">' + act + "</td></tr>";
+        }).join("") || '<tr><td colspan="4" class="empty"><strong>No sites yet.</strong></td></tr>';
+        if (seed) say("Verification is off: the database is not connected, so there are no proof values.", true);
+      } catch (e) { rows.innerHTML = ""; UI.failed(msg, e); }
+    };
+    rows.addEventListener("click", async function (e) {
+      var t = e.target.closest("button[data-token]"), c = e.target.closest("button[data-check]");
+      if (t) {
+        var r = await UI.get("/api/sites/" + t.dataset.token + "/token").catch(function (err) { return { error: err.message }; });
+        if (!r.token) return say("Could not load the proof value. " + UI.esc(r.error || ""), true);
+        say('<span class="proof"><span>Proof value for <strong>' + UI.esc(r.hostname || r.id) + '</strong>:</span><code id="proof">deploy-verify=' + UI.esc(r.token) + '</code><button type="button" data-copy>Copy</button></span>');
+        return;
+      }
+      if (c) {
+        c.disabled = true; c.setAttribute("aria-busy", "true"); c.textContent = "Checking";
+        say("Checking the DNS record, the file and the meta tag.");
+        var v = await UI.post("/api/sites/" + c.dataset.check + "/verify"), b = v.body;
+        if (b.verified) say("Verified by " + (how[b.method] || b.method) + ". Monitoring starts on the next 5-minute run.");
+        else if (b.tried) say("Not verified yet. DNS record: " + UI.esc(b.tried.dns_txt) + ". File: " + UI.esc(b.tried.file) + ". Meta tag: " + UI.esc(b.tried.meta) + ". A new DNS record can take a few minutes to appear.", true);
+        else say("Could not check ownership (the server answered " + v.status + ").", true);
+        await load();
+      }
+    });
+    msg.addEventListener("click", async function (e) {
+      var b = e.target.closest("button[data-copy]"); if (!b) return;
+      try { await navigator.clipboard.writeText(document.getElementById("proof").textContent); b.textContent = "Copied"; }
+      catch (err) { b.textContent = "Select and copy it by hand"; }
+    });
+    load();
   });
-  load();
 </script>
