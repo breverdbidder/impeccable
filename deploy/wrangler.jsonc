@@ -11,8 +11,11 @@
     { "binding": "DB", "database_name": "deploy-internal", "database_id": "d913e974-a802-45a6-93cf-60eb76c21716", "migrations_dir": "migrations" }
   ],
   "triggers": { "crons": ["*/5 * * * *"] },
-  "observability": { "enabled": true }
-  // Set as variables in the dashboard or with `wrangler secret put`:
-  //   ACCESS_TEAM_DOMAIN  <team>.cloudflareaccess.com
-  //   ACCESS_AUD          the Access application's AUD tag
+  "observability": { "enabled": true },
+  // Cloudflare Access application "Deploy (internal)" guards the workers.dev hostname.
+  // Neither value is a secret: the AUD tag only identifies the application.
+  "vars": {
+    "ACCESS_TEAM_DOMAIN": "falling-tooth-4abb.cloudflareaccess.com",
+    "ACCESS_AUD": "1f1b756b8055fe2a5d8dd83662ae0e96b678c8e232f2e9254480fb30493b1fc3"
+  }
 }

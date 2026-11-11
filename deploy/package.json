@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit",
     "deploy": "astro build && wrangler deploy",
     "dev:worker": "astro build && wrangler dev",
-    "bundle": "astro build && esbuild src/worker-inline.ts --bundle --format=esm --minify --charset=ascii --loader:.html=text --loader:.json=json --target=es2022 --outfile=build/worker.js"
+    "bundle": "astro build && esbuild src/worker-inline.ts --bundle --format=esm --minify --charset=ascii --loader:.html=text --loader:.json=json --target=es2022 --outfile=api-upload/worker.js"
   },
   "dependencies": {
     "astro": "^7.4.10"
