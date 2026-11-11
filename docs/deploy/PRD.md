@@ -201,7 +201,7 @@ A Deploy is one goal-scoped chat with the agent, bound to one site. It is our co
 
 ## 11. Decisions that are yours
 
-1. Domain: decided 2026-11-11. No custom domain. Deploy runs on our Cloudflare account as a Pages project (`deploy-internal`, default `pages.dev` hostname) behind Cloudflare Access.
+1. Domain: decided 2026-11-11. No custom domain. Deploy runs on our Cloudflare account as a Worker (`deploy-internal`, default `workers.dev` hostname) with a D1 database, behind Cloudflare Access.
 2. Site list: decided 2026-11-11. Three sites; RentalIQ is part of dealdeed.app. ZoneWise's hostname is still needed.
 3. Whether any site may ever auto-publish to production (default: no).
 4. The monthly cap (default: $100).

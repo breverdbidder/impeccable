@@ -3,6 +3,21 @@
 Status: draft v1, 2026-11-11. Prepared with AI assistance.
 This is the technical counterpart of `PRD.md`: architecture, schema, API, jobs, agent design. Method: replica-architect (managed parts, one database, a thin vertical slice first). Requirement IDs (R-xx) refer to the PRD.
 
+## 0. Amendment, 2026-11-11: everything runs on our Cloudflare account
+
+The owner decided Deploy is built on Cloudflare for internal use, with no custom domain. This overrides the Supabase and Pages choices below wherever they conflict.
+
+| Was | Now |
+| --- | --- |
+| Cloudflare Pages + Pages Functions | One Worker, `deploy-internal`, with static assets, on its `workers.dev` hostname |
+| Supabase Postgres | Cloudflare D1 database `deploy-internal` (`d913e974-a802-45a6-93cf-60eb76c21716`), created and migrated |
+| Supabase Auth | Cloudflare Access in front of the Worker; the Worker verifies the Access JWT |
+| Supabase Storage | R2, when screenshots and reports arrive |
+| GitHub Actions cron for light jobs | Worker cron triggers. Actions stays for browser jobs (Lighthouse, visual diff) and the agent |
+| LangGraph checkpoints in Supabase | D1 |
+
+The implemented schema is `deploy/migrations/` (SQLite). The Postgres DDL in section 3 is the design for tables not built yet and is ported to SQLite table by table: `uuid` becomes integer or text ids, `jsonb` becomes text, `timestamptz` becomes ISO text, plpgsql guards become `RAISE(ABORT)` triggers, and the `events` table is not partitioned.
+
 ## 1. Stack
 
 | Layer | Choice | Why |

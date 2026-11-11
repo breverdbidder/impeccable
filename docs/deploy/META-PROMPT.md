@@ -67,8 +67,8 @@ HARD RULES
 - Tests are never skipped, disabled or weakened to get a green run.
 
 STACK (do not substitute without asking)
-Astro + React islands + TypeScript + Tailwind on Cloudflare Pages and Pages Functions (project
-deploy-internal, pages.dev hostname, no custom domain, behind Cloudflare Access); one
+Astro + React islands + TypeScript + Tailwind served by one Cloudflare Worker (deploy-internal,
+workers.dev hostname, no custom domain, behind Cloudflare Access) with a D1 database; one
 Cloudflare Worker for analytics ingest; Supabase Postgres and Storage with row level
 security on every table; GitHub Actions for jobs; LangGraph for the agent with checkpoints in
 Supabase; Playwright and Lighthouse for checks; Resend for email; PostHog as a forward target.

@@ -2,5 +2,5 @@
   "checkpoint": "CP-13",
   "status": "in_progress",
   "parity": 0,
-  "notes": "CP-10 shell and CI written; CP-11 migration written, not applied; CP-13 ownership check and host gate implemented with tests. Not deployed: needs Cloudflare Pages project, Access application and Supabase project."
+  "notes": "CP-10 code complete, not deployed. CP-11 done: D1 database deploy-internal created and migrated. CP-12 Access check implemented, Access application not created. CP-13 implemented; no site verified yet. CP-14 uptime cron written. Next: deploy the Worker, turn on Access, set ACCESS_TEAM_DOMAIN and ACCESS_AUD, publish ownership proofs."
 }

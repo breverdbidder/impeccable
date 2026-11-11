@@ -2,53 +2,52 @@
 
 Prepared with AI assistance.
 
-An internal tool that watches the websites we own and ships fixes as pull requests after approval. Specs live in `../docs/deploy/`. This folder is self-contained so it can move to its own private repository.
+An internal tool that watches the websites we own and ships fixes as pull requests after approval. It runs entirely on our Cloudflare account: one Worker with static assets, a D1 database and a cron trigger, behind Cloudflare Access. No custom domain. Specs live in `../docs/deploy/`. This folder is self-contained so it can move to its own private repository.
 
-## What works today
+## State
 
 | Piece | State |
 | --- | --- |
-| App shell: Home and Settings | Built, static, responsive, light and dark |
-| `GET /api/sites` | Reads Supabase when connected, otherwise the seed list in `sites.config.json` |
-| `POST /api/sites/{id}/verify` | Checks DNS TXT, file and meta tag proofs; needs Supabase |
-| Cloudflare Access check on every `/api` request | Implemented, fails closed |
-| Host gate `assertVerifiedHost` | Implemented; exact host match, https only |
-| Migration `supabase/migrations/0001_foundation.sql` | Written, not applied |
-| `jobs/uptime.mjs` | Written; skips unverified sites; not yet run against a database |
-| Tests | 16 passing (`npm test`), typecheck clean, build clean |
+| D1 database `deploy-internal` | Created on the account, schema applied, three sites seeded, none verified |
+| Worker `deploy-internal` | Code complete; `wrangler deploy --dry-run` passes; **not deployed** |
+| Cloudflare Access | Token check implemented and fails closed; **Access application not created** |
+| App shell: Home and Settings | Built, responsive, light and dark |
+| `GET /api/sites`, `GET /api/findings` | Working against D1 (local run) |
+| `GET /api/sites/{id}/token`, `POST /api/sites/{id}/verify` | Working; DNS TXT, file and meta tag proofs |
+| Uptime cron, every 5 minutes | Written; skips unverified sites; one deduplicated finding per outage |
+| Tests | 22 passing, typecheck clean |
 
-Not built yet: everything from CP-14 onward in `../docs/deploy/CHECKPOINTS.md`.
+Not built yet: everything from the crawl job onward in `../docs/deploy/CHECKPOINTS.md`.
+
+## Deploy it
+
+```bash
+npm install
+npm test && npm run typecheck
+npx wrangler login          # or set CLOUDFLARE_API_TOKEN
+npm run deploy              # astro build && wrangler deploy
+```
+
+Then, in the Cloudflare dashboard:
+
+1. Workers, `deploy-internal`, Settings, Domains and Routes: turn on **Cloudflare Access** for the `workers.dev` hostname. Set the policy to allow only our email addresses.
+2. Copy the team domain and the application's AUD tag into the Worker's variables: `ACCESS_TEAM_DOMAIN` (`<team>.cloudflareaccess.com`) and `ACCESS_AUD`.
+3. Open the app, go to Settings, press "Show proof" for a site, publish the proof (DNS TXT at `_deploy-verify.<hostname>`, a file at `/.well-known/deploy-verify.txt`, or a meta tag), then "Check now".
+
+Until step 2 is done the API answers 401 to every request. That is intended.
 
 ## Run locally
 
 ```bash
-npm install
-npm test && npm run typecheck && npm run build
-npx wrangler pages dev dist        # serves the shell and functions; add DEPLOY_DEV=1 in .dev.vars
+echo 'DEPLOY_DEV=1' > .dev.vars
+npx wrangler d1 execute deploy-internal --local --file migrations/0001_foundation.sql
+npm run dev:worker
 ```
 
-## Put it on Cloudflare
-
-No custom domain. One Pages project on its `pages.dev` hostname, behind Cloudflare Access.
-
-1. Pages: create project `deploy-internal`. Build command `npm run build`, output `dist`, root directory `deploy` (or the repo root once this folder has its own repository).
-2. Zero Trust, Access, Applications: add a self-hosted application for the project's hostname, including preview hostnames. Policy: allow only the listed emails. Copy the Application Audience (AUD) tag.
-3. Pages project variables (Production and Preview):
-
-   | Name | Value |
-   | --- | --- |
-   | `ACCESS_TEAM_DOMAIN` | `<team>.cloudflareaccess.com` |
-   | `ACCESS_AUD` | the AUD tag from step 2 |
-   | `SUPABASE_URL` | project URL (after the migration is applied) |
-   | `SUPABASE_SERVICE_ROLE_KEY` | as an encrypted secret |
-
-4. Apply `supabase/migrations/0001_foundation.sql` to a Supabase project.
-5. For each site, read its token from `sites.verify_token`, publish one proof (see Settings in the app), and press "Check now".
-
-Without step 3 the API answers 401 for every request. That is intended.
+Never set `DEPLOY_DEV` on Cloudflare: it turns the Access check off.
 
 ## Rules in code
 
-- Nothing fetches a site unless `assertVerifiedHost` passes. `verifyOwnership` is the one exception and reads three fixed locations.
-- The database refuses checks and findings for unverified sites, refuses spend past the monthly cap, and refuses changes to the audit log.
-- Never set `DEPLOY_DEV=1` on Cloudflare.
+- Nothing fetches a site unless `assertVerifiedHost` passes (exact host, https only). `verifyOwnership` is the one exception and reads three fixed locations.
+- The database refuses checks and findings for unverified sites, refuses spend past the monthly cap ($100 default), and refuses changes to the audit log.
+- Proof tokens never appear in the site list; reading one is audited.

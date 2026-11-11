@@ -38,16 +38,20 @@ import Shell from "../layouts/Shell.astro";
     .then(({ storage, sites }) => {
       set("k-sites", String(sites.length));
       set("k-verified", String(sites.filter((s) => s.verified).length));
-      set("k-findings", "0");
+      fetch("/api/findings").then((r) => r.json()).then((j: { findings: { title: string; severity: string }[] }) => {
+        set("k-findings", String(j.findings.length));
+        if (j.findings.length) document.getElementById("needs")!.innerHTML = j.findings.map((x) =>
+          `<p style="margin:6px 0"><span class="pill ${x.severity === "high" ? "bad" : "warn"}">${esc(x.severity)}</span> ${esc(x.title)}</p>`).join("");
+      }).catch(() => set("k-findings", "–"));
       rows.innerHTML = sites.map((s) => `<tr>
         <td><strong>${esc(s.name)}</strong></td>
         <td>${s.hostname ? `<code>${esc(s.hostname)}</code>` : '<span class="pill warn">Hostname needed</span>'}</td>
         <td>${s.github_repo ? `<code>${esc(s.github_repo)}</code>` : '<span class="muted">Not connected</span>'}</td>
         <td>${s.verified ? '<span class="pill ok">Verified</span>' : '<span class="pill warn">Not verified</span>'}</td>
         <td>${s.verified ? '<span class="pill">Ready</span>' : '<span class="muted">Blocked until verified</span>'}</td></tr>`).join("");
-      set("storage", storage === "seed" ? "Showing the seed list. Connect Supabase to verify sites and store results." : "");
+      set("storage", storage === "seed" ? "Showing the seed list. The database is not connected." : "");
       const todo = sites.filter((s) => !s.verified);
-      if (todo.length) document.getElementById("needs")!.innerHTML =
+      if (todo.length && document.getElementById("needs")!.querySelector(".muted")) document.getElementById("needs")!.innerHTML =
         `<strong>${todo.length} site${todo.length > 1 ? "s" : ""} to verify.</strong> <a href="/settings/">Open Settings</a> for the steps.`;
     })
     .catch((e: Error) => { rows.innerHTML = `<tr><td colspan="5"><span class="pill bad">Could not load</span> ${esc(e.message)}</td></tr>`; });

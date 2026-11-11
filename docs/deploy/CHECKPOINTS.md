@@ -21,11 +21,11 @@ Requirement IDs refer to `PRD.md`. Tables, routes and jobs refer to `PRS.md`.
 
 | ID | Checkpoint | Exit test |
 | --- | --- | --- |
-| CP-10 | Astro app shell, Cloudflare Pages project, CI (typecheck, unit, build). Code is in `deploy/` on this branch and should move to a private repo | Preview URL serves the shell; CI green. Status: shell and CI written and passing locally; Pages project not created yet |
-| CP-11 | Supabase project, migration for `sites`, `monitors`, `checks`, `findings`, `usage`, `budget`, `audit_log` with row level security | An insert for an unverified site is rejected; `audit_log` rejects update and delete; usage past the cap is rejected. Status: migration written, not applied |
+| CP-10 | Astro app shell, Cloudflare Pages project, CI (typecheck, unit, build). Code is in `deploy/` on this branch and should move to a private repo | Preview URL serves the shell; CI green. Status: shell, Worker and CI written; `wrangler deploy --dry-run` and a local end-to-end run pass; not deployed (this session has no deploy permission) |
+| CP-11 | Supabase project, migration for `sites`, `monitors`, `checks`, `findings`, `usage`, `budget`, `audit_log` with row level security | An insert for an unverified site is rejected; `audit_log` rejects update and delete; usage past the cap is rejected. Status: done on Cloudflare D1 `deploy-internal`; the unverified-site guard was exercised on the live database |
 | CP-12 | Cloudflare Access application (R-01) and app chrome from D02 | Allowlisted user reaches Home; a request without a valid Access token gets 401. Status: token check implemented and tested; Access application not created yet |
-| CP-13 | Site registry and ownership verification (R-03) | Adding `example.com` without proof leaves `verified_at` null; `assertVerifiedHost('https://example.com')` throws and writes an audit row. Status: implemented with 16 passing tests; needs Supabase to store tokens |
-| CP-14 | `uptime` and `crawl` jobs, `monitors`, `checks`, `findings` with dedupe (R-62, R-70, R-72) | A deliberately broken link on a staging page yields exactly one finding after two runs |
+| CP-13 | Site registry and ownership verification (R-03) | Adding `example.com` without proof leaves `verified_at` null; `assertVerifiedHost('https://example.com')` throws and writes an audit row. Status: implemented with 22 passing tests; tokens are in D1; no site has published a proof yet |
+| CP-14 | `uptime` (written as a 5-minute Worker cron, skips unverified sites) and `crawl` jobs, `monitors`, `checks`, `findings` with dedupe (R-62, R-70, R-72) | A deliberately broken link on a staging page yields exactly one finding after two runs |
 | CP-15 | `post-deploy` job: Lighthouse and visual diff (R-63, R-71) | A staging deploy that shifts the hero yields a visual finding with before and after images |
 | CP-16 | Home: portfolio table, Needs you feed, dismiss (R-10, R-11) | Findings from CP-14 and CP-15 appear as cards; dismiss persists |
 

@@ -37,10 +37,17 @@ import Shell from "../layouts/Shell.astro";
       <td><strong>${esc(s.name)}</strong></td>
       <td>${s.hostname ? `<code>${esc(s.hostname)}</code>` : '<span class="pill warn">Hostname needed</span>'}</td>
       <td>${s.verified ? '<span class="pill ok">Verified</span>' : '<span class="pill warn">Not verified</span>'}</td>
-      <td>${s.verified ? "" : `<button class="ghost" data-id="${esc(s.id)}" ${seed || !s.hostname ? "disabled" : ""}>Check now</button>`}</td></tr>`).join("");
-    msg.textContent = seed ? "Verification is off until Supabase is connected: tokens are stored there." : "";
+      <td>${s.verified ? "" : `<button class="ghost" data-token="${esc(s.id)}" ${seed ? "disabled" : ""}>Show proof</button> <button data-id="${esc(s.id)}" ${seed || !s.hostname ? "disabled" : ""}>Check now</button>`}</td></tr>`).join("");
+    msg.textContent = seed ? "Verification is off: the database is not connected, so there are no proof tokens." : "";
   }
   rows.addEventListener("click", async (e) => {
+    const t = (e.target as HTMLElement).closest("button[data-token]") as HTMLButtonElement | null;
+    if (t) {
+      const r = await fetch(`/api/sites/${t.dataset.token}/token`);
+      const j = (await r.json()) as { token?: string; hostname?: string | null; error?: string };
+      msg.textContent = j.token ? `Proof value for ${j.hostname ?? t.dataset.token}: deploy-verify=${j.token}` : `Could not load the proof: ${j.error}.`;
+      return;
+    }
     const b = (e.target as HTMLElement).closest("button[data-id]") as HTMLButtonElement | null;
     if (!b) return;
     b.disabled = true; msg.textContent = "Checking DNS, file and meta tag…";
