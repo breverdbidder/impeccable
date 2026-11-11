@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="Inter, Helvetica, Arial, sans-serif" role="img" aria-label="D08 SEO">
+<title>D08 SEO</title>
+<rect x="0" y="0" width="1280" height="800" rx="0" fill="#fafafa" stroke="none"/>
+<rect x="0" y="0" width="208" height="800" rx="0" fill="#f1f1f1" stroke="none"/>
+<line x1="208" y1="0" x2="208" y2="800" stroke="#c9c9c9"/>
+<text x="24" y="38" font-size="20" fill="#1a1a1a" font-weight="800" text-anchor="start">deploy</text>
+<rect x="16" y="56" width="176" height="34" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="28" y="78" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="start">biddeed.ai  v</text>
+<text x="28" y="112" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Home</text>
+<text x="28" y="146" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Deploys</text>
+<text x="28" y="180" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Analytics</text>
+<text x="28" y="214" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">AI visibility</text>
+<rect x="12" y="228" width="184" height="30" rx="15" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="28" y="248" font-size="13" fill="#fff" font-weight="600" text-anchor="start">SEO</text>
+<text x="28" y="282" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Monitors</text>
+<text x="28" y="316" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Playbooks</text>
+<text x="28" y="350" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Database</text>
+<text x="28" y="384" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Forms</text>
+<text x="28" y="418" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Assets</text>
+<line x1="16" y1="704" x2="192" y2="704" stroke="#c9c9c9"/>
+<text x="28" y="732" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Integrations</text>
+<text x="28" y="764" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Settings</text>
+<text x="232" y="36" font-size="12" fill="#6b6b6b" font-weight="400" text-anchor="start">biddeed.ai / SEO</text>
+<rect x="980" y="16" width="190" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="996" y="36" font-size="12" fill="#6b6b6b" font-weight="400" text-anchor="start">Ask Deploy...  Ctrl K</text>
+<rect x="1182" y="16" width="74" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="1219" y="36" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="middle">AS</text>
+<line x1="208" y1="60" x2="1280" y2="60" stroke="#c9c9c9"/>
+<text x="232" y="96" font-size="22" fill="#1a1a1a" font-weight="700" text-anchor="start">SEO</text>
+<rect x="232" y="112" width="104" height="28" rx="14" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="284.2" y="131" font-size="12" fill="#fff" font-weight="600" text-anchor="middle">Keyword gaps</text>
+<text x="369.4" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">Pages</text>
+<text x="443.79999999999995" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">Technical</text>
+<text x="536.2" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">Lighthouse</text>
+<line x1="232" y1="150" x2="1256" y2="150" stroke="#c9c9c9"/>
+<rect x="232" y="166" width="640" height="610" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="248" y="192" font-size="13" fill="#1a1a1a" font-weight="700" text-anchor="start">Search Console, last 90 days  -  /auctions/brevard</text>
+<text x="258.0" y="222" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Query</text>
+<text x="410.0" y="222" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Impr.</text>
+<text x="562.0" y="222" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Pos.</text>
+<text x="714.0" y="222" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">On page</text>
+<line x1="248" y1="230" x2="856" y2="230" stroke="#c9c9c9"/>
+<text x="258.0" y="252" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">brevard foreclosure auction</text>
+<text x="410.0" y="252" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">4,120</text>
+<text x="562.0" y="252" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">8.4</text>
+<text x="714.0" y="252" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Covered</text>
+<line x1="248" y1="270" x2="856" y2="270" stroke="#e4e4e4"/>
+<text x="258.0" y="292" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">brevard tax deed sale dates</text>
+<text x="410.0" y="292" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">1,380</text>
+<text x="562.0" y="292" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">14.2</text>
+<text x="714.0" y="292" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Missing</text>
+<line x1="248" y1="310" x2="856" y2="310" stroke="#e4e4e4"/>
+<text x="258.0" y="332" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">foreclosure auction calendar fl</text>
+<text x="410.0" y="332" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">960</text>
+<text x="562.0" y="332" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">18.7</text>
+<text x="714.0" y="332" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Partial</text>
+<line x1="248" y1="350" x2="856" y2="350" stroke="#e4e4e4"/>
+<text x="258.0" y="372" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">how to bid brevard clerk</text>
+<text x="410.0" y="372" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">610</text>
+<text x="562.0" y="372" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">22.1</text>
+<text x="714.0" y="372" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Missing</text>
+<line x1="248" y1="390" x2="856" y2="390" stroke="#e4e4e4"/>
+<text x="258.0" y="412" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">realforeclose brevard</text>
+<text x="410.0" y="412" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">540</text>
+<text x="562.0" y="412" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">9.9</text>
+<text x="714.0" y="412" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Covered</text>
+<line x1="248" y1="430" x2="856" y2="430" stroke="#e4e4e4"/>
+<text x="258.0" y="452" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">titusville foreclosures</text>
+<text x="410.0" y="452" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">410</text>
+<text x="562.0" y="452" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">25.0</text>
+<text x="714.0" y="452" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Missing</text>
+<line x1="248" y1="470" x2="856" y2="470" stroke="#e4e4e4"/>
+<rect x="888" y="166" width="368" height="610" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="904" y="192" font-size="13" fill="#1a1a1a" font-weight="700" text-anchor="start">Suggested edits (2)</text>
+<text x="904" y="212" font-size="11" fill="#6b6b6b" font-weight="400" text-anchor="start">Waiting for your review</text>
+<rect x="904" y="230" width="336" height="134" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<rect x="918" y="246" width="290" height="10" rx="4" fill="#1a1a1a" stroke="none"/>
+<rect x="918" y="268" width="300" height="9" rx="4" fill="#ececec" stroke="none"/>
+<rect x="918" y="286" width="240" height="9" rx="4" fill="#ececec" stroke="none"/>
+<rect x="918" y="318" width="68" height="30" rx="15" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="951.9" y="338" font-size="12" fill="#fff" font-weight="600" text-anchor="middle">Approve</text>
+<rect x="993.8" y="318" width="46" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="1016.5999999999999" y="338" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="middle">Edit</text>
+<rect x="904" y="380" width="336" height="134" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<rect x="918" y="396" width="290" height="10" rx="4" fill="#1a1a1a" stroke="none"/>
+<rect x="918" y="418" width="300" height="9" rx="4" fill="#ececec" stroke="none"/>
+<rect x="918" y="436" width="240" height="9" rx="4" fill="#ececec" stroke="none"/>
+<rect x="918" y="468" width="68" height="30" rx="15" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="951.9" y="488" font-size="12" fill="#fff" font-weight="600" text-anchor="middle">Approve</text>
+<rect x="993.8" y="468" width="46" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="1016.5999999999999" y="488" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="middle">Edit</text>
+</svg>

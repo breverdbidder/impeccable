@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="Inter, Helvetica, Arial, sans-serif" role="img" aria-label="D01 Sign in">
+<title>D01 Sign in</title>
+<rect x="0" y="0" width="1280" height="800" rx="0" fill="#fafafa" stroke="none"/>
+<text x="48" y="56" font-size="22" fill="#1a1a1a" font-weight="800" text-anchor="start">deploy</text>
+<text x="96" y="380" font-size="44" fill="#1a1a1a" font-weight="800" text-anchor="start">EVERY SITE WE OWN,</text>
+<text x="96" y="432" font-size="44" fill="#1a1a1a" font-weight="800" text-anchor="start">WATCHED AND WORKED.</text>
+<text x="96" y="470" font-size="14" fill="#6b6b6b" font-weight="400" text-anchor="start">Internal tool. Allowlisted accounts only.</text>
+<rect x="760" y="250" width="400" height="300" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="792" y="300" font-size="24" fill="#1a1a1a" font-weight="700" text-anchor="start">Sign in</text>
+<text x="792" y="336" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="start">Work email</text>
+<rect x="792" y="346" width="336" height="38" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<rect x="792" y="400" width="336" height="30" rx="15" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="960.0" y="420" font-size="12" fill="#fff" font-weight="600" text-anchor="middle">Send magic link</text>
+<text x="960" y="458" font-size="12" fill="#6b6b6b" font-weight="400" text-anchor="middle">or</text>
+<rect x="792" y="474" width="336" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="960.0" y="494" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="middle">Continue with Google</text>
+<text x="792" y="530" font-size="11" fill="#6b6b6b" font-weight="400" text-anchor="start">Not on the allowlist? Access is denied, no sign-up.</text>
+</svg>

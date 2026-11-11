@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="Inter, Helvetica, Arial, sans-serif" role="img" aria-label="D09 Settings">
+<title>D09 Settings</title>
+<rect x="0" y="0" width="1280" height="800" rx="0" fill="#fafafa" stroke="none"/>
+<rect x="0" y="0" width="208" height="800" rx="0" fill="#f1f1f1" stroke="none"/>
+<line x1="208" y1="0" x2="208" y2="800" stroke="#c9c9c9"/>
+<text x="24" y="38" font-size="20" fill="#1a1a1a" font-weight="800" text-anchor="start">deploy</text>
+<rect x="16" y="56" width="176" height="34" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="28" y="78" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="start">biddeed.ai  v</text>
+<text x="28" y="112" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Home</text>
+<text x="28" y="146" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Deploys</text>
+<text x="28" y="180" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Analytics</text>
+<text x="28" y="214" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">AI visibility</text>
+<text x="28" y="248" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">SEO</text>
+<text x="28" y="282" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Monitors</text>
+<text x="28" y="316" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Playbooks</text>
+<text x="28" y="350" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Database</text>
+<text x="28" y="384" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Forms</text>
+<text x="28" y="418" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Assets</text>
+<line x1="16" y1="704" x2="192" y2="704" stroke="#c9c9c9"/>
+<text x="28" y="732" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Integrations</text>
+<text x="28" y="764" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Settings</text>
+<text x="232" y="36" font-size="12" fill="#6b6b6b" font-weight="400" text-anchor="start">Settings</text>
+<rect x="980" y="16" width="190" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="996" y="36" font-size="12" fill="#6b6b6b" font-weight="400" text-anchor="start">Ask Deploy...  Ctrl K</text>
+<rect x="1182" y="16" width="74" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="1219" y="36" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="middle">AS</text>
+<line x1="208" y1="60" x2="1280" y2="60" stroke="#c9c9c9"/>
+<text x="232" y="96" font-size="22" fill="#1a1a1a" font-weight="700" text-anchor="start">Settings</text>
+<rect x="232" y="112" width="54" height="28" rx="14" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="259.0" y="131" font-size="12" fill="#fff" font-weight="600" text-anchor="middle">Sites</text>
+<text x="344.2" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">Integrations</text>
+<text x="425.79999999999995" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">Team</text>
+<text x="500.2" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">API tokens</text>
+<text x="571.0" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">MCP</text>
+<text x="627.4000000000001" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">Budget</text>
+<text x="705.4000000000001" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">Audit log</text>
+<line x1="232" y1="150" x2="1256" y2="150" stroke="#c9c9c9"/>
+<rect x="232" y="166" width="1024" height="300" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="248" y="192" font-size="13" fill="#1a1a1a" font-weight="700" text-anchor="start">Monitored sites (must pass ownership verification)</text>
+<rect x="1130" y="172" width="75" height="30" rx="15" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="1167.6" y="192" font-size="12" fill="#fff" font-weight="600" text-anchor="middle">Add site</text>
+<text x="258.0" y="228" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Domain</text>
+<text x="423.33333333333337" y="228" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Verified by</text>
+<text x="588.6666666666667" y="228" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Repo</text>
+<text x="754.0" y="228" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Host</text>
+<text x="919.3333333333334" y="228" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Tracking</text>
+<text x="1084.6666666666667" y="228" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Auto-publish</text>
+<line x1="248" y1="236" x2="1240" y2="236" stroke="#c9c9c9"/>
+<text x="258.0" y="258" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">biddeed.ai</text>
+<text x="423.33333333333337" y="258" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">DNS TXT</text>
+<text x="588.6666666666667" y="258" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">breverdbidder/biddeed</text>
+<text x="754.0" y="258" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Cloudflare Pages</text>
+<text x="919.3333333333334" y="258" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Installed</text>
+<text x="1084.6666666666667" y="258" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Off</text>
+<line x1="248" y1="280" x2="1240" y2="280" stroke="#e4e4e4"/>
+<text x="258.0" y="302" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">dealdeed.app</text>
+<text x="423.33333333333337" y="302" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">DNS TXT</text>
+<text x="588.6666666666667" y="302" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">breverdbidder/dealdeed</text>
+<text x="754.0" y="302" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Cloudflare Pages</text>
+<text x="919.3333333333334" y="302" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Installed</text>
+<text x="1084.6666666666667" y="302" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Off</text>
+<line x1="248" y1="324" x2="1240" y2="324" stroke="#e4e4e4"/>
+<text x="258.0" y="346" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">zonewise</text>
+<text x="423.33333333333337" y="346" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Meta tag</text>
+<text x="588.6666666666667" y="346" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">breverdbidder/zonewise</text>
+<text x="754.0" y="346" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Cloudflare Pages</text>
+<text x="919.3333333333334" y="346" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Installed</text>
+<text x="1084.6666666666667" y="346" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Drafts only</text>
+<line x1="248" y1="368" x2="1240" y2="368" stroke="#e4e4e4"/>
+<text x="258.0" y="390" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">rentaliq</text>
+<text x="423.33333333333337" y="390" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">File</text>
+<text x="588.6666666666667" y="390" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">breverdbidder/rentaliq</text>
+<text x="754.0" y="390" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Cloudflare Pages</text>
+<text x="919.3333333333334" y="390" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Missing</text>
+<text x="1084.6666666666667" y="390" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Off</text>
+<line x1="248" y1="412" x2="1240" y2="412" stroke="#e4e4e4"/>
+<rect x="232" y="482" width="504" height="294" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="248" y="508" font-size="13" fill="#1a1a1a" font-weight="700" text-anchor="start">Add a site</text>
+<rect x="248" y="522" width="472" height="38" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="262" y="546" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">1  Enter domain</text>
+<rect x="248" y="570" width="472" height="38" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="262" y="594" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">2  Prove ownership: DNS TXT, meta tag or file</text>
+<rect x="248" y="618" width="472" height="38" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="262" y="642" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">3  Connect GitHub repo and Cloudflare project</text>
+<rect x="248" y="666" width="472" height="38" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="262" y="690" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">4  Install tracking snippet</text>
+<rect x="248" y="714" width="472" height="38" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="262" y="738" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">5  First crawl and baseline</text>
+<rect x="752" y="482" width="504" height="294" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="768" y="508" font-size="13" fill="#1a1a1a" font-weight="700" text-anchor="start">Monthly budget</text>
+<text x="768" y="548" font-size="24" fill="#1a1a1a" font-weight="700" text-anchor="start">$41.20 of $100.00</text>
+<rect x="768" y="566" width="472" height="14" rx="7" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="768" y="566" width="194" height="14" rx="7" fill="#1a1a1a" stroke="#1a1a1a"/>
+<rect x="771" y="708" width="33" height="42" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="810" y="680" width="33" height="70" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="850" y="722" width="33" height="28" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="889" y="652" width="33" height="98" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="928" y="694" width="33" height="56" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="968" y="666" width="33" height="84" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="1007" y="701" width="33" height="49" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="1046" y="638" width="33" height="112" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="1086" y="708" width="33" height="42" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="1125" y="687" width="33" height="63" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="1164" y="680" width="33" height="70" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="1204" y="715" width="33" height="35" rx="2" fill="#ececec" stroke="#c9c9c9"/>
+</svg>

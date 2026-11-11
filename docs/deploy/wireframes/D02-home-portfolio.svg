@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="Inter, Helvetica, Arial, sans-serif" role="img" aria-label="D02 Home: portfolio of sites">
+<title>D02 Home: portfolio of sites</title>
+<rect x="0" y="0" width="1280" height="800" rx="0" fill="#fafafa" stroke="none"/>
+<rect x="0" y="0" width="208" height="800" rx="0" fill="#f1f1f1" stroke="none"/>
+<line x1="208" y1="0" x2="208" y2="800" stroke="#c9c9c9"/>
+<text x="24" y="38" font-size="20" fill="#1a1a1a" font-weight="800" text-anchor="start">deploy</text>
+<rect x="16" y="56" width="176" height="34" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="28" y="78" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="start">biddeed.ai  v</text>
+<rect x="12" y="92" width="184" height="30" rx="15" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="28" y="112" font-size="13" fill="#fff" font-weight="600" text-anchor="start">Home</text>
+<text x="28" y="146" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Deploys</text>
+<text x="28" y="180" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Analytics</text>
+<text x="28" y="214" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">AI visibility</text>
+<text x="28" y="248" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">SEO</text>
+<text x="28" y="282" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Monitors</text>
+<text x="28" y="316" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Playbooks</text>
+<text x="28" y="350" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Database</text>
+<text x="28" y="384" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Forms</text>
+<text x="28" y="418" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Assets</text>
+<line x1="16" y1="704" x2="192" y2="704" stroke="#c9c9c9"/>
+<text x="28" y="732" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Integrations</text>
+<text x="28" y="764" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Settings</text>
+<text x="232" y="36" font-size="12" fill="#6b6b6b" font-weight="400" text-anchor="start">Home / All sites</text>
+<rect x="980" y="16" width="190" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="996" y="36" font-size="12" fill="#6b6b6b" font-weight="400" text-anchor="start">Ask Deploy...  Ctrl K</text>
+<rect x="1182" y="16" width="74" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="1219" y="36" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="middle">AS</text>
+<line x1="208" y1="60" x2="1280" y2="60" stroke="#c9c9c9"/>
+<text x="232" y="100" font-size="24" fill="#1a1a1a" font-weight="700" text-anchor="start">Good morning. 3 things need you.</text>
+<rect x="232" y="120" width="244" height="84" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="246" y="144" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Sites monitored</text>
+<text x="246" y="178" font-size="26" fill="#1a1a1a" font-weight="700" text-anchor="start">6</text>
+<rect x="490" y="120" width="244" height="84" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="504" y="144" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Visitors, 7 days</text>
+<text x="504" y="178" font-size="26" fill="#1a1a1a" font-weight="700" text-anchor="start">18,402</text>
+<text x="720" y="178" font-size="12" fill="#2f5d50" font-weight="600" text-anchor="end">+12%</text>
+<rect x="748" y="120" width="244" height="84" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="762" y="144" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">AI answer share</text>
+<text x="762" y="178" font-size="26" fill="#1a1a1a" font-weight="700" text-anchor="start">31%</text>
+<text x="978" y="178" font-size="12" fill="#2f5d50" font-weight="600" text-anchor="end">+4 pts</text>
+<rect x="1006" y="120" width="244" height="84" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="1020" y="144" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Open findings</text>
+<text x="1020" y="178" font-size="26" fill="#1a1a1a" font-weight="700" text-anchor="start">14</text>
+<text x="1236" y="178" font-size="12" fill="#2f5d50" font-weight="600" text-anchor="end">3 high</text>
+<text x="232" y="240" font-size="15" fill="#1a1a1a" font-weight="700" text-anchor="start">Sites</text>
+<text x="242.0" y="268" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Site</text>
+<text x="358.6666666666667" y="268" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Status</text>
+<text x="475.33333333333337" y="268" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Visitors 7d</text>
+<text x="592.0" y="268" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">AI share</text>
+<text x="708.6666666666667" y="268" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Findings</text>
+<text x="825.3333333333334" y="268" font-size="11" fill="#6b6b6b" font-weight="600" text-anchor="start">Last deploy</text>
+<line x1="232" y1="276" x2="932" y2="276" stroke="#c9c9c9"/>
+<text x="242.0" y="298" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">biddeed.ai</text>
+<text x="358.6666666666667" y="298" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Up</text>
+<text x="475.33333333333337" y="298" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">9,210</text>
+<text x="592.0" y="298" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">38%</text>
+<text x="708.6666666666667" y="298" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">4</text>
+<text x="825.3333333333334" y="298" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">2h ago</text>
+<line x1="232" y1="310" x2="932" y2="310" stroke="#e4e4e4"/>
+<text x="242.0" y="332" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">dealdeed.app</text>
+<text x="358.6666666666667" y="332" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Up</text>
+<text x="475.33333333333337" y="332" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">3,884</text>
+<text x="592.0" y="332" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">22%</text>
+<text x="708.6666666666667" y="332" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">2</text>
+<text x="825.3333333333334" y="332" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">yesterday</text>
+<line x1="232" y1="344" x2="932" y2="344" stroke="#e4e4e4"/>
+<text x="242.0" y="366" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">zonewise</text>
+<text x="358.6666666666667" y="366" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Up</text>
+<text x="475.33333333333337" y="366" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">2,115</text>
+<text x="592.0" y="366" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">41%</text>
+<text x="708.6666666666667" y="366" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">1</text>
+<text x="825.3333333333334" y="366" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">3d ago</text>
+<line x1="232" y1="378" x2="932" y2="378" stroke="#e4e4e4"/>
+<text x="242.0" y="400" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">rentaliq</text>
+<text x="358.6666666666667" y="400" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Degraded</text>
+<text x="475.33333333333337" y="400" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">1,902</text>
+<text x="592.0" y="400" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">12%</text>
+<text x="708.6666666666667" y="400" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">5</text>
+<text x="825.3333333333334" y="400" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">6d ago</text>
+<line x1="232" y1="412" x2="932" y2="412" stroke="#e4e4e4"/>
+<text x="242.0" y="434" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">everest capital</text>
+<text x="358.6666666666667" y="434" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Up</text>
+<text x="475.33333333333337" y="434" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">911</text>
+<text x="592.0" y="434" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">9%</text>
+<text x="708.6666666666667" y="434" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">2</text>
+<text x="825.3333333333334" y="434" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">12d ago</text>
+<line x1="232" y1="446" x2="932" y2="446" stroke="#e4e4e4"/>
+<text x="242.0" y="468" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">swim tracker</text>
+<text x="358.6666666666667" y="468" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Up</text>
+<text x="475.33333333333337" y="468" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">380</text>
+<text x="592.0" y="468" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">n/a</text>
+<text x="708.6666666666667" y="468" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">0</text>
+<text x="825.3333333333334" y="468" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">30d ago</text>
+<line x1="232" y1="480" x2="932" y2="480" stroke="#e4e4e4"/>
+<rect x="952" y="232" width="304" height="290" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="968" y="258" font-size="14" fill="#1a1a1a" font-weight="700" text-anchor="start">Needs you</text>
+<rect x="968" y="272" width="272" height="48" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="980" y="301" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Approve 2 drafted page updates</text>
+<rect x="968" y="330" width="272" height="48" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="980" y="359" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">rentaliq: LCP regressed to 4.1s</text>
+<rect x="968" y="388" width="272" height="48" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="980" y="417" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">biddeed.ai lost citation on 3 prompts</text>
+<rect x="968" y="446" width="272" height="48" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="980" y="475" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Weekly SEO playbook finished</text>
+<rect x="232" y="540" width="1024" height="236" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="248" y="566" font-size="14" fill="#1a1a1a" font-weight="700" text-anchor="start">Activity (agent runs, deploys, alerts)</text>
+<line x1="248" y1="596" x2="1240" y2="596" stroke="#e4e4e4"/>
+<rect x="248" y="578" width="420" height="10" rx="4" fill="#ececec" stroke="none"/>
+<line x1="248" y1="630" x2="1240" y2="630" stroke="#e4e4e4"/>
+<rect x="248" y="612" width="380" height="10" rx="4" fill="#ececec" stroke="none"/>
+<line x1="248" y1="664" x2="1240" y2="664" stroke="#e4e4e4"/>
+<rect x="248" y="646" width="340" height="10" rx="4" fill="#ececec" stroke="none"/>
+<line x1="248" y1="698" x2="1240" y2="698" stroke="#e4e4e4"/>
+<rect x="248" y="680" width="300" height="10" rx="4" fill="#ececec" stroke="none"/>
+<line x1="248" y1="732" x2="1240" y2="732" stroke="#e4e4e4"/>
+<rect x="248" y="714" width="260" height="10" rx="4" fill="#ececec" stroke="none"/>
+</svg>

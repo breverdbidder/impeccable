@@ -1,0 +1,4506 @@
+{
+ "https://docs.ploy.ai/": {
+  "status": 200,
+  "title": "Ploy Support Docs",
+  "h1": [
+   "PLOY SUPPORT DOCS"
+  ],
+  "h2": [
+   "Getting started",
+   "Platform",
+   "Hosting and integrations",
+   "Account and help"
+  ],
+  "desc": "Everything you need to get up and running with Ploy \u2014 the AI-powered web marketing automation platform.",
+  "height": 3275,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "hub-page",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 22,
+   "cdn.ploy.ai": 4,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://docs.ploy.ai/ai-search-visibility": {
+  "status": 200,
+  "title": "AI search visibility: monitor and improve it with Ploy | Ploy Support Docs",
+  "h1": [
+   "AI Search Visibility"
+  ],
+  "h2": [
+   "Limits#",
+   "Check how AI tools answer your customers#",
+   "Track the same questions over time#",
+   "See the visits AI assistants send you#",
+   "Make your site readable to AI tools#",
+   "Let AI agents use your site#",
+   "Publish pages AI answers tend to cite#",
+   "What's Next?#"
+  ],
+  "desc": "Check how ChatGPT, Gemini, Claude, Perplexity and Google AI answer your customers' questions, then make your site easy for AI tools to read, cite and act on.",
+  "height": 2980,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "ai-search-visibility",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 23,
+   "cdn.ploy.ai": 2,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://docs.ploy.ai/analytics": {
+  "status": 200,
+  "title": "Analytics: first-party website analytics built into Ploy | Ploy Support Docs",
+  "h1": [
+   "Analytics"
+  ],
+  "h2": [
+   "Limits and plan requirements#",
+   "Built-in Analytics#",
+   "Analytics settings: sources#",
+   "Send events to GA4, Meta Pixel, and Google Ads#",
+   "Google Analytics 4#",
+   "Google Search Console#",
+   "Asking Ploy's Agent About Analytics#",
+   "Check how AI answers mention you#",
+   "What's Next?#"
+  ],
+  "desc": "Every published Ploy site tracks pageviews, sources, AI-assistant visits, clicks and forms with first-party analytics. Build dashboards in a chat and connect GA4 and Search Console.",
+  "height": 10683,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "analytics",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 21,
+   "cdn.ploy.ai": 2,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://docs.ploy.ai/audience": {
+  "status": 200,
+  "title": "Audience | Ploy Support Docs",
+  "h1": [
+   "Audience"
+  ],
+  "h2": [
+   "Contact Tools#",
+   "Visitor Identification#",
+   "How they fit together#",
+   "Email preferences#"
+  ],
+  "desc": "Know who your audience is and reach them. Ploy's audience tooling combines Contact Tools for finding and enriching people and companies with Visitor Identification for seeing who's already visiting your site.",
+  "height": 1860,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "audience",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 22,
+   "cdn.ploy.ai": 2,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://docs.ploy.ai/core-concepts": {
+  "status": 200,
+  "title": "Core Concepts | Ploy Support Docs",
+  "h1": [
+   "Core Concepts"
+  ],
+  "h2": [
+   "Glossary#",
+   "Chats#",
+   "Ploybooks#",
+   "How They Fit Together#",
+   "What's Next?#"
+  ],
+  "desc": "Key terms and concepts you'll encounter in Ploy \u2014 Workspace, Site, Ploy, Ploy's Agent, Deploy, and more.",
+  "height": 4876,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "core-concepts",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 24,
+   "cdn.ploy.ai": 2,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://docs.ploy.ai/database": {
+  "status": 200,
+  "title": "Database | Ploy Support Docs",
+  "h1": [
+   "Database"
+  ],
+  "h2": [
+   "When to Use a Database#",
+   "Core Concepts#",
+   "Creating a Database#",
+   "Editing Your Data#",
+   "Powering Pages with Your Data#",
+   "Access Keys#",
+   "Version history and restore#",
+   "Secret Columns#",
+   "Good to Know#",
+   "What's Next?#"
+  ],
+  "desc": "Store structured content in a built-in database you can edit like a spreadsheet and use across your site, automations, and Ploy's Agent.",
+  "height": 8670,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "databases",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 23,
+   "cdn.ploy.ai": 2,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://docs.ploy.ai/introduction": {
+  "status": 200,
+  "title": "Introduction | Ploy Support Docs",
+  "h1": [
+   "Introduction"
+  ],
+  "h2": [
+   "Why Ploy?#",
+   "Platform Building Blocks#",
+   "Quick Start (\u2248 5 minutes)#",
+   "What's Next?#"
+  ],
+  "desc": "What Ploy is, why it exists, and how the platform building blocks fit together.",
+  "height": 2771,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "introduction",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 22,
+   "cdn.ploy.ai": 2,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://docs.ploy.ai/mcp": {
+  "status": 200,
+  "title": "Ploy MCP | Ploy Support Docs",
+  "h1": [
+   "Ploy MCP"
+  ],
+  "h2": [
+   "Server URL#",
+   "How connecting works#",
+   "Try it#",
+   "Setup guides#",
+   "Manage or remove access#",
+   "Troubleshooting#"
+  ],
+  "desc": "Connect Ploy to Claude Desktop, Claude Code, ChatGPT, Codex, Grok, Grok Bot, Muse, Cursor, and other AI tools with the Ploy MCP server.",
+  "height": 8633,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "mcp",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 23,
+   "cdn.ploy.ai": 2,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://docs.ploy.ai/ploy-chat": {
+  "status": 200,
+  "title": "Ploy's Agent: Your AI Assistant | Ploy Support Docs",
+  "h1": [
+   "Ploy's Agent: Your AI Assistant"
+  ],
+  "h2": [
+   "What Ploy's Agent Can Do#",
+   "How to Work with Ploy's Agent#",
+   "Tips for Best Results#",
+   "Delegated work#",
+   "Give feedback on a response#",
+   "Work with assets#",
+   "Attach files in chat#",
+   "What's Next?#"
+  ],
+  "desc": "What Ploy's Agent can do, how to work with it, and tips for getting the best results.",
+  "height": 8227,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "ploy-chat",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 23,
+   "cdn.ploy.ai": 2,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://docs.ploy.ai/projects": {
+  "status": 200,
+  "title": "Projects | Ploy Support Docs",
+  "h1": [
+   "Projects"
+  ],
+  "h2": [
+   "Create a project#",
+   "The dashboard#",
+   "Context and memory#",
+   "Daily check-in#",
+   "Rename or delete#",
+   "What's Next?#"
+  ],
+  "desc": "Give ongoing or multi-part work one home: a goal, a live dashboard, a task plan, and a daily check-in.",
+  "height": 4279,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "projects",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 22,
+   "cdn.ploy.ai": 2,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://docs.ploy.ai/publishing": {
+  "status": 200,
+  "title": "Publishing & Deploys | Ploy Support Docs",
+  "h1": [
+   "Publishing & Deploys"
+  ],
+  "h2": [
+   "How Publishing Works#",
+   "Publish your site#",
+   "Publishing paused#",
+   "Review a failed publish#",
+   "Automatic Publishing#",
+   "Restore an earlier version#",
+   "Custom Domains#",
+   "SSL Certificates#",
+   "Going Live Checklist#",
+   "What's Next?#"
+  ],
+  "desc": "Ship your site, manage versions, roll back, and connect a custom domain.",
+  "height": 8891,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "publishing",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 23,
+   "cdn.ploy.ai": 3,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://docs.ploy.ai/site-builder": {
+  "status": 200,
+  "title": "Site Builder: build on-brand landing pages and websites with AI | Ploy Support Docs",
+  "h1": [
+   "Site Builder"
+  ],
+  "h2": [
+   "Limits and plan requirements#",
+   "How Sites Are Structured#",
+   "Design System#",
+   "Creating Pages#",
+   "Adding Search to Your Site#",
+   "Import an existing website#",
+   "Reuse workspace assets#",
+   "FAQ: External Content#",
+   "Preview & Iteration#",
+   "What's Next?#"
+  ],
+  "desc": "Ploy's Agent builds landing pages from a chat on Astro, React and Tailwind, using a design system made from your site or Figma file. Keep drafts private until you publish.",
+  "height": 10778,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "site-builder",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle"
+  ],
+  "hosts": {
+   "docs.ploy.ai": 21,
+   "cdn.ploy.ai": 5,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "POST https://docs.ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai": {
+  "status": 200,
+  "title": "AI Marketing Platform for Website Growth | Ploy",
+  "h1": [
+   "YOUR WEBSITE SHOULD BE WORKING HARDER THAN YOU ARE."
+  ],
+  "h2": [
+   "YOUR WEBSITE LAUNCHED. THEN IT STOPPED.",
+   "Monitor",
+   "Act",
+   "Surface",
+   "YOU SLEPT 8 HOURS.\nPLOY DIDN'T.",
+   "AN EMPLOYEE",
+   "THAT NEVER SLEEPS",
+   "EXPERT STRATEGIES,\nDEPLOYED\nFOR YOU.",
+   "One platform three engines",
+   "BRING ANY SITE. PLOY TURNS IT INTO YOUR GROWTH ENGINE.",
+   "STOP MAINTAINING YOUR WEBSITE.",
+   "Want the short version?"
+  ],
+  "desc": "Ploy is an AI marketing platform for website growth. Build on-brand pages, identify visitors, automate SEO and outreach, and improve conversion.",
+  "height": 11781,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "SoftwareApplication"
+  ],
+  "hosts": {
+   "ploy.ai": 95,
+   "cdn.ploy.ai": 28,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "i.ytimg.com": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/a16z-speedrun": {
+  "status": 200,
+  "title": "a16z Speedrun \u00d7 Tonik \u00d7 Ploy",
+  "h1": [
+   "TONIK DESIGNS YOUR SITE. PLOY GROWS IT."
+  ],
+  "h2": [
+   "Founders don\u2019t rebuild. They ship.",
+   "READY TO GROW WHAT TONIK BUILT?",
+   "Want the short version?"
+  ],
+  "desc": "Tonik designs it. Ploy grows it. a16z Speedrun founders migrate the site Tonik hands over into Ploy and grow their marketing channels \u2014 with white-glove migration, a growth advisory session with Bryant Chou (fmr. CTO, Webflow), and 2\u00d7 referral credits.",
+  "height": 6008,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage"
+  ],
+  "hosts": {
+   "ploy.ai": 68,
+   "cdn.ploy.ai": 24,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/a16z-speedrun-tonik": {
+  "status": 200,
+  "title": "tonik \u00d7 Ploy Founder Value for a16z Speedrun",
+  "h1": [
+   "YOUR TONIK LAUNCH, READY FOR WHAT COMES NEXT."
+  ],
+  "h2": [
+   "tonik builds it. Ploy keeps it operable. tonik keeps growing it.",
+   "From Figma to a relationship that continues.",
+   "More growth.\nLess founder toil.",
+   "Keep founder judgment. Remove founder toil.",
+   "Build the company. Keep the growth engine moving."
+  ],
+  "desc": "A proposed founder-value offer for a16z Speedrun: tonik leads the brand and relationship, while Ploy provides the shared launch and website operations layer for what comes next.",
+  "height": 6084,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage"
+  ],
+  "hosts": {
+   "ploy.ai": 58,
+   "cdn.ploy.ai": 10,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/ab-test-sample-size": {
+  "status": 200,
+  "title": "A/B Test Sample Size and Duration Calculator | Ploy",
+  "h1": [
+   "SEE HOW MANY VISITORS YOUR A/B TEST NEEDS."
+  ],
+  "h2": [
+   "Your test inputs",
+   "How long should an A/B test run?",
+   "Choose the inputs before you start",
+   "THE SAMPLE SIZE SETS THE PLAN. THE RESULTS DECIDE THE WINNER.",
+   "A/B test sample size questions",
+   "How this number is calculated",
+   "Want the short version?"
+  ],
+  "desc": "Find out how many visitors each version of your A/B test needs. Add daily visitors to estimate how long it could take.",
+  "height": 5730,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebApplication",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 58,
+   "cdn.ploy.ai": 3,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/about": {
+  "status": 200,
+  "title": "Ploy at a glance: company facts | Ploy",
+  "h1": [
+   "PLOY AT\nA GLANCE"
+  ],
+  "h2": [
+   "Ploy, Inc. is a San Francisco company founded in 2025",
+   "Why Bryant Chou started Ploy, in his words",
+   "Who is behind Ploy",
+   "Questions about the company behind ploy.ai",
+   "Learn more about Ploy",
+   "TRY PLOY ON YOUR OWN SITE.",
+   "Want the short version?"
+  ],
+  "desc": "Company facts about Ploy (ploy.ai): what it does, who founded it, where it is based, how it is funded, current plans and official profiles, with a source for each.",
+  "height": 8756,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "AboutPage",
+   "BreadcrumbList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 69,
+   "cdn.ploy.ai": 10,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/agencies": {
+  "status": 200,
+  "title": "Ploy Agency Partners: Web, Brand & Growth Studios",
+  "h1": [
+   "BUILT BY THE\nBEST IN THE GAME"
+  ],
+  "h2": [
+   "The platform and the people, together.",
+   "What working with a partner looks like.",
+   "BUILD IT YOURSELF. OR BRING IN A PRO.",
+   "Want the short version?"
+  ],
+  "desc": "Browse Ploy\u2019s hand-picked web design, branding, and growth agency partners. Find a studio for strategy, creative, development, or demand generation.",
+  "height": 6554,
+  "tabs": [
+   "All",
+   "Branding",
+   "Web",
+   "Growth",
+   "SEO/AEO",
+   "Paid Marketing",
+   "ABM",
+   "Content"
+  ],
+  "tabShots": [
+   "ploy-ai_agencies__tab1_All.jpg",
+   "ploy-ai_agencies__tab2_Branding.jpg",
+   "ploy-ai_agencies__tab3_Web.jpg",
+   "ploy-ai_agencies__tab4_Growth.jpg",
+   "ploy-ai_agencies__tab5_SEO-AEO.jpg",
+   "ploy-ai_agencies__tab6_Paid-Marketing.jpg",
+   "ploy-ai_agencies__tab7_ABM.jpg",
+   "ploy-ai_agencies__tab8_Content.jpg"
+  ],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "ItemList"
+  ],
+  "hosts": {
+   "ploy.ai": 63,
+   "cdn.ploy.ai": 6,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "storage.googleapis.com": 3,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/agencies/sengo": {
+  "status": 200,
+  "title": "Sengo | Ploy Agency Partner for CMS Migrations",
+  "h1": [
+   "SENGO"
+  ],
+  "h2": [
+   "THE WORK.",
+   "What Sengo does",
+   "BRING IN SENGO.",
+   "Want the short version?"
+  ],
+  "desc": "Sengo is a bilingual CMS and DXP consultancy from Quebec and a Ploy partner. They moved their own 600-page WordPress site to Ploy in one night and help teams plan migrations, design systems and training.",
+  "height": 6393,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "Organization"
+  ],
+  "hosts": {
+   "ploy.ai": 58,
+   "cdn.ploy.ai": 3,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "storage.googleapis.com": 28,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/agencies/tnt-growth": {
+  "status": 200,
+  "title": "TNT Growth | Performance Marketing Infrastructure | Ploy",
+  "h1": [
+   "TNT GROWTH"
+  ],
+  "h2": [
+   "THE WORK.",
+   "What TNT Growth does",
+   "BRING IN TNT GROWTH.",
+   "Want the short version?"
+  ],
+  "desc": "TNT Growth pairs Ploy\u2019s page velocity with senior paid media, creative, CRO, and attribution for SaaS, healthcare, addiction treatment, and eCommerce brands.",
+  "height": 6601,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "Organization"
+  ],
+  "hosts": {
+   "ploy.ai": 58,
+   "cdn.ploy.ai": 4,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "storage.googleapis.com": 26,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/alternatives": {
+  "status": 200,
+  "title": "Ploy.ai Alternatives \u2014 Compared Honestly",
+  "h1": [
+   "ANYONE CAN BUILD A WEBSITE NOW. PLOY ACTUALLY GROWS YOUR BUSINESS."
+  ],
+  "h2": [
+   "HONEST ANSWERS TO THE QUESTIONS TEAMS ASK WHILE COMPARING.",
+   "THE FASTEST WAY TO COMPARE PLOY IS TO RUN IT ON YOUR OWN SITE.",
+   "Want the short version?"
+  ],
+  "desc": "Comparing Ploy.ai alternatives? An honest breakdown of where Framer, Webflow, Webflow Campaigns, Unbounce, HubSpot AEO, Vercel, Sanity, v0, Lovable, and Bolt fit \u2014 and where teams pick Ploy to run the whole dotcom.",
+  "height": 7497,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "ItemList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 69,
+   "cdn.ploy.ai": 10,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/auth/login": {
+  "status": 200,
+  "title": "Ploy",
+  "h1": [
+   "Welcome back"
+  ],
+  "h2": [],
+  "desc": "Turn your website into your hardest working employee",
+  "height": 900,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": null,
+    "method": "post",
+    "fields": [
+     "email",
+     "password"
+    ]
+   }
+  ],
+  "islands": [],
+  "jsonld": [],
+  "hosts": {
+   "ploy.ai": 47,
+   "": 1,
+   "ingest.ploy.ai": 3,
+   "www.googletagmanager.com": 2
+  },
+  "apis": [
+   "POST https://ploy.ai/monitoring",
+   "GET https://ploy.ai/api/auth/passkey/generate-authenticate-options",
+   "GET https://ploy.ai/auth/sign-in-help",
+   "GET https://ploy.ai/auth/sign-up",
+   "POST https://ploy.ai/ingest/flags/",
+   "POST https://ploy.ai/ingest/flags"
+  ]
+ },
+ "https://ploy.ai/auth/signup": {
+  "status": 404,
+  "title": "Ploy",
+  "h1": [],
+  "h2": [],
+  "desc": "Turn your website into your hardest working employee",
+  "height": 900,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [],
+  "jsonld": [],
+  "hosts": {
+   "ploy.ai": 37,
+   "": 1,
+   "ingest.ploy.ai": 3,
+   "www.googletagmanager.com": 2
+  },
+  "apis": [
+   "POST https://ploy.ai/monitoring",
+   "GET https://ploy.ai/workspaces",
+   "POST https://ploy.ai/ingest/flags/",
+   "GET https://ploy.ai/auth/login",
+   "POST https://ploy.ai/ingest/flags"
+  ]
+ },
+ "https://ploy.ai/blog": {
+  "status": 200,
+  "title": "Website Growth & AI Marketing Blog | Ploy",
+  "h1": [
+   "THE PLOY \n BLOG"
+  ],
+  "h2": [
+   "The Changelog",
+   "Featured stories",
+   "Guides and resources",
+   "Want the short version?"
+  ],
+  "desc": "Practical guides to AI website building, SEO, AEO, conversion optimization, marketing automation, and the tools growth teams use.",
+  "height": 6067,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "navbar",
+   "blog-index-page",
+   "footer",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "Blog"
+  ],
+  "hosts": {
+   "ploy.ai": 54,
+   "storage.googleapis.com": 7,
+   "us-assets.i.posthog.com": 3,
+   "cdn.ploy.ai": 5,
+   "i.ytimg.com": 1,
+   "us.i.posthog.com": 1,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/blog/404-page-examples": {
+  "status": 200,
+  "title": "20 Best 404 Page Examples That Win Back Lost Visitors (2026) | Ploy",
+  "h1": [
+   "404 Page Examples: 20 Error Pages That Win Back Lost Visitors"
+  ],
+  "h2": [
+   "What is a 404 page?",
+   "How we checked these 20",
+   "404 pages that lead with search",
+   "404 pages that give the next links",
+   "404 pages that turn into a pitch",
+   "Design an error page that keeps visitors on your site",
+   "404 pages that explain what happened",
+   "404 pages that stay on brand",
+   "What the best 404 pages have in common",
+   "How to make a good 404 page",
+   "Build your 404 page in Ploy",
+   "Frequently asked questions",
+   "Send lost visitors somewhere useful",
+   "Want the short version?"
+  ],
+  "desc": "Twenty real 404 pages from GitHub, Stripe, Airbnb, Ramp and NASA, with what each one says and how it gets lost visitors back on track.",
+  "height": 25141,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "navbar",
+   "blog-cta",
+   "get-started-button",
+   "blog-toc",
+   "footer",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "Article",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 55,
+   "storage.googleapis.com": 21,
+   "us-assets.i.posthog.com": 3,
+   "us.i.posthog.com": 1,
+   "www.googletagmanager.com": 1,
+   "cdn.ploy.ai": 2
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/blog/6sense-alternatives": {
+  "status": 200,
+  "title": "7 Best 6sense Alternatives for B2B Teams in 2026 | Ploy",
+  "h1": [
+   "7 Best 6sense Alternatives for B2B Teams in 2026"
+  ],
+  "h2": [
+   "Key takeaways",
+   "7 Best 6sense Alternatives in 2026",
+   "1. Ploy",
+   "Act on visitor intent without adding another disconnected tool",
+   "2. Demandbase",
+   "3. ZoomInfo",
+   "4. Mutiny",
+   "5. Warmly",
+   "6. Clearbit (now part of HubSpot)",
+   "7. Apollo",
+   "Final verdict",
+   "Frequently Asked Questions",
+   "Turn website intent into a repeatable growth workflow",
+   "Thinking about switching?",
+   "Want the short version?"
+  ],
+  "desc": "6sense can be powerful, but it comes with a heavier setup. These 7 alternatives cover visitor identification, ABM, contact data, and website personalization.",
+  "height": 14346,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": null,
+    "method": null,
+    "fields": [
+     "text"
+    ]
+   }
+  ],
+  "islands": [
+   "navbar",
+   "blog-cta",
+   "blog-toc",
+   "migration-cta-rail",
+   "footer",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "Article"
+  ],
+  "hosts": {
+   "ploy.ai": 57,
+   "storage.googleapis.com": 1,
+   "us-assets.i.posthog.com": 3,
+   "us.i.posthog.com": 1,
+   "www.googletagmanager.com": 1,
+   "cdn.ploy.ai": 2
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/careers": {
+  "status": 200,
+  "title": "Careers | Ploy",
+  "h1": [
+   "BUILD PLOY. GROW PLOY."
+  ],
+  "h2": [
+   "Two ways to join",
+   "HOW WE PLOY",
+   "What we look for",
+   "Open roles",
+   "Where we work",
+   "GET IN TOUCH",
+   "Want the short version?"
+  ],
+  "desc": "Join the Ploy team. We\u2019re hiring in San Francisco and New York.",
+  "height": 7828,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "AboutPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 64,
+   "cdn.ploy.ai": 7,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/careers/founding-community-lead": {
+  "status": 200,
+  "title": "Founding Community Lead | Careers at Ploy",
+  "h1": [
+   "FOUNDING COMMUNITY LEAD"
+  ],
+  "h2": [
+   "Founding Community Lead",
+   "Apply",
+   "How we Ploy",
+   "Other open roles",
+   "SOUND LIKE YOU?",
+   "Want the short version?"
+  ],
+  "desc": "Ploy is hiring a Founding Community Lead (New York City, on-site). Read the role and apply to join the team building AI marketing for growth teams.",
+  "height": 8245,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": null,
+    "method": null,
+    "fields": [
+     "website",
+     "field:_systemfield_name",
+     "field:_systemfield_email",
+     "field:_systemfield_resume"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "JobPosting",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 60,
+   "cdn.ploy.ai": 7,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "GET https://ploy.ai/careers-api/application-form",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/careers/founding-growth-manager": {
+  "status": 200,
+  "title": "Founding Growth Manager | Careers at Ploy",
+  "h1": [
+   "FOUNDING GROWTH MANAGER"
+  ],
+  "h2": [
+   "Founding Growth Manager",
+   "Apply",
+   "How we Ploy",
+   "Other open roles",
+   "SOUND LIKE YOU?",
+   "Want the short version?"
+  ],
+  "desc": "Ploy is hiring a Founding Growth Manager (New York City, on-site). Read the role and apply to join the team building AI marketing for growth teams.",
+  "height": 7961,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": null,
+    "method": null,
+    "fields": [
+     "website",
+     "field:_systemfield_name",
+     "field:_systemfield_email",
+     "field:_systemfield_resume"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "JobPosting",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 60,
+   "cdn.ploy.ai": 7,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "GET https://ploy.ai/careers-api/application-form",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/cli": {
+  "status": 200,
+  "title": "Migrate an Existing Repo to Ploy with the CLI",
+  "h1": [
+   "MOVE YOUR SITE TO PLOY"
+  ],
+  "h2": [
+   "Your repo. Your agent. A clear plan.",
+   "Install and sign in",
+   "ONE CLI.\nTHREE WAYS TO WORK.",
+   "People",
+   "Automations",
+   "AI agents",
+   "Standalone by design.",
+   "A website CLI for real marketing work.",
+   "Ploy CLI FAQ",
+   "Want the short version?"
+  ],
+  "desc": "Copy a prompt for Claude Code or Codex to assess your website repository and plan its move to Ploy. Compatible Astro repos can be imported on the Free plan.",
+  "height": 4868,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "cli-page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage"
+  ],
+  "hosts": {
+   "ploy.ai": 53,
+   "cdn.ploy.ai": 6,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/contact": {
+  "status": 200,
+  "title": "Contact Ploy",
+  "h1": [
+   "CONTACT US."
+  ],
+  "h2": [
+   "Want the short version?"
+  ],
+  "desc": "Talk to the Ploy team. Reach out for a product demo, custom pricing, or anything else about the AI-native website platform.",
+  "height": 2975,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": null,
+    "method": null,
+    "fields": [
+     "website",
+     "firstName",
+     "lastName",
+     "email",
+     "jobTitle",
+     "company",
+     "help",
+     "message"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "ContactPage",
+   "Organization",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 52,
+   "cdn.ploy.ai": 5,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/customers": {
+  "status": 200,
+  "title": "Case studies | Ploy",
+  "h1": [
+   "MEET THE TEAMS GROWING WITH PLOY"
+  ],
+  "h2": [
+   "Customer stories",
+   "Want the short version?"
+  ],
+  "desc": "How teams build, ship, and grow with Ploy.",
+  "height": 5093,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "CollectionPage"
+  ],
+  "hosts": {
+   "ploy.ai": 58,
+   "cdn.ploy.ai": 1,
+   "storage.googleapis.com": 8,
+   "us-assets.i.posthog.com": 3,
+   "us.i.posthog.com": 1,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/customers/clay": {
+  "status": 200,
+  "title": "How Clay\u2019s growth team ships 6x faster with Ploy | Ploy",
+  "h1": [
+   "HOW CLAY\u2019S GROWTH TEAM SHIPS 6X FASTER WITH PLOY"
+  ],
+  "h2": [
+   "",
+   "Build with Ploy",
+   "The challenge",
+   "The solution",
+   "Looking ahead",
+   "Run your growth ideas without the queue",
+   "Want the short version?"
+  ],
+  "desc": "How Clay\u2019s five-person growth team used Ploy to build a self-reliant growth engine: custom ABM pages, a Skills Marketplace for SEO and AEO, and lead magnets turned mini-apps.",
+  "height": 8286,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage"
+  ],
+  "hosts": {
+   "ploy.ai": 70,
+   "cdn.ploy.ai": 11,
+   "us-assets.i.posthog.com": 3,
+   "us.i.posthog.com": 1,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/customers/findem": {
+  "status": 200,
+  "title": "How Findem migrated 500 pages in a week and now runs SEO and AEO overnight | Ploy",
+  "h1": [
+   "HOW FINDEM MIGRATED 500 PAGES IN A WEEK AND NOW RUNS SEO AND AEO OVERNIGHT"
+  ],
+  "h2": [
+   "",
+   "Build with Ploy",
+   "A fast-moving business on a website that couldn\u2019t keep up",
+   "The challenge",
+   "The solution",
+   "The impact",
+   "Keep your site moving as fast as your product",
+   "Want the short version?"
+  ],
+  "desc": "Findem moved 450 to 500 pages from Webflow to Ploy in about a week. Ploy now runs Findem\u2019s AEO tracking, SEO work, and site optimization, and queues recommendations every night for the team to approve.",
+  "height": 7714,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage"
+  ],
+  "hosts": {
+   "ploy.ai": 70,
+   "cdn.ploy.ai": 5,
+   "us-assets.i.posthog.com": 3,
+   "us.i.posthog.com": 1,
+   "www.googletagmanager.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/demo": {
+  "status": 200,
+  "title": "See Ploy in action",
+  "h1": [
+   "SEE PLOY IN ACTION."
+  ],
+  "h2": [
+   "GET STARTED.",
+   "Want the short version?"
+  ],
+  "desc": "Answer a few quick questions and we\u2019ll point you at the fastest path \u2014 a tailored walkthrough with our team, or your own workspace to start building right now.",
+  "height": 3004,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": null,
+    "method": null,
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 55,
+   "cdn.ploy.ai": 5,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/faq": {
+  "status": 200,
+  "title": "FAQ | Ploy",
+  "h1": [
+   "QUESTIONS,\nANSWERED."
+  ],
+  "h2": [
+   "AI marketing automation, explained.",
+   "What the agent does for you.",
+   "Know what changed before a prospect does.",
+   "Visitors, AEO, pricing, and security.",
+   "CONNECT THE TOOLS YOU ALREADY USE.",
+   "STILL CURIOUS?",
+   "Want the short version?"
+  ],
+  "desc": "Answers to common questions about Ploy \u2014 AI-powered web marketing automation, competitor monitoring, Ploy's Agent capabilities, and the Monitor-Act-Surface cycle that keeps your site improving while you sleep.",
+  "height": 8970,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 81,
+   "cdn.ploy.ai": 10,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/account-based-marketing": {
+  "status": 200,
+  "title": "Account-Based Marketing Software for Website-Led ABM | Ploy",
+  "h1": [
+   "SEE WHO'S IN-MARKET.\nSHIP THEM A PAGE."
+  ],
+  "h2": [
+   "PLOY RUNS ABM.\nYOU APPROVE THE PAGES.",
+   "What is account-based marketing?",
+   "Every named account deserves its own page.",
+   "From account-based marketing to account-based sales.",
+   "THREE WAYS TEAMS\nALREADY RUN ABM.",
+   "See your first named account before you build the page.",
+   "Account-based marketing questions, answered.",
+   "SEE YOUR FIRST IDENTIFIED VISITOR TODAY.",
+   "Want the short version?"
+  ],
+  "desc": "Run account-based marketing from your website. Identify named accounts, ship personalized landing pages, score intent, and sync engagement to Attio or HubSpot.",
+  "height": 13153,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "SoftwareApplication",
+   "FAQPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 86,
+   "cdn.ploy.ai": 24,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/ai-website-builder": {
+  "status": 200,
+  "title": "AI Website Builder for Marketing Teams | Ploy",
+  "h1": [
+   "THE AI WEBSITE\nBUILDER BUILT\nFOR MARKETERS."
+  ],
+  "h2": [
+   "LAUNCH IS THE STARTING LINE, NOT THE FINISH.",
+   "You bring the brand. We\u2019ll carry it forward.",
+   "LIVE SITES,\nSHIPPED\nWITH PLOY.",
+   "A marketing website builder that keeps working after launch.",
+   "What is an AI website builder for marketing teams?",
+   "AI website builder questions, answered.",
+   "BUILD YOUR FIRST PAGE.",
+   "Want the short version?"
+  ],
+  "desc": "Build on-brand marketing pages with Ploy. Ship landing pages, comparison pages and SEO content with analytics and visitor identification built in.",
+  "height": 15121,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "experiment-challenger",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "SoftwareApplication",
+   "FAQPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 88,
+   "cdn.ploy.ai": 26,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/analytics": {
+  "status": 200,
+  "title": "Website Analytics Software with Server-Side Tracking | Ploy",
+  "h1": [
+   "THE NUMBERS\nYOUR AD BLOCKER STOLE."
+  ],
+  "h2": [
+   "Know who your site is working on.",
+   "ANALYTICS THAT SHIPS WITH THE SITE.\nPLUS THE STACK YOU ALREADY HAVE.",
+   "What is website analytics?",
+   "If it happens on your site, it's an event.",
+   "Client-side analytics is half a picture.",
+   "Your analytics scripts. Loaded from your own domain.",
+   "See your real traffic numbers in 60 seconds.",
+   "Website analytics questions, answered.",
+   "SEE YOUR REAL TRAFFIC TODAY.",
+   "Want the short version?"
+  ],
+  "desc": "Track client events and server-side traffic in one website analytics platform. Keep GA4 and PostHog running first-party, with no SDK or tag manager.",
+  "height": 15361,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "SoftwareApplication",
+   "FAQPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 86,
+   "cdn.ploy.ai": 19,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "www.google.com": 9,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/answer-engine-optimization": {
+  "status": 200,
+  "title": "Answer Engine Optimization and AI Citation Tracking | Ploy",
+  "h1": [
+   "GET CITED BY CHATGPT,\nPERPLEXITY, AND GEMINI."
+  ],
+  "h2": [
+   "A LOOP,\nNOT A ONE-TIME SEO AUDIT.",
+   "See the answer text. Not just the count.",
+   "Find out if your site is AI-search ready.",
+   "AI citation tracking, answered.",
+   "GET CITED WHERE BUYERS ACTUALLY SEARCH NOW.",
+   "Want the short version?"
+  ],
+  "desc": "Track AI citations and optimize pages for ChatGPT, Perplexity, Gemini, and Google AI Overviews with direct answers, schema, and daily monitoring.",
+  "height": 8132,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "SoftwareApplication",
+   "FAQPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 82,
+   "cdn.ploy.ai": 20,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/brand-from-url": {
+  "status": 200,
+  "title": "Build a brand design system from your website URL | Ploy",
+  "h1": [
+   "PASTE YOUR URL.\nGET YOUR\nDESIGN SYSTEM."
+  ],
+  "h2": [
+   "What does Ploy extract from a website URL?",
+   "From your URL to on-brand pages in three steps",
+   "What goes into your design system",
+   "What you review before publishing",
+   "Brand from URL questions, answered.",
+   "START FROM THE SITE YOU ALREADY HAVE.",
+   "Want the short version?"
+  ],
+  "desc": "Give Ploy your website URL and Ploy's Agent builds a design system of colors, fonts, spacing, radius and shadows, then builds every landing page on it.",
+  "height": 7712,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "FAQPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 69,
+   "cdn.ploy.ai": 10,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/database": {
+  "status": 200,
+  "title": "PloyDB | The Database Built Into Your Website",
+  "h1": [
+   "THE DATABASE\nBUILT INTO\nYOUR WEBSITE."
+  ],
+  "h2": [
+   "Your content stops living in five different places.",
+   "If it repeats in a consistent shape, put it in PloyDB.",
+   "Describe the data. Ploy connects the rest.",
+   "Fast to change. Hard to expose by accident.",
+   "Website databases and CMS, answered.",
+   "GIVE YOUR SITE ONE SOURCE OF TRUTH.",
+   "Want the short version?"
+  ],
+  "desc": "PloyDB is the database built into Ploy. Store structured content, power CMS pages, collect form submissions and give Ploy's Agent one source of truth.",
+  "height": 11320,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "SoftwareApplication",
+   "FAQPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 80,
+   "cdn.ploy.ai": 10,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/hosting": {
+  "status": 200,
+  "title": "Website Hosting with Reverse Proxy & Routing | Ploy",
+  "h1": [
+   "YOUR STACK,\nONE DOMAIN."
+  ],
+  "h2": [
+   "FROM DNS RECORD,\nTO LIVE ON YOUR DOMAIN.",
+   "Keep your Framer site. Add Ploy where it matters.",
+   "Rules that read like English.",
+   "Move to Ploy without moving your site.",
+   "Custom domains, routing, and reverse proxy \u2014 answered.",
+   "STITCH YOUR STACK UNDER ONE DOMAIN.",
+   "Want the short version?"
+  ],
+  "desc": "Host Ploy pages on your domain while keeping Framer, Webflow, WordPress, or Vercel live. Manage reverse-proxy routing, redirects, SSL, and analytics in Ploy.",
+  "height": 9123,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "FAQPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 79,
+   "cdn.ploy.ai": 20,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/landing-page-builder": {
+  "status": 200,
+  "title": "AI Landing Page Builder for Marketing Teams | Ploy",
+  "h1": [
+   "THE AI LANDING\nPAGE BUILDER\nTHAT KNOWS YOUR BRAND."
+  ],
+  "h2": [
+   "ONE CAMPAIGN. ONE PAGE THAT MATCHES.",
+   "One page per ad group, from one template.",
+   "From your current site to a live landing page.",
+   "LIVE SITES,\nSHIPPED\nWITH PLOY.",
+   "What is an AI landing page builder?",
+   "AI landing page builder questions, answered.",
+   "BUILD YOUR NEXT LANDING PAGE.",
+   "Want the short version?"
+  ],
+  "desc": "Ploy is an AI landing page builder that makes campaign pages in your design system, with form capture, analytics and visitor identification on every page.",
+  "height": 11536,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "SoftwareApplication",
+   "FAQPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 85,
+   "cdn.ploy.ai": 26,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/ploy-ads": {
+  "status": 200,
+  "title": "PloyAds \u2014 AI Paid Acquisition for Marketing Teams | Ploy",
+  "h1": [
+   "PAID ACQUISITION\nTHAT SHIPS\nWITH YOUR SITE."
+  ],
+  "h2": [
+   "GET EARLY ACCESS.",
+   "Want the short version?"
+  ],
+  "desc": "PloyAds is the AI-native paid acquisition layer for Ploy \u2014 drafts ad creative, matches it to landing pages, and adjusts campaigns in your brand voice. Coming soon.",
+  "height": 3721,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 63,
+   "cdn.ploy.ai": 9,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/ploy-grow": {
+  "status": 200,
+  "title": "PloyGrow \u2014 AI Growth Agent for Marketing Teams | Ploy",
+  "h1": [
+   "A GROWTH TEAM\nTHAT WORKS\nWHILE YOU SLEEP."
+  ],
+  "h2": [
+   "GET EARLY ACCESS.",
+   "Want the short version?"
+  ],
+  "desc": "PloyGrow is the AI growth agent inside Ploy \u2014 reads your traffic, tests what converts, and ships the next page, experiment, and outreach play continuously. Coming soon.",
+  "height": 3721,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 63,
+   "cdn.ploy.ai": 10,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/seo-agent": {
+  "status": 200,
+  "title": "AI SEO Agent for Your Own Website | Ploy",
+  "h1": [
+   "AN AI SEO AGENT\nTHAT WORKS ON\nYOUR OWN SITE"
+  ],
+  "h2": [
+   "An AI SEO agent turns search data into page changes.",
+   "FROM SEARCH DATA\nTO A PAGE ON YOUR SITE.",
+   "Ploy finds the searches your pages miss.",
+   "SEO WORKFLOWS YOU RUN ON DEMAND OR ON A SCHEDULE.",
+   "Turn one template and a database into many pages.",
+   "See how much traffic organic search brings in.",
+   "Technical SEO is built into every page Ploy hosts.",
+   "THE SAME PAGES WORK FOR SEO AND AEO.",
+   "Your team keeps the strategy and the final say.",
+   "AI SEO agent questions, answered.",
+   "PUT AN AI SEO AGENT TO WORK ON YOUR SITE.",
+   "Want the short version?"
+  ],
+  "desc": "Ploy's AI SEO agent uses keyword research, site analytics and Search Console data to find gaps and draft on-brand page updates for your team to review.",
+  "height": 13476,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "SoftwareApplication",
+   "FAQPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 93,
+   "cdn.ploy.ai": 21,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/features/visitor-identification": {
+  "status": 200,
+  "title": "Website Visitor Identification Software for B2B | Ploy",
+  "h1": [
+   "ANONYMOUS TRAFFIC,\nREAL PEOPLE."
+  ],
+  "h2": [
+   "HOW TO IDENTIFY\nWEBSITE VISITORS.",
+   "Every visit, named and contextual.",
+   "See your first identified visitor in 60 seconds.",
+   "Built on consent, not scraping.",
+   "Visitor identification, answered.",
+   "SEE YOUR FIRST IDENTIFIED VISITOR TODAY.",
+   "Want the short version?"
+  ],
+  "desc": "Identify companies and likely contacts behind eligible U.S. website traffic. Score buying intent and sync qualified accounts to your team's tools.",
+  "height": 9597,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "FAQPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 85,
+   "cdn.ploy.ai": 20,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/for/agencies": {
+  "status": 200,
+  "title": "Ploy for Agencies",
+  "h1": [
+   "THE BUILD GOT CHEAP.\nTHE BRAND DIDN\u2019T."
+  ],
+  "h2": [
+   "Why TNT Growth builds on Ploy.",
+   "POUR THE 80% BACK INTO THE BRAND.",
+   "AI took the build. Not the job.",
+   "Hand over a system, not a site that drifts.",
+   "Built right, so it ages well.",
+   "Build client landing pages and see which companies visit them.",
+   "Migrate client sites in a night. Then grow them every month.",
+   "Bring your craft. We'll bring the platform.",
+   "BUILD THE NEXT GENERATION OF WEBSITES.",
+   "Want the short version?"
+  ],
+  "desc": "AI took the build, not the job. Ploy hands the hours back to your studio for brand and craft, then ships a clean component library clients can grow on.",
+  "height": 11577,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "SoftwareApplication",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 59,
+   "cdn.ploy.ai": 16,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "i.ytimg.com": 1,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/for/enterprise": {
+  "status": 200,
+  "title": "Enterprise Website Platform for Marketing Teams | Ploy",
+  "h1": [
+   "EVERY TEAM SHIPS \n ON\u2011BRAND AT\u00a0SCALE"
+  ],
+  "h2": [
+   "Marketers ship and admins keep control",
+   "Build account pages, campaigns, and tests",
+   "Clay\u2019s growth team ships without\u00a0waiting on design and\u00a0dev",
+   "Enterprise\u2011secure from day\u00a0one",
+   "Your campaigns keep improving on their own",
+   "Go live without migrating your site",
+   "Prompt Ploy from any chat",
+   "Automate your repeat\nsite operations",
+   "Personalized ABM\u00a0Pages",
+   "ABM Page for SDRs &\u00a0AEs",
+   "Run an\u00a0Experiment",
+   "Migrate a CMS into\u00a0PloyDB",
+   "Rebuild your site on\u00a0Ploy",
+   "Publish\u00a0Readiness",
+   "SEO & AEO Strategy\u00a0System",
+   "Website health and usability\u00a0audit",
+   "Personalized ABM\u00a0Pages",
+   "ABM Page for SDRs &\u00a0AEs",
+   "Run an\u00a0Experiment",
+   "Migrate a CMS into\u00a0PloyDB",
+   "Rebuild your site on\u00a0Ploy",
+   "Publish\u00a0Readiness",
+   "SEO & AEO Strategy\u00a0System",
+   "Website health and usability\u00a0audit",
+   "All the things procurement asks\u00a0about",
+   "ROLL OUT PLOY ONE PATH AT A TIME",
+   "Questions enterprise teams ask",
+   "Want the short version?"
+  ],
+  "desc": "Ploy is the AI marketing platform that learns your brand, so in-house teams ship campaign pages, A/B tests, and SEO and AEO content that match it. Get a demo.",
+  "height": 10810,
+  "tabs": [
+   "ABM pages",
+   "Campaign pages",
+   "A/B tests",
+   "SEO and AEO",
+   "CMS migration",
+   "Account insights"
+  ],
+  "tabShots": [
+   "ploy-ai_for_enterprise__tab1_ABM-pages.jpg",
+   "ploy-ai_for_enterprise__tab2_Campaign-pages.jpg",
+   "ploy-ai_for_enterprise__tab3_A-B-tests.jpg",
+   "ploy-ai_for_enterprise__tab4_SEO-and-AEO.jpg",
+   "ploy-ai_for_enterprise__tab5_CMS-migration.jpg",
+   "ploy-ai_for_enterprise__tab6_Account-insights.jpg"
+  ],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 115,
+   "cdn.ploy.ai": 47,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/for/exporters": {
+  "status": 200,
+  "title": "Ploy for Exporters: Get found by US and EU buyers",
+  "h1": [
+   "GET FOUND BY US AND EU BUYERS."
+  ],
+  "h2": [
+   "Chinese manufacturers already on Ploy",
+   "An English homepage built to get RFQs",
+   "Put what buyers check next to the RFQ form",
+   "Show up in Google and AI search",
+   "See which overseas buyers visit your site",
+   "What buyers look for depends on your industry",
+   "QUESTIONS EXPORTERS ASK",
+   "START YOUR EXPORT SITE",
+   "Want the short version?"
+  ],
+  "desc": "Ploy turns a Chinese manufacturer's products, certifications and factory details into an English B2B site with RFQ forms and search optimization.",
+  "height": 11251,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 60,
+   "cdn.ploy.ai": 5,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/for/growth": {
+  "status": 200,
+  "title": "Ship Landing Pages and A/B Tests Without Engineering | Ploy",
+  "h1": [
+   "FROM HYPOTHESIS \n TO LIVE\u00a0TEST"
+  ],
+  "h2": [
+   "Your growth team ships every page and test",
+   "Build paid pages, A/B tests, and programmatic SEO",
+   "Each test sets up the next one",
+   "Prompt Ploy from any chat",
+   "Go live without migrating your site",
+   "Automate your repeat\ngrowth tests",
+   "Run an\u00a0Experiment",
+   "Optimize Above-the-Fold\u00a0Content",
+   "Programmatic SEO at\u00a0Scale",
+   "Ad Campaign ROI\u00a0Report",
+   "Analyse Web Traffic & Visitor\u00a0Engagement",
+   "Conversion Page\u00a0Cluster",
+   "GSC Keyword\u00a0Optimization",
+   "Conversion\u00a0Copywriting",
+   "Run an\u00a0Experiment",
+   "Optimize Above-the-Fold\u00a0Content",
+   "Programmatic SEO at\u00a0Scale",
+   "Ad Campaign ROI\u00a0Report",
+   "Analyse Web Traffic & Visitor\u00a0Engagement",
+   "Conversion Page\u00a0Cluster",
+   "GSC Keyword\u00a0Optimization",
+   "Conversion\u00a0Copywriting",
+   "SHIP YOUR NEXT TEST THIS WEEK",
+   "Questions growth teams ask",
+   "Want the short version?"
+  ],
+  "desc": "Launch intent-matched landing pages, run A/B tests, and see which companies visit your pages, without an engineering queue. Ploy for growth teams. Start free.",
+  "height": 9898,
+  "tabs": [
+   "Paid pages",
+   "A/B tests",
+   "Programmatic",
+   "Hero rewrites",
+   "Reporting",
+   "SEO and AEO"
+  ],
+  "tabShots": [
+   "ploy-ai_for_growth__tab1_Paid-pages.jpg",
+   "ploy-ai_for_growth__tab2_A-B-tests.jpg",
+   "ploy-ai_for_growth__tab3_Programmatic.jpg",
+   "ploy-ai_for_growth__tab4_Hero-rewrites.jpg",
+   "ploy-ai_for_growth__tab5_Reporting.jpg",
+   "ploy-ai_for_growth__tab6_SEO-and-AEO.jpg"
+  ],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 110,
+   "cdn.ploy.ai": 43,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/for/marketing": {
+  "status": 200,
+  "title": "Ship On-Brand Pages Without Developers | Ploy for Marketing",
+  "h1": [
+   "FROM CAMPAIGN IDEA \n TO LIVE ON\u00a0SITE"
+  ],
+  "h2": [
+   "Marketing runs the site end to end",
+   "Build\u00a0campaign pages,\u00a0SEO content,\u00a0and A/B\u00a0tests",
+   "Each campaign improves the next",
+   "Prompt Ploy from any chat",
+   "Go live without migrating your site",
+   "Automate your repeat\nmarketing flows",
+   "Build a Content\u00a0Page",
+   "AEO Comparison\u00a0Pages",
+   "GSC Keyword\u00a0Optimization",
+   "Turn a video into landing pages &\u00a0newsletters",
+   "Run an\u00a0Experiment",
+   "Optimize Above-the-Fold\u00a0Content",
+   "Competitor Alternatives\u00a0Page",
+   "Programmatic SEO at\u00a0Scale",
+   "Build a Content\u00a0Page",
+   "AEO Comparison\u00a0Pages",
+   "GSC Keyword\u00a0Optimization",
+   "Turn a video into landing pages &\u00a0newsletters",
+   "Run an\u00a0Experiment",
+   "Optimize Above-the-Fold\u00a0Content",
+   "Competitor Alternatives\u00a0Page",
+   "Programmatic SEO at\u00a0Scale",
+   "YOUR WEBSITE SHOULD BE WORKING HARDER THAN YOU ARE",
+   "Questions marketing teams ask",
+   "Want the short version?"
+  ],
+  "desc": "Build, test, and ship on-brand landing pages without a developer. Ploy handles SEO, AEO, and A/B tests for marketing teams. Start free.",
+  "height": 10021,
+  "tabs": [
+   "Campaign pages",
+   "SEO and AEO",
+   "A/B tests",
+   "ABM pages",
+   "Visitors",
+   "Webinars"
+  ],
+  "tabShots": [
+   "ploy-ai_for_marketing__tab1_Campaign-pages.jpg",
+   "ploy-ai_for_marketing__tab2_SEO-and-AEO.jpg",
+   "ploy-ai_for_marketing__tab3_A-B-tests.jpg",
+   "ploy-ai_for_marketing__tab4_ABM-pages.jpg",
+   "ploy-ai_for_marketing__tab5_Visitors.jpg",
+   "ploy-ai_for_marketing__tab6_Webinars.jpg"
+  ],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 119,
+   "cdn.ploy.ai": 48,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/for/sales": {
+  "status": 200,
+  "title": "Personalized Account Pages for Sales Teams | Ploy for Sales",
+  "h1": [
+   "GIVE EVERY ACCOUNT \n ENTERPRISE\u00a0TREATMENT"
+  ],
+  "h2": [
+   "Every outreach, follow-up, and proposal feels personal",
+   "Pages, signals, and outreach for every target account",
+   "Know which accounts are warm, then reach out",
+   "Clay launches its ABM campaigns with\u00a0Ploy",
+   "Prompt Ploy from any chat",
+   "Go live without migrating your site",
+   "Automate your repeat\nsales follow-up",
+   "ABM Page for SDRs &\u00a0AEs",
+   "Post-Discovery Business Case\u00a0Follow-Up",
+   "Email ICP Website\u00a0Visitors",
+   "Company\u00a0Swarm",
+   "LinkedIn Outreach from Site\u00a0Visitors",
+   "Set Up Visitor & Analytics\u00a0Notifications",
+   "Brand Presentation\u00a0Deck",
+   "Buying-Signal\u00a0Monitoring",
+   "ABM Page for SDRs &\u00a0AEs",
+   "Post-Discovery Business Case\u00a0Follow-Up",
+   "Email ICP Website\u00a0Visitors",
+   "Company\u00a0Swarm",
+   "LinkedIn Outreach from Site\u00a0Visitors",
+   "Set Up Visitor & Analytics\u00a0Notifications",
+   "Brand Presentation\u00a0Deck",
+   "Buying-Signal\u00a0Monitoring",
+   "MAKE EVERY PROSPECT FEEL SPECIAL",
+   "Questions sales teams ask",
+   "Want the short version?"
+  ],
+  "desc": "Personalize cold outreach, follow-ups and proposals for every priority account, on your brand, and sync accounts to HubSpot or Attio. Ploy for sales teams.",
+  "height": 9554,
+  "tabs": [
+   "Visitors",
+   "ABM pages",
+   "Proposals",
+   "Outreach"
+  ],
+  "tabShots": [
+   "ploy-ai_for_sales__tab1_Visitors.jpg",
+   "ploy-ai_for_sales__tab2_ABM-pages.jpg",
+   "ploy-ai_for_sales__tab3_Proposals.jpg",
+   "ploy-ai_for_sales__tab4_Outreach.jpg"
+  ],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 110,
+   "cdn.ploy.ai": 43,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/for/startups": {
+  "status": 200,
+  "title": "AI Marketing for Founders and Startups | Ploy for Founders",
+  "h1": [
+   "YOUR AI \n MARKETING\u00a0LEAD"
+  ],
+  "h2": [
+   "Launch on-brand pages yourself",
+   "Ship new pages while you're on a customer call",
+   "See which companies are reading your site",
+   "Your marketing learns from every page you ship",
+   "Prompt Ploy from any chat",
+   "Go live without migrating your site",
+   "Your full marketing stack in one platform",
+   "Get 12 months of Ploy Starter free",
+   "$600",
+   "Automate your repeat\nmarketing work",
+   "Create a Homepage from\u00a0Scratch",
+   "Product or Services\u00a0Page",
+   "SEO & AEO Strategy\u00a0System",
+   "Build a Content\u00a0Library",
+   "Optimize Above-the-Fold\u00a0Content",
+   "AEO Comparison\u00a0Pages",
+   "Brand Presentation\u00a0Deck",
+   "Set Up Visitor & Analytics\u00a0Notifications",
+   "Create a Homepage from\u00a0Scratch",
+   "Product or Services\u00a0Page",
+   "SEO & AEO Strategy\u00a0System",
+   "Build a Content\u00a0Library",
+   "Optimize Above-the-Fold\u00a0Content",
+   "AEO Comparison\u00a0Pages",
+   "Brand Presentation\u00a0Deck",
+   "Set Up Visitor & Analytics\u00a0Notifications",
+   "SHIP YOUR NEXT PAGE TODAY",
+   "Questions founders ask",
+   "Want the short version?"
+  ],
+  "desc": "Ploy can build your site, landing pages, and SEO and AEO content on your brand, so founders grow pipeline without hiring a designer or agency. Start free.",
+  "height": 11463,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 106,
+   "cdn.ploy.ai": 36,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/for/startups/yc": {
+  "status": 200,
+  "title": "Ploy for YC Companies | 12 Months of Starter Free",
+  "h1": [
+   "THE GROWTH PLATFORM\nFOR YC COMPANIES."
+  ],
+  "h2": [
+   "Built for YC teams moving fast.",
+   "Grow without building the whole growth stack.",
+   "Common questions.",
+   "Get more growth from the team you already have.",
+   "Want the short version?"
+  ],
+  "desc": "YC companies can apply for 12 months of Ploy Starter free, a $600 value. Ploy is the AI growth platform for building and operating your marketing website.",
+  "height": 6509,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": null,
+    "method": null,
+    "fields": [
+     "name",
+     "email",
+     "company",
+     "ycBatch",
+     "website"
+    ]
+   }
+  ],
+  "islands": [
+   "yc-page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "SoftwareApplication"
+  ],
+  "hosts": {
+   "ploy.ai": 58,
+   "cdn.ploy.ai": 17,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/integrations": {
+  "status": 200,
+  "title": "Marketing Automation Integrations | Ploy",
+  "h1": [
+   "INTEGRATIONS"
+  ],
+  "h2": [
+   "PLUG IN. SHIP FASTER.",
+   "Want the short version?"
+  ],
+  "desc": "Connect Ploy with HubSpot, Attio, Google Analytics, Search Console, Notion, Slack, Figma, and more to automate marketing workflows end to end.",
+  "height": 8227,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "ItemList"
+  ],
+  "hosts": {
+   "ploy.ai": 122,
+   "cdn.ploy.ai": 5,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/integrations/airtable": {
+  "status": 200,
+  "title": "Programmatic Pages from Airtable | Ploy",
+  "h1": [
+   "PLOY \u00d7 AIRTABLE"
+  ],
+  "h2": [
+   "Five ways teams put Airtable to work with Ploy.",
+   "Three steps. Then Airtable works inside Ploy.",
+   "Airtable pairs well with these.",
+   "CONNECT AIRTABLE AND SHIP TODAY.",
+   "Want the short version?"
+  ],
+  "desc": "Build and update programmatic pages from Airtable records, then write URLs, status, analytics, and workflow results back to the base.",
+  "height": 6202,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "SoftwareApplication",
+   "ItemList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 74,
+   "cdn.ploy.ai": 8,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/integrations/amplitude": {
+  "status": 200,
+  "title": "Amplitude Product Analytics in Ploy",
+  "h1": [
+   "PLOY \u00d7 AMPLITUDE"
+  ],
+  "h2": [
+   "Three ways teams put Amplitude to work with Ploy.",
+   "Three steps. Then Amplitude works inside Ploy.",
+   "Amplitude pairs well with these.",
+   "CONNECT AMPLITUDE AND SHIP TODAY.",
+   "Want the short version?"
+  ],
+  "desc": "Connect Amplitude to Ploy to ask how people use your product, prioritize feature pages by real adoption, and report product and website metrics together.",
+  "height": 5881,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "SoftwareApplication",
+   "ItemList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 74,
+   "cdn.ploy.ai": 8,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/library": {
+  "status": 200,
+  "title": "Customer Marketing & Growth Guides | Ploy",
+  "h1": [
+   "PROOF YOU CAN POINT TO."
+  ],
+  "h2": [
+   "What Is WebMCP? How to Add It to Your Website",
+   "What Is llms.txt? Format, Examples and How to Create One",
+   "The Joy of Ploy: full setup, use cases, and what is possible",
+   "How a design studio ships pixel-perfect client sites with AI",
+   "Why every website change feels like a project \u2014 and how teams fix it",
+   "Want the short version?"
+  ],
+  "desc": "Read customer-backed guides to website growth, AI marketing, SEO, AEO, conversion optimization, and the workflows behind real results.",
+  "height": 4035,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "library-index-page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage"
+  ],
+  "hosts": {
+   "ploy.ai": 47,
+   "cdn.ploy.ai": 3,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/library/how-agencies-build-client-sites-with-ai": {
+  "status": 200,
+  "title": "How a design studio ships pixel-perfect client sites with AI | Ploy",
+  "h1": [
+   "How a design studio ships pixel-perfect client sites with AI"
+  ],
+  "h2": [
+   "The old shape of agency build work",
+   "The design system comes first",
+   "Real code is what makes the craft possible",
+   "Figma feeds the build directly",
+   "The workflow, in Visux\u2019s words",
+   "What changes for the studio",
+   "Want the short version?"
+  ],
+  "desc": "Visux builds branded, animation-heavy product sites with an AI website builder \u2014 keeping full code ownership and one-to-one Figma fidelity. Here is the workflow.",
+  "height": 5793,
+  "tabs": [
+   "Design system",
+   "Figma fidelity",
+   "Going live"
+  ],
+  "tabShots": [
+   "ploy-ai_library_how_agencies_build_client_sites_with_ai__tab1_Design-system.jpg",
+   "ploy-ai_library_how_agencies_build_client_sites_with_ai__tab2_Figma-fidelity.jpg",
+   "ploy-ai_library_how_agencies_build_client_sites_with_ai__tab3_Going-live.jpg"
+  ],
+  "forms": [],
+  "islands": [
+   "navbar",
+   "proof-tabs",
+   "footer",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "Article",
+   "Review",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 51,
+   "cdn.ploy.ai": 3,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/library/llms-txt": {
+  "status": 200,
+  "title": "What Is llms.txt? Format, Examples and How to Create One | Ploy",
+  "h1": [
+   "WHAT IS LLMS.TXT, AND HOW DO YOU CREATE ONE?"
+  ],
+  "h2": [
+   "Where llms.txt stands today",
+   "The format is one H1, a summary and lists of links",
+   "ploy.ai/llms.txt is a working example",
+   "Create an llms.txt file in five steps.",
+   "llms.txt, robots.txt and sitemap.xml do different jobs",
+   "llms.txt questions",
+   "Sources",
+   "SEE HOW AI AGENTS READ YOUR SITE WITH AN AGENT READINESS AUDIT.",
+   "Want the short version?"
+  ],
+  "desc": "llms.txt is a Markdown file that points AI tools to a site\u2019s key pages. Learn the format, see ploy.ai\u2019s real file, and create your own in five steps.",
+  "height": 10527,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "llms-txt-page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle",
+   "BreadcrumbList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 75,
+   "cdn.ploy.ai": 8,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/marketing-stack": {
+  "status": 200,
+  "title": "Ploy vs. the Fragmented Marketing Stack",
+  "h1": [
+   "ONE PLATFORM. SEVEN\nCONTRACTS FEWER."
+  ],
+  "h2": [
+   "ADD THE TOOLS YOUR TEAM PAYS FOR.",
+   "KEEP THE SPECIALISTS. CONSOLIDATE THE OPERATING LAYER.",
+   "THE BIGGER COST IS THE HANDOFF.",
+   "The subscriptions add up before the work starts.",
+   "One plan for an active marketing workspace.",
+   "HONEST ANSWERS BEFORE YOU CONSOLIDATE.",
+   "RUN THE WEBSITE. LOSE THE HANDOFFS.",
+   "Want the short version?"
+  ],
+  "desc": "Compare Ploy with a typical website, CMS, database, digital asset management, image generation, forms, lead capture, automation, SEO, analytics, visitor-identification, and landing-page stack \u2014 with PloyDB built in.",
+  "height": 10825,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "FAQPage",
+   "SoftwareApplication"
+  ],
+  "hosts": {
+   "ploy.ai": 74,
+   "cdn.ploy.ai": 8,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/mcp": {
+  "status": 200,
+  "title": "Ploy MCP: Run Your Website from Claude, ChatGPT or Cursor",
+  "h1": [
+   "GROW YOUR SITE FROM ANY CHAT"
+  ],
+  "h2": [
+   "YOUR WEBSITE, WHEREVER YOU WORK",
+   "You choose what it can do",
+   "CONNECT IN TWO MINUTES",
+   "QUESTIONS BEFORE YOU CONNECT",
+   "YOUR SITE, IN EVERY CHAT",
+   "Want the short version?"
+  ],
+  "desc": "Connect Ploy to Claude, ChatGPT, Codex, Cursor and other AI tools with the Ploy MCP. Build pages, read visitors and form submissions, and publish your site from any chat.",
+  "height": 8601,
+  "tabs": [
+   "Chat with agents\nHand work to Ploy",
+   "Read workspace data\nAsk about your site",
+   "Write workspace data\nKeep content current",
+   "Publish sites to production\nShip to your live site",
+   "Claude",
+   "ChatGPT",
+   "Claude Code, Codex, Cursor and more"
+  ],
+  "tabShots": [
+   "ploy-ai_mcp__tab1_Chat-with-agents-Hand-work-to-.jpg",
+   "ploy-ai_mcp__tab2_Read-workspace-data-Ask-about-.jpg",
+   "ploy-ai_mcp__tab3_Write-workspace-data-Keep-cont.jpg",
+   "ploy-ai_mcp__tab4_Publish-sites-to-production-Sh.jpg",
+   "ploy-ai_mcp__tab5_Claude.jpg",
+   "ploy-ai_mcp__tab6_ChatGPT.jpg",
+   "ploy-ai_mcp__tab7_Claude-Code-Codex-Cursor-and.jpg"
+  ],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "SoftwareApplication",
+   "FAQPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 71,
+   "cdn.ploy.ai": 8,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/migration-cost-calculator": {
+  "status": 200,
+  "title": "Website Migration Cost Calculator | Ploy",
+  "h1": [
+   "SEE WHAT IT COSTS TO MIGRATE YOUR SITE."
+  ],
+  "h2": [
+   "How much does it cost to migrate a website?",
+   "From a URL to a migrated site, fast.",
+   "MOVING YOUR SITE IS STEP ONE. THE ENGINE IS THE POINT.",
+   "Migration questions, answered.",
+   "YOUR NEXT MIGRATION SHOULD COST MINUTES, NOT MONTHS.",
+   "Migration Cost Calculator API",
+   "Want the short version?"
+  ],
+  "desc": "Free website migration cost calculator. Paste your URL to scan your site live \u2014 platform, pages, CMS items, redirects \u2014 and get the time and budget to migrate. Then migrate to Ploy for free, in minutes, with your SEO preserved.",
+  "height": 8007,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": null,
+    "method": null,
+    "fields": [
+     "text"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebApplication",
+   "BreadcrumbList",
+   "HowTo",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 73,
+   "cdn.ploy.ai": 8,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/ploybooks": {
+  "status": 200,
+  "title": "Marketing Automation Workflows & Ploybooks | Ploy",
+  "h1": [
+   "MARKETING WORKFLOWS"
+  ],
+  "h2": [
+   "Create a Homepage from Scratch",
+   "Build a Content Page",
+   "Build a Content Library",
+   "Optimize Above-the-Fold Content",
+   "Conversion Copywriting",
+   "Turn a video into landing pages & newsletters",
+   "Publish Readiness",
+   "SEO & AEO Strategy System",
+   "AEO Comparison Pages",
+   "GSC Keyword Optimization",
+   "Programmatic SEO at Scale",
+   "Analyse Web Traffic & Visitor Engagement",
+   "Company Swarm",
+   "Email ICP Website Visitors",
+   "ABM Page for SDRs & AEs",
+   "Make your website agent-ready with WebMCP",
+   "Post-Discovery Business Case Follow-Up",
+   "Migrate a CMS into PloyDB",
+   "Import Notion Databases into PloyDB",
+   "Ad Campaign ROI Report",
+   "AI Agent Readiness Audit",
+   "Best Product for X Page",
+   "Brand Presentation Deck",
+   "Add an AI support bot to your website",
+   "Buying-Signal Monitoring",
+   "Competitor Alternatives Page",
+   "Competitor Review Page",
+   "Competitor vs Competitor Page",
+   "Conversion Page Cluster",
+   "Create an OG Image",
+   "How to Export Data from Competitor Page",
+   "LinkedIn Content Engine",
+   "LinkedIn Inbox",
+   "LinkedIn Outreach from Site Visitors",
+   "LinkedIn Outreach",
+   "Personalized ABM Pages",
+   "Product or Services Page",
+   "Add an Effect",
+   "Rebuild your site on Ploy",
+   "Run an Experiment"
+  ],
+  "desc": "Explore reusable marketing workflows for SEO, content, visitor insights, and analytics. Read each Ploybook, prepare your inputs, and run it in Ploy.",
+  "height": 8403,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "ItemList"
+  ],
+  "hosts": {
+   "ploy.ai": 71,
+   "cdn.ploy.ai": 14,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/ploybooks/abm-page-sdrs-aes": {
+  "status": 200,
+  "title": "ABM Landing Pages for SDRs & AEs | Ploy",
+  "h1": [
+   "ABM PAGE FOR SDRS & AES"
+  ],
+  "h2": [
+   "Ploy runs this Ploybook in 5 phases.",
+   "Expected outputs",
+   "Workflow questions",
+   "JACK GASHI",
+   "Ploybooks that pair with ABM Page for SDRs & AEs.",
+   "Company Swarm",
+   "Email ICP Website Visitors",
+   "Create a Homepage from Scratch",
+   "RUN ABM PAGE FOR SDRS & AES TODAY.",
+   "Want the short version?"
+  ],
+  "desc": "Build a private, noindex ABM landing page for one named account and buyer using verified research, native design, relevant proof and one sales next step.",
+  "height": 8185,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "HowTo",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 90,
+   "cdn.ploy.ai": 9,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/ploybooks/ad-campaign-roi-report": {
+  "status": 200,
+  "title": "Ad Campaign ROI Reporting Workflow | Ploy",
+  "h1": [
+   "AD CAMPAIGN ROI REPORT"
+  ],
+  "h2": [
+   "Ploy runs this Ploybook in 4 phases.",
+   "Expected outputs",
+   "Workflow questions",
+   "ADAM TREBOUTAT",
+   "Ploybooks that pair with Ad Campaign ROI Report.",
+   "Set Up Visitor & Analytics Notifications",
+   "Buying-Signal Monitoring",
+   "RUN AD CAMPAIGN ROI REPORT TODAY.",
+   "Want the short version?"
+  ],
+  "desc": "Compare paid campaign spend with UTM traffic and identified visiting companies. Get a report with cost per visitor, cost per company and attribution limits.",
+  "height": 7817,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "HowTo",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 88,
+   "cdn.ploy.ai": 10,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/ployground": {
+  "status": 200,
+  "title": "The Ployground | Ploy customer community",
+  "h1": [
+   "Apply to join the Ployground."
+  ],
+  "h2": [
+   "Tell us who you are.",
+   "Review before you join.",
+   "Ploy customers learn faster together.",
+   "Want the short version?"
+  ],
+  "desc": "Apply to join the Ployground, a private Slack community for people with a verified Ploy account.",
+  "height": 3537,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": null,
+    "method": null,
+    "fields": [
+     "companyWebsite",
+     "firstName",
+     "lastName",
+     "email",
+     "organizationId",
+     "linkedin",
+     "communityGoal",
+     "termsAccepted"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage"
+  ],
+  "hosts": {
+   "ploy.ai": 57,
+   "cdn.ploy.ai": 3,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/pricing": {
+  "status": 200,
+  "title": "Ploy Pricing \u2014 Free, Starter, Pro & Enterprise Plans",
+  "h1": [
+   "PAY FOR WHAT\nYOU BUILD."
+  ],
+  "h2": [
+   "How credits work",
+   "EVERY PLAN, SIDE BY SIDE.",
+   "Pricing, answered.",
+   "SHIP YOUR SITE.",
+   "Want the short version?"
+  ],
+  "desc": "Compare Ploy\u2019s Free, Starter, Pro, and Enterprise plans. Every plan includes credits, hosting, and the full platform. Start without a credit card.",
+  "height": 8580,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "Product",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 71,
+   "cdn.ploy.ai": 8,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/pricing-wizard": {
+  "status": 200,
+  "title": "Find your plan | Ploy",
+  "h1": [
+   "Let's find your plan."
+  ],
+  "h2": [
+   "Want the short version?"
+  ],
+  "desc": "Find your Ploy plan in under a minute. Answer a couple of quick things and we tailor a recommendation \u2014 from Free for small builders to a concierge rollout for larger teams.",
+  "height": 2922,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 67,
+   "cdn.ploy.ai": 13,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/privacy": {
+  "status": 200,
+  "title": "Privacy Policy | Ploy",
+  "h1": [
+   "PRIVACY POLICY"
+  ],
+  "h2": [
+   "1. Information We Collect",
+   "2. How We Use Your Information",
+   "3. How We Share Your Information",
+   "4. Your Privacy Choices",
+   "5. Cookies and Tracking Technologies",
+   "6. Google OAuth Integration",
+   "7. Data Security",
+   "8. Data Retention",
+   "9. International Data Transfers",
+   "10. Children\u2019s Privacy",
+   "11. Third-Party Links",
+   "12. Changes to This Policy",
+   "13. Contact Us",
+   "Want the short version?"
+  ],
+  "desc": "Privacy policy for Ploy.",
+  "height": 13054,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage"
+  ],
+  "hosts": {
+   "ploy.ai": 50,
+   "cdn.ploy.ai": 3,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/startups": {
+  "status": 200,
+  "title": "Ploy for Startups: 12 Months of Starter Free ($600 Value)",
+  "h1": [
+   "A FREE YEAR OF PLOY FOR STARTUPS"
+  ],
+  "h2": [
+   "ALMOST DOUBLE THE FREE YEAR.",
+   "12 months of Starter, on us.",
+   "FRAMER HELPS YOU LAUNCH A SITE. PLOY HELPS YOU GROW IT.",
+   "Common questions.",
+   "Get your first year of Ploy Starter free.",
+   "$600",
+   "Want the short version?"
+  ],
+  "desc": "Pre-seed and seed startups can apply for 12 months of Ploy Starter free, a $600 value. Build your site with AI, see which companies visit, and automate growth work.",
+  "height": 7812,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": null,
+    "method": null,
+    "fields": [
+     "name",
+     "email",
+     "company",
+     "stage",
+     "website",
+     "investor"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "Offer",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 62,
+   "cdn.ploy.ai": 25,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/strategy-breakdown-inside-Clays-lead-magnet-playbook": {
+  "status": 200,
+  "title": "Inside Clay\u2019s creative approach to lead magnets | Ploy",
+  "h1": [
+   "INSIDE CLAY\u2019S LEAD MAGNET PLAYBOOK"
+  ],
+  "h2": [
+   "Hear how Clay built it on PloyDB",
+   "BUILD A PERSONALIZED LEAD MAGNET WITH PLOY"
+  ],
+  "desc": "Go behind Clay\u2019s Speed to Lead benchmark to see how a report became a personalized mini-application connected to PloyDB, agent workflows, and sales follow-up.",
+  "height": 4225,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": null,
+    "method": null,
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage"
+  ],
+  "hosts": {
+   "ploy.ai": 67,
+   "cdn.ploy.ai": 5,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/terms-of-service": {
+  "status": 200,
+  "title": "Terms of Service | Ploy",
+  "h1": [
+   "TERMS OF SERVICE"
+  ],
+  "h2": [
+   "1. License to Use the Services",
+   "2. Use Restrictions",
+   "3. AI Features and Outputs",
+   "4. Customer Data and Data Use",
+   "5. Marketing Compliance",
+   "6. Fees and Payment",
+   "7. Intellectual Property",
+   "8. Confidentiality",
+   "9. Term and Termination",
+   "10. Disclaimer of Warranties",
+   "11. Limitation of Liability",
+   "12. Indemnification",
+   "13. Governing Law and Disputes",
+   "14. General Provisions",
+   "15. Contact",
+   "Want the short version?"
+  ],
+  "desc": "Terms of service for Ploy.",
+  "height": 9058,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage"
+  ],
+  "hosts": {
+   "ploy.ai": 50,
+   "cdn.ploy.ai": 3,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/the-ploy-effect": {
+  "status": 200,
+  "title": "The Ploy Effect \u00b7 Ploy",
+  "h1": [
+   "What people are saying when they think we're not listening."
+  ],
+  "h2": [
+   "BE THE NEXT GROUP-CHAT SCREENSHOT.",
+   "Want the short version?"
+  ],
+  "desc": "Real reactions to Ploy from real customer chats. Hover any quote on the wall to see the receipt \u2014 Slack, iMessage, X, email, the lot.",
+  "height": 5411,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "Product"
+  ],
+  "hosts": {
+   "ploy.ai": 54,
+   "cdn.ploy.ai": 49,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/use-cases": {
+  "status": 200,
+  "title": "Ploy Use Cases \u2014 What You Can Build with Ploy",
+  "h1": [
+   "ONE PLOY. HUNDREDS OF USE CASES."
+  ],
+  "h2": [
+   "New use cases are coming soon.",
+   "BUILD THE ONE YOU NEED.",
+   "Want the short version?"
+  ],
+  "desc": "Explore dashboards, apps, websites, internal tools, SEO systems, and production workflows you can build with Ploy.",
+  "height": 3328,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "CollectionPage"
+  ],
+  "hosts": {
+   "ploy.ai": 60,
+   "cdn.ploy.ai": 6,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/vs/bolt": {
+  "status": 200,
+  "title": "Ploy vs Bolt",
+  "h1": [
+   "BOLT PROTOTYPES APPS.\nPLOY RUNS SITES."
+  ],
+  "h2": [
+   "PICK BY WHAT YOU SHIP",
+   "PLOY AND BOLT, SIDE BY SIDE",
+   "WHY MARKETERS PICK PLOY",
+   "PLUGS INTO THE STACK YOUR TEAM ALREADY RUNS.",
+   "BOLT TO PLOY IN FIVE STEPS",
+   "PLOY VS BOLT FAQ",
+   "SEE YOUR SITE ON PLOY",
+   "Want the short version?"
+  ],
+  "desc": "Ploy is the Bolt alternative built for marketing sites, not app sandboxes. Brand-fluent pages, built-in CMS, visitor identification and AEO, no token meter.",
+  "height": 11571,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "SoftwareApplication",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 91,
+   "cdn.ploy.ai": 19,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/vs/claude": {
+  "status": 200,
+  "title": "Ploy vs Claude",
+  "h1": [
+   "CLAUDE WRITES CODE.\nPLOY RUNS SITES."
+  ],
+  "h2": [
+   "PICK BY THE JOB",
+   "PLOY AND CLAUDE, SIDE BY SIDE",
+   "WHY MARKETERS PICK PLOY",
+   "PLUGS INTO THE STACK YOUR TEAM ALREADY RUNS.",
+   "FROM A CLAUDE REPO TO A LIVE PLOY SITE",
+   "PLOY VS CLAUDE FAQ",
+   "SEE YOUR SITE ON PLOY",
+   "Want the short version?"
+  ],
+  "desc": "Claude Code writes code. Ploy knows your brand and ICP, then ships, hosts and keeps improving your marketing site after launch, and shows who visits.",
+  "height": 12029,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "SoftwareApplication",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 91,
+   "cdn.ploy.ai": 19,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/webinars": {
+  "status": 200,
+  "title": "Webinars | Ploy",
+  "h1": [
+   "PLOY \n WEBINARS"
+  ],
+  "h2": [
+   "Watch on demand",
+   "NEVER MISS A SESSION.",
+   "Want the short version?"
+  ],
+  "desc": "Live working sessions and on-demand recordings from the team building Ploy \u2014 shipping on-brand pages, showing up in AI answers, and turning traffic into pipeline.",
+  "height": 5469,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [
+   {
+    "action": "https://ploy.ai/auth/sign-up",
+    "method": "get",
+    "fields": [
+     "email"
+    ]
+   }
+  ],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage"
+  ],
+  "hosts": {
+   "ploy.ai": 65,
+   "cdn.ploy.ai": 15,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/webinars/ai-native-seo-aeo-with-corey-haines": {
+  "status": 200,
+  "title": "How to run AI-native SEO/AEO at scale | Ploy Webinar",
+  "h1": [
+   "HOW TO RUN AI-NATIVE SEO/AEO AT SCALE"
+  ],
+  "h2": [
+   "What's inside the session",
+   "What you'll learn",
+   "Watch the full session.",
+   "Meet your speakers",
+   "Corey's Ploybooks",
+   "Programmatic SEO at Scale",
+   "Conversion Copywriting",
+   "Turn a video into landing pages & newsletters",
+   "START SMALL, THEN SCALE IT UP.",
+   "More on-demand sessions",
+   "Want the short version?"
+  ],
+  "desc": "Watch on demand: Corey Haines of Conversion Factory shows how to run SEO and AEO at scale, with three live builds in Ploy and Claude Code.",
+  "height": 8656,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "Event"
+  ],
+  "hosts": {
+   "ploy.ai": 75,
+   "cdn.ploy.ai": 19,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1,
+   "prod-assets.sequelvideo.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/webinars/how-agencies-turn-creative-testing-into-a-growth-system": {
+  "status": 200,
+  "title": "How to turn creative testing into a growth strategy | Ploy Webinar",
+  "h1": [
+   "HOW TO TURN CREATIVE TESTING INTO A GROWTH STRATEGY"
+  ],
+  "h2": [
+   "What's inside the session",
+   "What you'll learn",
+   "Watch the full session.",
+   "Meet your speakers",
+   "Adam's Ploybook",
+   "Ad Campaign ROI Report",
+   "ALWAYS HAVE A TEST RUNNING.",
+   "More on-demand sessions",
+   "Want the short version?"
+  ],
+  "desc": "Watch on demand: Adam Treboutat of TNT Growth shows how to test ads, landing pages and offers at speed, with two live Ploy demos and the sample size math behind every call.",
+  "height": 8703,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "Event"
+  ],
+  "hosts": {
+   "ploy.ai": 75,
+   "cdn.ploy.ai": 19,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1,
+   "prod-assets.sequelvideo.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/whats-new": {
+  "status": 200,
+  "title": "What's New | Ploy",
+  "h1": [
+   "PLOY \n CHANGELOG"
+  ],
+  "h2": [
+   "PUT PLOY TO WORK ON YOUR SITE.",
+   "Want the short version?"
+  ],
+  "desc": "The latest features, improvements, and fixes on the Ploy platform.",
+  "height": 13192,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "CollectionPage",
+   "BreadcrumbList",
+   "ItemList"
+  ],
+  "hosts": {
+   "ploy.ai": 64,
+   "cdn.ploy.ai": 16,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/whats-new/week-of-august-13-2026": {
+  "status": 200,
+  "title": "Invite friends, earn credits | What's New | Ploy",
+  "h1": [
+   "Invite friends, earn credits"
+  ],
+  "h2": [
+   "PUT PLOY TO WORK ON YOUR SITE.",
+   "Want the short version?"
+  ],
+  "desc": "What shipped on Ploy the week of August 13: a referral program open to everyone, support for large pasted text in chat, Slack requests that link their context into GitHub, and a batch of reliability fixes.",
+  "height": 5129,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "post-page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 73,
+   "cdn.ploy.ai": 9,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/whats-new/week-of-august-24-2026": {
+  "status": 200,
+  "title": "In-line editing is here, easy page renaming, and more | Ploy",
+  "h1": [
+   "In-line editing is here, easy page renaming, and more"
+  ],
+  "h2": [
+   "PUT PLOY TO WORK ON YOUR SITE.",
+   "Want the short version?"
+  ],
+  "desc": "What shipped on Ploy from August 14 to August 24: direct text editing on previews, page title renaming, credit usage breakdowns, analytics tags on every page, Ploy Lite for focused tasks, and six reliability fixes.",
+  "height": 5363,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "post-page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "TechArticle",
+   "BreadcrumbList"
+  ],
+  "hosts": {
+   "ploy.ai": 76,
+   "cdn.ploy.ai": 8,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ },
+ "https://ploy.ai/zh/for/exporters": {
+  "status": 200,
+  "title": "Ploy \u5916\u8d38\u72ec\u7acb\u7ad9\uff1a\u6b27\u7f8e\u4e70\u5bb6\u641c\u5f97\u5230\u4f60\u7684\u5de5\u5382",
+  "h1": [
+   "\u6b27\u7f8e\u4e70\u5bb6\u200b\u641c\u5f97\u5230\u4f60\u7684\u5de5\u5382"
+  ],
+  "h2": [
+   "\u8fd9\u4e9b\u4e2d\u56fd\u5236\u9020\u5546\u200b\u5df2\u7ecf\u5728\u7528 Ploy",
+   "\u91c7\u8d2d\u7ecf\u7406\u770b\u5b8c\u200b\u5c31\u60f3\u53d1\u8be2\u76d8\u7684\u200b\u82f1\u6587\u7f51\u7ad9",
+   "\u628a\u4e70\u5bb6\u200b\u6700\u5173\u5fc3\u7684\u4fe1\u606f\u200b\u653e\u5728\u200b\u8be2\u76d8\u8868\u5355\u65c1\u8fb9",
+   "\u5728\u8c37\u6b4c\u548c AI \u641c\u7d22\u91cc\u200b\u88ab\u6b27\u7f8e\u4e70\u5bb6\u627e\u5230",
+   "\u77e5\u9053\u54ea\u4e9b\u200b\u6d77\u5916\u4e70\u5bb6\u200b\u6b63\u5728\u770b\u4f60\u7684\u7f51\u7ad9",
+   "\u4e0d\u540c\u884c\u4e1a\uff0c\u200b\u4e70\u5bb6\u770b\u91cd\u7684\u4e0d\u4e00\u6837",
+   "\u5916\u8d38\u5de5\u5382\u200b\u5e38\u95ee\u7684\u95ee\u9898",
+   "\u5f00\u59cb\u505a\u4f60\u7684\u200b\u5916\u8d38\u72ec\u7acb\u7ad9",
+   "Want the short version?"
+  ],
+  "desc": "\u82f1\u6587\u4e0d\u597d\u4e5f\u80fd\u505a\u5916\u8d38\u72ec\u7acb\u7ad9\u3002Ploy \u628a\u4f60\u7684\u4ea7\u54c1\u3001\u8bc1\u4e66\u548c\u5de5\u5382\u8d44\u6599\u505a\u6210\u6b27\u7f8e\u4e70\u5bb6\u770b\u5f97\u61c2\u7684\u82f1\u6587\u7f51\u7ad9\uff0c\u505a\u597d\u8c37\u6b4c SEO \u548c AI \u641c\u7d22\u4f18\u5316\uff08GEO\uff09\uff0c\u8fd8\u4f1a\u544a\u8bc9\u4f60\u54ea\u4e9b\u6d77\u5916\u4e70\u5bb6\u6765\u770b\u8fc7\u4f60\u7684\u7f51\u7ad9\u3002",
+  "height": 9740,
+  "tabs": [],
+  "tabShots": [],
+  "forms": [],
+  "islands": [
+   "page",
+   "cookie-consent",
+   "chat-concierge-mount"
+  ],
+  "jsonld": [
+   "Organization",
+   "WebSite",
+   "WebPage",
+   "BreadcrumbList",
+   "FAQPage"
+  ],
+  "hosts": {
+   "ploy.ai": 64,
+   "cdn.ploy.ai": 11,
+   "snap.licdn.com": 2,
+   "sc-static.net": 1,
+   "static.ads-twitter.com": 1,
+   "googleads.g.doubleclick.net": 1,
+   "us-assets.i.posthog.com": 3,
+   "cdn.snitcher.com": 1,
+   "www.googletagmanager.com": 2,
+   "us.i.posthog.com": 1
+  },
+  "apis": [
+   "GET https://ploy.ai/geo.json",
+   "POST https://us.i.posthog.com/flags/",
+   "POST https://ploy.ai/_ploy/ingest"
+  ]
+ }
+}

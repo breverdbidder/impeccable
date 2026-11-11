@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="Inter, Helvetica, Arial, sans-serif" role="img" aria-label="D03 Deploy workspace, Chat view">
+<title>D03 Deploy workspace, Chat view</title>
+<rect x="0" y="0" width="1280" height="800" rx="0" fill="#fafafa" stroke="none"/>
+<rect x="0" y="0" width="208" height="800" rx="0" fill="#f1f1f1" stroke="none"/>
+<line x1="208" y1="0" x2="208" y2="800" stroke="#c9c9c9"/>
+<text x="24" y="38" font-size="20" fill="#1a1a1a" font-weight="800" text-anchor="start">deploy</text>
+<rect x="16" y="56" width="176" height="34" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="28" y="78" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="start">biddeed.ai  v</text>
+<text x="28" y="112" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Home</text>
+<rect x="12" y="126" width="184" height="30" rx="15" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="28" y="146" font-size="13" fill="#fff" font-weight="600" text-anchor="start">Deploys</text>
+<text x="28" y="180" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Analytics</text>
+<text x="28" y="214" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">AI visibility</text>
+<text x="28" y="248" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">SEO</text>
+<text x="28" y="282" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Monitors</text>
+<text x="28" y="316" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Playbooks</text>
+<text x="28" y="350" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Database</text>
+<text x="28" y="384" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Forms</text>
+<text x="28" y="418" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Assets</text>
+<line x1="16" y1="704" x2="192" y2="704" stroke="#c9c9c9"/>
+<text x="28" y="732" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Integrations</text>
+<text x="28" y="764" font-size="13" fill="#1a1a1a" font-weight="400" text-anchor="start">Settings</text>
+<text x="232" y="36" font-size="12" fill="#6b6b6b" font-weight="400" text-anchor="start">biddeed.ai / Deploys / Auction calendar refresh</text>
+<rect x="980" y="16" width="190" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="996" y="36" font-size="12" fill="#6b6b6b" font-weight="400" text-anchor="start">Ask Deploy...  Ctrl K</text>
+<rect x="1182" y="16" width="74" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="1219" y="36" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="middle">AS</text>
+<line x1="208" y1="60" x2="1280" y2="60" stroke="#c9c9c9"/>
+<text x="232" y="96" font-size="22" fill="#1a1a1a" font-weight="700" text-anchor="start">Auction calendar refresh</text>
+<rect x="980" y="76" width="68" height="30" rx="15" fill="#fff" stroke="#c9c9c9"/>
+<text x="1013.9" y="96" font-size="12" fill="#1a1a1a" font-weight="600" text-anchor="middle">Preview</text>
+<rect x="1055.8" y="76" width="68" height="30" rx="15" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="1089.7" y="96" font-size="12" fill="#fff" font-weight="600" text-anchor="middle">Publish</text>
+<rect x="232" y="112" width="47" height="28" rx="14" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="255.4" y="131" font-size="12" fill="#fff" font-weight="600" text-anchor="middle">Chat</text>
+<text x="319.0" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">Gallery</text>
+<text x="393.40000000000003" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">Preview</text>
+<text x="467.8" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">Changes</text>
+<text x="531.4" y="131" font-size="12" fill="#6b6b6b" font-weight="600" text-anchor="middle">Runs</text>
+<line x1="232" y1="150" x2="1256" y2="150" stroke="#c9c9c9"/>
+<rect x="232" y="166" width="560" height="610" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<rect x="476" y="186" width="300" height="76" rx="12" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="248" y="282" width="460" height="76" rx="12" fill="#fafafa" stroke="#c9c9c9"/>
+<rect x="248" y="378" width="380" height="76" rx="12" fill="#fafafa" stroke="#c9c9c9"/>
+<rect x="556" y="474" width="220" height="76" rx="12" fill="#ececec" stroke="#c9c9c9"/>
+<rect x="248" y="570" width="440" height="76" rx="12" fill="#fafafa" stroke="#c9c9c9"/>
+<rect x="248" y="708" width="528" height="52" rx="12" fill="#fff" stroke="#1a1a1a"/>
+<text x="264" y="739" font-size="12" fill="#6b6b6b" font-weight="400" text-anchor="start">Tell Deploy what to change...</text>
+<rect x="700" y="719" width="46" height="30" rx="15" fill="#1a1a1a" stroke="#1a1a1a"/>
+<text x="722.8" y="739" font-size="12" fill="#fff" font-weight="600" text-anchor="middle">Send</text>
+<rect x="808" y="166" width="448" height="610" rx="6" fill="#fff" stroke="#c9c9c9"/>
+<text x="824" y="192" font-size="13" fill="#1a1a1a" font-weight="700" text-anchor="start">Plan and tool calls</text>
+<rect x="824" y="208" width="416" height="42" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="838" y="234" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Read site theme and components</text>
+<rect x="824" y="260" width="416" height="42" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="838" y="286" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Pull GSC queries, last 90 days</text>
+<rect x="824" y="312" width="416" height="42" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="838" y="338" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Draft /auctions/brevard update</text>
+<rect x="824" y="364" width="416" height="42" rx="6" fill="#fafafa" stroke="#c9c9c9"/>
+<text x="838" y="390" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Lighthouse on draft</text>
+<rect x="824" y="416" width="416" height="42" rx="6" fill="#fafafa" stroke="#1a1a1a"/>
+<text x="838" y="442" font-size="12" fill="#1a1a1a" font-weight="400" text-anchor="start">Waiting for your approval</text>
+<rect x="824" y="484" width="416" height="276" rx="6" fill="#ececec" stroke="#c9c9c9" stroke-dasharray="5 4"/>
+<text x="1032" y="626" font-size="12" fill="#6b6b6b" font-weight="400" text-anchor="middle">Artifact preview</text>
+</svg>

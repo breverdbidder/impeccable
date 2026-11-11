@@ -1,0 +1,100 @@
+feature,area,priority,original,clone,notes
+Sign in with email magic link or Google,access,must,yes,no,Supabase Auth; allowlist only; no public sign-up
+Passkey sign-in,access,could,yes,no,
+Roles: owner admin member,access,should,yes,no,Two people today; keep the model simple
+Audit log of agent and human actions,access,must,yes,no,Enterprise-only in Ploy; default-on for us
+API tokens for CI and remote agents,access,should,yes,no,
+SSO via OIDC,access,could,yes,skip,Single-founder team; revisit if headcount grows
+Workspace holding sites docs assets and brand,workspace,must,yes,no,One workspace: Everest Capital
+Site registry with ownership verification,workspace,must,no,no,Deploy-only: DNS TXT / meta tag / file proof before any crawl
+Company summary read by the agent in every chat,workspace,should,yes,no,
+Brand and design system tokens per site,workspace,should,yes,no,Read from each repo's DESIGN.md
+Home feed of recommendations and items needing input,home,must,yes,no,Ploy calls it For you
+Portfolio view across all owned sites,home,must,partial,no,Ploy is workspace-per-site-group; we want one cross-site table
+Agent chat with plan and tool-call trace,agent,must,yes,no,A Deploy = one goal-scoped chat
+Two agent profiles: full and lite,agent,should,yes,no,Maps to the smart router tiers
+Queue and steer messages mid-reply,agent,could,yes,no,
+Question and approval cards in chat,agent,must,yes,no,Human approval before publish
+File attachments in chat,agent,should,yes,no,
+Sub-agents for research design code and copy,agent,should,yes,no,LangGraph nodes
+Scheduled check-backs in a chat,agent,could,yes,no,
+Gallery view of a Deploy's artifacts,agent,must,yes,no,Route seen: /workspaces/{id}/ploys/{id}?view=gallery; contents inferred
+Live preview with desktop and mobile toggle,agent,must,yes,no,Cloudflare Pages preview deployments
+Changes view with diff before publish,agent,must,partial,no,Ploy shows Compare original and draft; we show the Git diff
+Edit pages in the site's own repo and components,builder,must,yes,no,Agent opens a PR against the site repo
+Draft pages kept private until publish,builder,must,yes,no,Branch + preview URL
+Version history and restore,builder,must,yes,no,Git history; restore = revert commit
+GitHub sync,builder,must,yes,no,Native: GitHub is the source of truth
+Import a design from a URL or Figma,builder,could,yes,skip,Our sites already exist
+WebGL effects library,builder,could,yes,skip,Not a monitoring need
+Image generation and background removal,builder,could,yes,no,
+Multi-language page generation,builder,could,yes,skip,
+Publish to production and preview targets,publishing,must,yes,no,Cloudflare Pages via GitHub Actions
+Automatic publishing policy per site,publishing,should,yes,no,Off / preview only / preview + production
+Build log for failed deploys,publishing,must,yes,no,
+One-click rollback,publishing,should,no,no,Ploy needs restore + republish; we promote a previous Pages deployment
+Custom domains and automatic SSL,publishing,must,yes,skip,Already handled by Cloudflare for every site we own
+Path routing and reverse proxy rules,publishing,could,yes,skip,Cloudflare rules cover it; no multi-origin stitching needed
+Environment variables and secrets per target,publishing,should,yes,no,Read-only mirror of Cloudflare / GitHub secrets
+First-party pageview and session tracking,analytics,must,yes,no,Worker ingest at /_deploy/ingest
+Traffic sources and channels,analytics,must,yes,no,
+AI-assistant visits as a channel,analytics,must,yes,no,
+Bots card: AI crawlers vs agent visits,analytics,should,yes,no,From Cloudflare logs + user agents
+Scroll depth clicks forms and search events,analytics,should,yes,no,
+Custom events via a browser global,analytics,should,yes,no,window.deploy.track / identify / consent
+Consent handling and cookie banner support,analytics,must,yes,no,
+Server-side events endpoint,analytics,should,yes,no,
+Dashboards built by the agent with cards and filters,analytics,should,yes,no,
+Conversion funnel,analytics,should,yes,no,
+Forward events to GA4 and PostHog,analytics,should,yes,no,PostHog is already installed on our sites
+Connect GA4 and Search Console,analytics,must,yes,no,
+Web vitals and Lighthouse per page,analytics,must,partial,no,Ploy runs Lighthouse on request; we schedule it
+Check how AI engines answer tracked prompts,ai visibility,must,yes,no,ChatGPT search / Gemini / Claude / Perplexity / AI Overviews / AI Mode
+Track the same prompts over time,ai visibility,must,yes,no,
+Citations: which of our pages get cited,ai visibility,must,yes,no,
+Agent readiness audit with score,ai visibility,must,yes,no,
+Generate and serve llms.txt and markdown negotiation,ai visibility,should,yes,no,
+Structured data checks,ai visibility,should,yes,no,
+WebMCP and agent-tools endpoints on our sites,ai visibility,could,yes,no,
+Keyword gap analysis from Search Console,seo,must,yes,no,90-day queries vs page content
+Suggested edits queue for review,seo,must,yes,no,
+Programmatic pages from a template and table,seo,should,yes,no,
+Sitemap canonical and robots checks,seo,must,yes,no,
+Broken link sweep,seo,must,yes,no,
+Semrush competitor data,seo,could,yes,skip,Out of scope: we monitor only our own sites
+Uptime and certificate monitoring,monitors,must,no,no,Deploy-only
+Visual diff of key pages after each deploy,monitors,must,no,no,Deploy-only; reuse replica-diff imgdiff.py
+Content and sitemap change detection,monitors,must,partial,no,Ploy says it watches rankings traffic gaps and conversion drops
+Alert rules with severity and routing,monitors,must,partial,no,
+Competitor site monitoring,monitors,could,yes,skip,Explicitly excluded by the owner
+Saved step-by-step playbooks in markdown,playbooks,must,yes,no,
+Playbook library with categories,playbooks,should,yes,no,
+Run on demand,playbooks,must,yes,no,
+Plain-language schedule with timezone,playbooks,must,yes,no,Stored as cron + IANA zone
+Webhook-triggered runs,playbooks,should,yes,no,
+Run history,playbooks,must,yes,no,
+Projects: goal dashboard plan chats outputs context,projects,should,yes,no,
+Daily check-in per project,projects,should,yes,no,
+Kanban task plan,projects,could,yes,no,
+Built-in database with table and kanban views,data,should,yes,no,Planned as partial: Supabase is the database; ship a read-mostly table viewer
+CSV import and export,data,should,yes,no,
+External read API with access keys,data,could,yes,skip,Supabase already exposes this
+Form submissions inbox with email notifications,data,should,yes,no,
+Markdown documents with folders tags and search,library,should,yes,no,
+Emailed reports stored as documents,library,should,yes,no,Resend
+Assets library,library,could,yes,no,
+Integrations catalog with OAuth connections,integrations,must,yes,no,Planned as partial: Fixed short list: GitHub Cloudflare Supabase GSC GA4 PostHog Resend Slack
+Custom MCP servers as integrations,integrations,could,yes,no,
+Slack and email as chat channels,integrations,could,yes,no,
+MCP server exposing chat read write and publish scopes,integrations,must,yes,no,Same four scopes; OAuth
+CLI,integrations,could,yes,skip,MCP + GitHub Actions cover it
+Inbound webhooks with stored events,integrations,should,yes,no,
+A/B experiments on a page section,growth,could,yes,no,Phase 3
+Visitor identification and enrichment,growth,could,yes,skip,Licensed third-party data; not needed for internal monitoring
+Contact finding and enrichment tools,growth,could,yes,skip,Licensed third-party data
+ABM pages per target account,growth,could,yes,skip,
+Ad platform integrations and attribution,growth,could,yes,skip,
+Credits metering per chat and user,billing,must,yes,no,Planned as partial: No billing; a dollar budget meter with a hard monthly cap
+Plans checkout and invoices,billing,could,yes,skip,Internal tool
+Agency parent and child organizations,billing,could,yes,skip,Internal tool
+Referral credits,billing,could,yes,skip,Internal tool
