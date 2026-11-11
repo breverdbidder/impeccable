@@ -3,7 +3,7 @@ interface Props { title: string; active: string; crumb: string }
 const { title, active, crumb } = Astro.props;
 const nav = [
   ["Home", "/"], ["Deploys", null], ["Analytics", null], ["AI visibility", null], ["SEO", null],
-  ["Monitors", null], ["Playbooks", null],
+  ["Monitors", "/monitors/"], ["Playbooks", null],
 ] as const;
 ---
 <!doctype html>

@@ -1,0 +1,63 @@
+---
+import Shell from "../layouts/Shell.astro";
+---
+<Shell title="Monitors" active="Monitors" crumb="All sites / Monitors">
+  <h1>Monitors</h1>
+  <p class="lede">Uptime runs every 5 minutes. The crawl works through one verified site per run: robots.txt and the sitemap once a day, then the pages that have waited longest. Only pages on the site's own hostname are fetched.</p>
+
+  <h2>Crawl coverage</h2>
+  <div class="card tablewrap">
+    <table>
+      <thead><tr><th>Site</th><th>Sitemap</th><th>Pages known</th><th>Crawled</th><th>Broken</th><th>Last run</th></tr></thead>
+      <tbody id="crawl"><tr><td colspan="6" class="muted">Loading crawl status…</td></tr></tbody>
+    </table>
+  </div>
+
+  <h2>Open findings</h2>
+  <div class="card tablewrap">
+    <table>
+      <thead><tr><th>Severity</th><th>Finding</th><th>Source</th><th>First seen</th><th></th></tr></thead>
+      <tbody id="findings"><tr><td colspan="5" class="muted">Loading findings…</td></tr></tbody>
+    </table>
+  </div>
+  <p class="muted" id="msg" role="status" style="margin-top:10px"></p>
+</Shell>
+
+<script>
+  type Row = { site_id: string; pages: number; crawled: number; broken: number; sitemap_count: number | null; sitemap_url: string | null; last_tick: string | null };
+  type Finding = { id: number; site_id: string; source: string; severity: string; title: string; created_at: string };
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
+  const when = (iso: string | null) => (iso ? new Date(iso).toLocaleString(undefined, { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }) : "Never");
+  const crawl = document.getElementById("crawl")!, list = document.getElementById("findings")!, msg = document.getElementById("msg")!;
+  const fail = (el: HTMLElement, cols: number, status: number) => (el.innerHTML = `<tr><td colspan="${cols}"><span class="pill bad">Could not load</span> The API answered ${status}.</td></tr>`);
+
+  async function load() {
+    const [c, f] = await Promise.all([fetch("/api/crawl"), fetch("/api/findings")]);
+    if (!c.ok) fail(crawl, 6, c.status);
+    else {
+      const { sites } = (await c.json()) as { sites: Row[] };
+      crawl.innerHTML = sites.map((s) => `<tr>
+        <td><strong>${esc(s.site_id)}</strong></td>
+        <td>${s.sitemap_url ? `${s.sitemap_count ?? 0} URLs` : s.last_tick ? '<span class="pill warn">Not found</span>' : '<span class="muted">Not read yet</span>'}</td>
+        <td>${s.pages}</td><td>${s.crawled}</td>
+        <td>${s.broken ? `<span class="pill bad">${s.broken}</span>` : "0"}</td>
+        <td>${s.last_tick ? esc(when(s.last_tick)) : '<span class="muted">Waiting for verification</span>'}</td></tr>`).join("");
+    }
+    if (!f.ok) return fail(list, 5, f.status);
+    const { findings } = (await f.json()) as { findings: Finding[] };
+    list.innerHTML = findings.length ? findings.map((x) => `<tr>
+      <td><span class="pill ${x.severity === "high" ? "bad" : x.severity === "medium" ? "warn" : ""}">${esc(x.severity)}</span></td>
+      <td>${esc(x.title)}</td><td>${esc(x.source)}</td><td>${esc(when(x.created_at))}</td>
+      <td><button class="ghost" data-dismiss="${x.id}">Dismiss</button></td></tr>`).join("")
+      : '<tr><td colspan="5" class="muted">No open findings.</td></tr>';
+  }
+  list.addEventListener("click", async (e) => {
+    const b = (e.target as HTMLElement).closest("button[data-dismiss]") as HTMLButtonElement | null;
+    if (!b) return;
+    b.disabled = true;
+    const r = await fetch(`/api/findings/${b.dataset.dismiss}/dismiss`, { method: "POST" });
+    msg.textContent = r.ok ? "Finding dismissed. It stays dismissed if the same problem is seen again." : `Could not dismiss: the API answered ${r.status}.`;
+    await load();
+  });
+  load();
+</script>

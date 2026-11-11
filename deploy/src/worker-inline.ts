@@ -5,6 +5,8 @@ import worker, { handleApi, type Env } from "./worker";
 import home from "../dist/index.html";
 // @ts-expect-error bundled as text by esbuild
 import settings from "../dist/settings/index.html";
+// @ts-expect-error bundled as text by esbuild
+import monitors from "../dist/monitors/index.html";
 
 const page = (body: string) =>
   new Response(body, { headers: { "content-type": "text/html; charset=utf-8", "x-robots-tag": "noindex, nofollow", "x-frame-options": "DENY", "x-content-type-options": "nosniff", "referrer-policy": "same-origin", "cache-control": "no-store" } });
@@ -15,6 +17,7 @@ export default {
     if (p.startsWith("/api/")) return handleApi(req, env);
     if (p === "/") return page(home as string);
     if (p === "/settings" || p === "/settings/") return page(settings as string);
+    if (p === "/monitors" || p === "/monitors/") return page(monitors as string);
     if (p === "/robots.txt") return new Response("User-agent: *\nDisallow: /\n", { headers: { "content-type": "text/plain" } });
     return new Response("Not found", { status: 404 });
   },

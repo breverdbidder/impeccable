@@ -1,6 +1,6 @@
 {
-  "checkpoint": "CP-13",
-  "status": "in_progress",
+  "checkpoint": "CP-15",
+  "status": "not_started",
   "parity": 0,
-  "notes": "Live: Worker deploy-internal on workers.dev behind Cloudflare Access (owner-only), D1 database migrated, uptime cron every 5 minutes. No site is verified yet, so nothing is monitored. Next: owner signs in and confirms the app loads, publishes ownership proofs, supplies ZoneWise's hostname; then CP-14 crawl job."
+  "notes": "Live: Worker deploy-internal on workers.dev behind Cloudflare Access (owner-only), D1 migrated through 0002, uptime and crawl on a 5-minute cron, Monitors page. CP-14 code is done; its exit test on a live site waits for ownership verification. No site is verified yet. Next: CP-15 Lighthouse and visual diff after each deploy (needs a browser, so GitHub Actions or Browser Rendering)."
 }

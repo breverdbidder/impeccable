@@ -2,7 +2,8 @@
 // runs monitors on a cron trigger. Everything runs on our Cloudflare account.
 import { verifyAccess, type AccessEnv, type Identity } from "./lib/access";
 import { assertVerifiedHost, verifyOwnership } from "./lib/ownership";
-import { audit, connected, listFindings, listSites, markVerified, recordUptime, type StoreEnv } from "./lib/store";
+import { audit, connected, crawlSummary, dismissFinding, listFindings, listSites, markVerified, recordUptime, type StoreEnv } from "./lib/store";
+import { crawlTick, type TickReport } from "./lib/crawl";
 
 export type Env = AccessEnv & StoreEnv & { ASSETS?: { fetch: (r: Request) => Promise<Response> } };
 type Fetcher = (input: string, init?: RequestInit) => Promise<Response>;
@@ -24,6 +25,15 @@ export async function handleApi(req: Request, env: Env, f: Fetcher = fetch): Pro
   }
 
   if (req.method === "GET" && pathname === "/api/findings") return json({ findings: await listFindings(env) });
+
+  if (req.method === "GET" && pathname === "/api/crawl") return json({ sites: await crawlSummary(env) });
+
+  const dis = pathname.match(/^\/api\/findings\/(\d+)\/dismiss$/);
+  if (req.method === "POST" && dis) {
+    const done = await dismissFinding(env, Number(dis[1]));
+    if (done) await audit(env, { actor_type: "member", actor_id: who.email, action: "finding.dismissed", target: dis[1] });
+    return done ? json({ dismissed: true }) : json({ error: "not_found" }, 404);
+  }
 
   // The proof token is shown only to a signed-in member, one site at a time.
   const tok = pathname.match(/^\/api\/sites\/([a-z0-9-]+)\/token$/);
@@ -79,12 +89,25 @@ export async function runUptime(env: Env, f: Fetcher = fetch): Promise<{ site: s
   return out;
 }
 
+/** One crawl tick. A failure is logged and never stops the uptime pass. */
+export async function runCrawl(env: Env, f: Fetcher = fetch): Promise<TickReport | { error: string }> {
+  if (!connected(env)) return { error: "storage not connected" };
+  try {
+    return await crawlTick(env, await listSites(env), f);
+  } catch (e) {
+    return { error: (e as Error).message };
+  }
+}
+
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     if (new URL(req.url).pathname.startsWith("/api/")) return handleApi(req, env);
     return env.ASSETS ? env.ASSETS.fetch(req) : new Response("Not found", { status: 404 });
   },
   async scheduled(_event: unknown, env: Env, ctx: { waitUntil: (p: Promise<unknown>) => void }) {
-    ctx.waitUntil(runUptime(env).then((r) => console.log(JSON.stringify({ job: "uptime", r }))));
+    ctx.waitUntil((async () => {
+      console.log(JSON.stringify({ job: "uptime", r: await runUptime(env) }));
+      console.log(JSON.stringify({ job: "crawl", r: await runCrawl(env) }));
+    })());
   },
 };

@@ -14,10 +14,12 @@ An internal tool that watches the websites we own and ships fixes as pull reques
 | App shell: Home and Settings | Built, responsive, light and dark |
 | `GET /api/sites`, `GET /api/findings` | Working against D1 in a local run; not yet exercised on the deployed Worker behind Access |
 | `GET /api/sites/{id}/token`, `POST /api/sites/{id}/verify` | Working; DNS TXT, file and meta tag proofs |
-| Uptime cron, every 5 minutes | Written; skips unverified sites; one deduplicated finding per outage |
-| Tests | 22 passing, typecheck clean |
+| Uptime cron, every 5 minutes | Skips unverified sites; one deduplicated finding per outage |
+| Crawl, same cron | One verified site per run: robots.txt and sitemap daily, then the 8 most overdue pages, same-host links queued. Findings for broken pages and links, missing sitemap, robots blocking everything, a shrinking sitemap, noindex in the sitemap, a canonical on another host, a missing title. A trial against biddeed.ai read 268 sitemap URLs and 16 pages with no findings |
+| Monitors page, `GET /api/crawl`, `POST /api/findings/{id}/dismiss` | Working in a local run |
+| Tests | 33 passing against real SQLite with the real migrations; typecheck clean |
 
-Not built yet: everything from the crawl job onward in `../docs/deploy/CHECKPOINTS.md`.
+Not built yet: Lighthouse and visual diff after each deploy (CP-15), and everything after it in `../docs/deploy/CHECKPOINTS.md`.
 
 ## Deploy it
 

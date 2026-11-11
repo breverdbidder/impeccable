@@ -6,6 +6,7 @@ import type { D1, D1Stmt } from "../src/lib/store";
 function fakeDb(sites: Record<string, unknown>[]) {
   const log: { sql: string; args: unknown[] }[] = [];
   const db: D1 = {
+    batch: async () => {},
     prepare(sql: string) {
       let args: unknown[] = [];
       const stmt: D1Stmt = {

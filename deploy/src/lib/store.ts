@@ -4,7 +4,7 @@ import seed from "../../sites.config.json";
 import type { Site } from "./ownership";
 
 export type D1Stmt = { bind: (...v: unknown[]) => D1Stmt; all: <T>() => Promise<{ results: T[] }>; run: () => Promise<unknown>; first: <T>() => Promise<T | null> };
-export type D1 = { prepare: (sql: string) => D1Stmt };
+export type D1 = { prepare: (sql: string) => D1Stmt; batch: (stmts: D1Stmt[]) => Promise<unknown> };
 export type StoreEnv = { DB?: D1 };
 
 export const connected = (env: StoreEnv): env is { DB: D1 } => Boolean(env.DB);
@@ -49,4 +49,22 @@ export async function recordUptime(env: { DB: D1 }, siteId: string, target: stri
       "INSERT INTO findings (site_id, source, severity, title, evidence, dedupe_key) VALUES (?, 'uptime', 'high', ?, ?, 'uptime:down') ON CONFLICT (site_id, dedupe_key) DO UPDATE SET status = 'open', title = excluded.title, evidence = excluded.evidence, updated_at = strftime('%Y-%m-%dT%H:%M:%fZ','now')",
     ).bind(siteId, title, JSON.stringify(value)).run();
   }
+}
+
+export type CrawlSummary = { site_id: string; pages: number; crawled: number; broken: number; sitemap_count: number | null; sitemap_url: string | null; robots_status: number | null; sitemap_checked_at: string | null; last_tick: string | null };
+
+export async function crawlSummary(env: StoreEnv): Promise<CrawlSummary[]> {
+  if (!connected(env)) return [];
+  const r = await env.DB.prepare(
+    "SELECT s.id AS site_id, COUNT(p.url) AS pages, COUNT(p.last_crawled) AS crawled, COALESCE(SUM(p.status >= 400), 0) AS broken, c.sitemap_count, c.sitemap_url, c.robots_status, c.sitemap_checked_at, c.last_tick FROM sites s LEFT JOIN pages p ON p.site_id = s.id LEFT JOIN crawl_state c ON c.site_id = s.id GROUP BY s.id ORDER BY s.name",
+  ).all<CrawlSummary>();
+  return r.results;
+}
+
+export async function dismissFinding(env: StoreEnv, id: number): Promise<boolean> {
+  if (!connected(env)) return false;
+  const row = await env.DB.prepare("SELECT id FROM findings WHERE id = ? AND status IN ('open','in_progress')").bind(id).first<{ id: number }>();
+  if (!row) return false;
+  await env.DB.prepare("UPDATE findings SET status = 'dismissed', updated_at = strftime('%Y-%m-%dT%H:%M:%fZ','now') WHERE id = ?").bind(id).run();
+  return true;
 }

@@ -41,7 +41,7 @@ import Shell from "../layouts/Shell.astro";
       fetch("/api/findings").then((r) => r.json()).then((j: { findings: { title: string; severity: string }[] }) => {
         set("k-findings", String(j.findings.length));
         if (j.findings.length) document.getElementById("needs")!.innerHTML = j.findings.map((x) =>
-          `<p style="margin:6px 0"><span class="pill ${x.severity === "high" ? "bad" : "warn"}">${esc(x.severity)}</span> ${esc(x.title)}</p>`).join("");
+          `<p style="margin:6px 0"><span class="pill ${x.severity === "high" ? "bad" : "warn"}">${esc(x.severity)}</span> ${esc(x.title)}</p>`).slice(0, 8).join("") + '<p style="margin:10px 0 0"><a href="/monitors/">All findings</a></p>';
       }).catch(() => set("k-findings", "–"));
       rows.innerHTML = sites.map((s) => `<tr>
         <td><strong>${esc(s.name)}</strong></td>
