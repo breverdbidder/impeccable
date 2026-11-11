@@ -267,8 +267,8 @@ Parity means Deploy does the same job on the in-scope slice, measured by `replic
 | 1 | Logged-in screenshots, including the gallery view you linked | Needs your session | Run step 1 of `META-PROMPT.md` on your machine, signed in to Ploy in your own browser |
 | 2 | MCP tool list | Only visible after OAuth | Connect the Ploy MCP in Claude Code and list tools |
 | 3 | Ploy's terms on competitive use of an account | replica-recon requires the check before account-based recon | Read `ploy.ai/terms-of-service` before doing items 1 and 2 |
-| 4 | The Deploy domain | I did not verify that `deploy.app` is available or yours | Confirm the domain; the spec uses `deploy.internal` as a placeholder |
-| 5 | Final list of sites to monitor | Spec assumes biddeed.ai, dealdeed.app, zonewise, rentaliq | Edit the list in `PRD.md` section 3 |
+| 4 | The Deploy domain | Decided: no custom domain. Cloudflare Pages project behind Cloudflare Access | Closed |
+| 5 | Final list of sites to monitor | Decided: biddeed.ai, dealdeed.app (RentalIQ merged in), ZoneWise | ZoneWise's hostname |
 
 ## 12. File map
 

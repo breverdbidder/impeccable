@@ -17,10 +17,11 @@ Deploy is an internal agent that watches every website we own, tells us what cha
 
 | Site | Repo | Host |
 | --- | --- | --- |
-| biddeed.ai | breverdbidder (to confirm) | Cloudflare Pages |
-| dealdeed.app | to confirm | Cloudflare Pages |
-| zonewise | to confirm | Cloudflare Pages |
-| rentaliq (rentaliq.pages.dev) | to confirm | Cloudflare Pages |
+| biddeed.ai | breverdbidder/biddeed-web | Cloudflare Pages |
+| dealdeed.app (RentalIQ is merged into it) | breverdbidder/rentaliq | Cloudflare Pages, project `rentaliq` |
+| ZoneWise (hostname to confirm) | breverdbidder/zonewise-web | Cloudflare Pages |
+
+Repositories are matched by name and still need confirming when each site is connected.
 
 **Hard rule.** Deploy never crawls, screenshots or queries a host that has not passed ownership verification (DNS TXT record, meta tag, or a file at `/.well-known/deploy-verify.txt`). This is enforced in the crawler and the job runner, not only in the UI. Competitor monitoring is out.
 
@@ -63,7 +64,7 @@ Priorities follow `features.csv`. IDs are stable; the checkpoints and the specif
 
 | ID | Requirement | Priority |
 | --- | --- | --- |
-| R-01 | Sign in by magic link or Google, restricted to an allowlist of emails. No sign-up page | must |
+| R-01 | Sign in through Cloudflare Access (one-time email code or Google), restricted to an allowlist of emails in the Access policy. No sign-up page. Every API request verifies the Access token | must |
 | R-02 | Roles: owner, admin, member. Only owner and admin can approve publishing | should |
 | R-03 | Site registry: add a domain, prove ownership, connect its GitHub repo and Cloudflare project, install tracking | must |
 | R-04 | Audit log of every agent and human action, filterable, exportable as CSV | must |
@@ -200,7 +201,7 @@ A Deploy is one goal-scoped chat with the agent, bound to one site. It is our co
 
 ## 11. Decisions that are yours
 
-1. The domain for Deploy (report section 11, item 4).
-2. The site list in section 3.
+1. Domain: decided 2026-11-11. No custom domain. Deploy runs on our Cloudflare account as a Pages project (`deploy-internal`, default `pages.dev` hostname) behind Cloudflare Access.
+2. Site list: decided 2026-11-11. Three sites; RentalIQ is part of dealdeed.app. ZoneWise's hostname is still needed.
 3. Whether any site may ever auto-publish to production (default: no).
 4. The monthly cap (default: $100).

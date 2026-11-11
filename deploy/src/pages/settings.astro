@@ -1,0 +1,54 @@
+---
+import Shell from "../layouts/Shell.astro";
+---
+<Shell title="Settings" active="Settings" crumb="Settings / Sites">
+  <h1>Sites and ownership</h1>
+  <p class="lede">A site must prove it is ours before Deploy fetches a single page from it. Any one of the three proofs is enough.</p>
+
+  <div class="card">
+    <ol class="steps">
+      <li><strong>DNS record.</strong> Add a TXT record at <code>_deploy-verify.&lt;hostname&gt;</code> with the value <code>deploy-verify=&lt;token&gt;</code>.</li>
+      <li><strong>File.</strong> Serve <code>/.well-known/deploy-verify.txt</code> containing <code>deploy-verify=&lt;token&gt;</code>.</li>
+      <li><strong>Meta tag.</strong> Add <code>&lt;meta name="deploy-verify" content="&lt;token&gt;"&gt;</code> to the home page.</li>
+    </ol>
+  </div>
+
+  <h2>Registered sites</h2>
+  <div class="card tablewrap">
+    <table>
+      <thead><tr><th>Site</th><th>Hostname</th><th>Status</th><th></th></tr></thead>
+      <tbody id="rows"><tr><td colspan="4" class="muted">Loading sites…</td></tr></tbody>
+    </table>
+  </div>
+  <p class="muted" id="msg" role="status" style="margin-top:10px"></p>
+</Shell>
+
+<script>
+  type Site = { id: string; name: string; hostname: string | null; verified: boolean };
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
+  const rows = document.getElementById("rows")!;
+  const msg = document.getElementById("msg")!;
+  async function load() {
+    const r = await fetch("/api/sites");
+    if (!r.ok) { rows.innerHTML = `<tr><td colspan="4"><span class="pill bad">Could not load</span> The sites API answered ${r.status}.</td></tr>`; return; }
+    const { storage, sites } = (await r.json()) as { storage: string; sites: Site[] };
+    const seed = storage === "seed";
+    rows.innerHTML = sites.map((s) => `<tr>
+      <td><strong>${esc(s.name)}</strong></td>
+      <td>${s.hostname ? `<code>${esc(s.hostname)}</code>` : '<span class="pill warn">Hostname needed</span>'}</td>
+      <td>${s.verified ? '<span class="pill ok">Verified</span>' : '<span class="pill warn">Not verified</span>'}</td>
+      <td>${s.verified ? "" : `<button class="ghost" data-id="${esc(s.id)}" ${seed || !s.hostname ? "disabled" : ""}>Check now</button>`}</td></tr>`).join("");
+    msg.textContent = seed ? "Verification is off until Supabase is connected: tokens are stored there." : "";
+  }
+  rows.addEventListener("click", async (e) => {
+    const b = (e.target as HTMLElement).closest("button[data-id]") as HTMLButtonElement | null;
+    if (!b) return;
+    b.disabled = true; msg.textContent = "Checking DNS, file and meta tag…";
+    const r = await fetch(`/api/sites/${b.dataset.id}/verify`, { method: "POST" });
+    const j = (await r.json()) as { verified?: boolean; method?: string; tried?: Record<string, string>; error?: string };
+    msg.textContent = j.verified ? `Verified by ${j.method}.`
+      : j.tried ? `Not verified. DNS: ${j.tried.dns_txt}. File: ${j.tried.file}. Meta tag: ${j.tried.meta}.` : `Could not check: ${j.error}.`;
+    await load();
+  });
+  load();
+</script>

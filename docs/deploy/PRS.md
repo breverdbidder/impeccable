@@ -9,10 +9,10 @@ This is the technical counterpart of `PRD.md`: architecture, schema, API, jobs, 
 | --- | --- | --- |
 | Web app | Astro 6 + React islands + TypeScript | Same shape as the sites it manages; static shell, interactive islands |
 | Styling | Tailwind with tokens from Deploy's own `DESIGN.md` | Built with the impeccable skill, Operate mode |
-| Hosting | Cloudflare Pages + Pages Functions | Already our host; free tier is enough |
+| Hosting | Cloudflare Pages + Pages Functions, project `deploy-internal` on its `pages.dev` hostname, no custom domain | Already our host; free tier is enough |
 | Edge ingest | One Cloudflare Worker (`deploy-ingest`) | Tracking endpoint must answer at the edge |
 | Database | Supabase Postgres, row level security on every table | Already in the stack |
-| Auth | Supabase Auth: magic link and Google, allowlist enforced by a database trigger | No password storage |
+| Auth | Cloudflare Access in front of the whole project; Functions verify the Access JWT (signature, audience, issuer, expiry). Supabase is reached only by Functions with the service role | Internal tool: no sign-in code to maintain, allowlist lives in the Access policy |
 | Files | Supabase Storage (screenshots, reports, artifacts) | One vendor |
 | Jobs | GitHub Actions on cron and `repository_dispatch` | Already in the stack; free minutes cover it |
 | Agent orchestration | LangGraph, state checkpointed to Supabase | Matches the existing team model |
@@ -20,7 +20,7 @@ This is the technical counterpart of `PRD.md`: architecture, schema, API, jobs, 
 | Browser automation | Playwright + Chromium in Actions | Screenshots, visual diff, Lighthouse |
 | Email | Resend | Already connected |
 | Product analytics forward | PostHog | Already installed on our sites |
-| MCP server | Pages Function at `/api/mcp`, Streamable HTTP, OAuth through Supabase | Parity with Ploy's four scopes |
+| MCP server | Pages Function at `/api/mcp`, Streamable HTTP, Access service tokens mapped to scopes | Parity with Ploy's four scopes |
 
 One database. No microservices. Nothing that needs a server we operate.
 
@@ -400,7 +400,7 @@ Rules the graph enforces:
 
 | Concern | Control |
 | --- | --- |
-| Who can sign in | `allowlist` table checked by a trigger on `auth.users` |
+| Who can sign in | Cloudflare Access policy listing allowed emails; Functions fail closed without a valid Access token |
 | Agent overreach | Scopes on every route and tool; publish is separate; approvals are required rows, not UI state |
 | Secrets | Stored in GitHub Actions and Cloudflare secrets. The app shows names, never values |
 | Tokens | SHA-256 hashes only; shown once; expiry of 30, 90 or 365 days |

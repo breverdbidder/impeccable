@@ -1,0 +1,88 @@
+---
+interface Props { title: string; active: string; crumb: string }
+const { title, active, crumb } = Astro.props;
+const nav = [
+  ["Home", "/"], ["Deploys", null], ["Analytics", null], ["AI visibility", null], ["SEO", null],
+  ["Monitors", null], ["Playbooks", null],
+] as const;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title} · Deploy</title>
+    <style is:global>
+      :root {
+        --bg: #f6f5f1; --surface: #ffffff; --ink: #17201c; --muted: #5d6762; --line: #dcdad2;
+        --accent: #1f5a49; --accent-ink: #ffffff; --warn: #9a5b00; --bad: #a3271f; --ok: #1f5a49;
+        --radius: 10px; --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root { --bg: #111613; --surface: #19201c; --ink: #e9ece8; --muted: #9aa49e; --line: #2c3530; --accent: #7fc8ae; --accent-ink: #0d1411; --warn: #e0a84a; --bad: #f08a80; --ok: #7fc8ae; }
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font); }
+      a { color: inherit; }
+      .app { display: grid; grid-template-columns: 216px 1fr; min-height: 100vh; }
+      .side { border-right: 1px solid var(--line); padding: 20px 12px; display: flex; flex-direction: column; gap: 2px; }
+      .brand { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; padding: 0 12px 16px; }
+      .side a, .side span { display: block; padding: 7px 12px; border-radius: 8px; text-decoration: none; }
+      .side a[aria-current="page"] { background: var(--ink); color: var(--bg); font-weight: 600; }
+      .side span { color: var(--muted); }
+      .side span small { font-size: 11px; margin-left: 6px; }
+      .side .foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 10px; }
+      main { padding: 24px 28px 56px; min-width: 0; }
+      .crumb { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+      h1 { font-size: 24px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.01em; }
+      h2 { font-size: 15px; margin: 28px 0 10px; }
+      p.lede { color: var(--muted); margin: 0 0 20px; max-width: 68ch; }
+      .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
+      .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+      .kpi b { display: block; font-size: 26px; line-height: 1.2; }
+      .kpi span { color: var(--muted); font-size: 12px; font-weight: 600; }
+      .tablewrap { overflow-x: auto; }
+      table { width: 100%; border-collapse: collapse; }
+      th { text-align: left; font-size: 12px; color: var(--muted); font-weight: 600; padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+      td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+      tr:last-child td { border-bottom: 0; }
+      .pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
+      .pill.ok { color: var(--ok); border-color: currentColor; }
+      .pill.warn { color: var(--warn); border-color: currentColor; }
+      .pill.bad { color: var(--bad); border-color: currentColor; }
+      code { font-family: var(--mono); font-size: 13px; background: color-mix(in srgb, var(--ink) 7%, transparent); padding: 1px 5px; border-radius: 5px; overflow-wrap: anywhere; }
+      button { font: inherit; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); cursor: pointer; }
+      button.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+      button:disabled { opacity: 0.5; cursor: not-allowed; }
+      :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+      .muted { color: var(--muted); }
+      ol.steps { padding-left: 20px; margin: 0; }
+      ol.steps li { margin: 6px 0; }
+      @media (max-width: 760px) {
+        .app { grid-template-columns: 1fr; }
+        .side { flex-direction: row; flex-wrap: wrap; border-right: 0; border-bottom: 1px solid var(--line); padding: 12px 16px; }
+        .brand { padding: 4px 8px 4px 0; width: 100%; }
+        .side span { display: none; }
+        .side .foot { margin: 0; border: 0; padding: 0; }
+        main { padding: 20px 16px 48px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <nav class="side" aria-label="Main">
+        <div class="brand">deploy</div>
+        {nav.map(([label, href]) => href
+          ? <a href={href} aria-current={active === label ? "page" : undefined}>{label}</a>
+          : <span>{label}<small>soon</small></span>)}
+        <div class="foot"><a href="/settings/" aria-current={active === "Settings" ? "page" : undefined}>Settings</a></div>
+      </nav>
+      <main>
+        <div class="crumb">{crumb}</div>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

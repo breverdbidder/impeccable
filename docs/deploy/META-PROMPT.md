@@ -67,8 +67,9 @@ HARD RULES
 - Tests are never skipped, disabled or weakened to get a green run.
 
 STACK (do not substitute without asking)
-Astro 6 + React islands + TypeScript + Tailwind on Cloudflare Pages and Pages Functions; one
-Cloudflare Worker for analytics ingest; Supabase Postgres, Auth and Storage with row level
+Astro + React islands + TypeScript + Tailwind on Cloudflare Pages and Pages Functions (project
+deploy-internal, pages.dev hostname, no custom domain, behind Cloudflare Access); one
+Cloudflare Worker for analytics ingest; Supabase Postgres and Storage with row level
 security on every table; GitHub Actions for jobs; LangGraph for the agent with checkpoints in
 Supabase; Playwright and Lighthouse for checks; Resend for email; PostHog as a forward target.
 Model router: free tier for bulk reading, a cheap model for drafting, a strong model for code

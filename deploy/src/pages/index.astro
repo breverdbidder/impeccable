@@ -1,0 +1,54 @@
+---
+import Shell from "../layouts/Shell.astro";
+---
+<Shell title="Home" active="Home" crumb="Home / All sites">
+  <h1>Sites we own</h1>
+  <p class="lede">Deploy watches only sites that have passed ownership verification. Unverified sites are listed here and nothing fetches them.</p>
+
+  <section class="kpis" aria-label="Summary">
+    <div class="card kpi"><span>Sites registered</span><b id="k-sites">–</b></div>
+    <div class="card kpi"><span>Verified</span><b id="k-verified">–</b></div>
+    <div class="card kpi"><span>Open findings</span><b id="k-findings">–</b></div>
+    <div class="card kpi"><span>Spend this month</span><b>$0.00</b></div>
+  </section>
+
+  <h2>Sites</h2>
+  <div class="card tablewrap">
+    <table>
+      <thead><tr><th>Site</th><th>Hostname</th><th>Repository</th><th>Ownership</th><th>Monitoring</th></tr></thead>
+      <tbody id="rows"><tr><td colspan="5" class="muted">Loading sites…</td></tr></tbody>
+    </table>
+  </div>
+  <p class="muted" id="storage" style="margin-top:10px"></p>
+
+  <h2>Needs you</h2>
+  <div class="card" id="needs"><span class="muted">Nothing yet. Findings appear here once a verified site has monitors running.</span></div>
+</Shell>
+
+<script>
+  type Site = { id: string; name: string; hostname: string | null; github_repo: string | null; verified: boolean };
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
+  const rows = document.getElementById("rows")!;
+  const set = (id: string, v: string) => (document.getElementById(id)!.textContent = v);
+  fetch("/api/sites", { headers: { accept: "application/json" } })
+    .then(async (r) => {
+      if (!r.ok) throw new Error(r.status === 401 ? "Sign-in through Cloudflare Access is required." : `The sites API answered ${r.status}.`);
+      return r.json() as Promise<{ storage: string; sites: Site[] }>;
+    })
+    .then(({ storage, sites }) => {
+      set("k-sites", String(sites.length));
+      set("k-verified", String(sites.filter((s) => s.verified).length));
+      set("k-findings", "0");
+      rows.innerHTML = sites.map((s) => `<tr>
+        <td><strong>${esc(s.name)}</strong></td>
+        <td>${s.hostname ? `<code>${esc(s.hostname)}</code>` : '<span class="pill warn">Hostname needed</span>'}</td>
+        <td>${s.github_repo ? `<code>${esc(s.github_repo)}</code>` : '<span class="muted">Not connected</span>'}</td>
+        <td>${s.verified ? '<span class="pill ok">Verified</span>' : '<span class="pill warn">Not verified</span>'}</td>
+        <td>${s.verified ? '<span class="pill">Ready</span>' : '<span class="muted">Blocked until verified</span>'}</td></tr>`).join("");
+      set("storage", storage === "seed" ? "Showing the seed list. Connect Supabase to verify sites and store results." : "");
+      const todo = sites.filter((s) => !s.verified);
+      if (todo.length) document.getElementById("needs")!.innerHTML =
+        `<strong>${todo.length} site${todo.length > 1 ? "s" : ""} to verify.</strong> <a href="/settings/">Open Settings</a> for the steps.`;
+    })
+    .catch((e: Error) => { rows.innerHTML = `<tr><td colspan="5"><span class="pill bad">Could not load</span> ${esc(e.message)}</td></tr>`; });
+</script>

@@ -1,0 +1,22 @@
+{
+  "name": "deploy-internal",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "job:uptime": "node jobs/uptime.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.4.10"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}

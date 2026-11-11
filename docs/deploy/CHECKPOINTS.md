@@ -14,17 +14,17 @@ Requirement IDs refer to `PRD.md`. Tables, routes and jobs refer to `PRS.md`.
 | CP-01 | Screenshots of every public template and tab state | `replica/SCREENS.md` lists 85 pages; 129 images present | done |
 | CP-02 | Feature matrix and parity baseline | `parity.py replica/features.csv` runs and reports 0 of 39 must-haves | done |
 | CP-03 | Wireframes D01 to D09 | 11 SVGs render | done |
-| CP-04 | Owner decisions: domain, site list, cap, auto-publish policy | Answers recorded in `PRD.md` section 11 | open, needs Ariel |
+| CP-04 | Owner decisions: domain, site list, cap, auto-publish policy | Answers recorded in `PRD.md` section 11 | domain and site list decided; cap and auto-publish on defaults |
 | CP-05 | Logged-in recon in the owner's own browser session (optional) | Gallery view and app screens saved to `replica/screens/app/`; Ploy terms read first | open, needs Ariel |
 
 ## Phase 1: foundation (v0, week 1)
 
 | ID | Checkpoint | Exit test |
 | --- | --- | --- |
-| CP-10 | New private repo, Astro app shell, Cloudflare Pages project, CI (lint, typecheck, unit) | Preview URL serves the shell; CI green |
-| CP-11 | Supabase project, migrations for `members`, `allowlist`, `sites`, `audit_log`, `usage`, `budget` with row level security | pgTAP: a non-allowlisted email cannot sign in; `audit_log` rejects update and delete |
-| CP-12 | Sign in (R-01) and app chrome from D01 and D02 | Playwright: allowlisted user reaches Home; other email is refused |
-| CP-13 | Site registry and ownership verification (R-03) | Adding `example.com` without proof leaves `verified_at` null; `assertVerifiedHost('https://example.com')` throws and writes an audit row |
+| CP-10 | Astro app shell, Cloudflare Pages project, CI (typecheck, unit, build). Code is in `deploy/` on this branch and should move to a private repo | Preview URL serves the shell; CI green. Status: shell and CI written and passing locally; Pages project not created yet |
+| CP-11 | Supabase project, migration for `sites`, `monitors`, `checks`, `findings`, `usage`, `budget`, `audit_log` with row level security | An insert for an unverified site is rejected; `audit_log` rejects update and delete; usage past the cap is rejected. Status: migration written, not applied |
+| CP-12 | Cloudflare Access application (R-01) and app chrome from D02 | Allowlisted user reaches Home; a request without a valid Access token gets 401. Status: token check implemented and tested; Access application not created yet |
+| CP-13 | Site registry and ownership verification (R-03) | Adding `example.com` without proof leaves `verified_at` null; `assertVerifiedHost('https://example.com')` throws and writes an audit row. Status: implemented with 16 passing tests; needs Supabase to store tokens |
 | CP-14 | `uptime` and `crawl` jobs, `monitors`, `checks`, `findings` with dedupe (R-62, R-70, R-72) | A deliberately broken link on a staging page yields exactly one finding after two runs |
 | CP-15 | `post-deploy` job: Lighthouse and visual diff (R-63, R-71) | A staging deploy that shifts the hero yields a visual finding with before and after images |
 | CP-16 | Home: portfolio table, Needs you feed, dismiss (R-10, R-11) | Findings from CP-14 and CP-15 appear as cards; dismiss persists |

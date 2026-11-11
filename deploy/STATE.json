@@ -1,0 +1,6 @@
+{
+  "checkpoint": "CP-13",
+  "status": "in_progress",
+  "parity": 0,
+  "notes": "CP-10 shell and CI written; CP-11 migration written, not applied; CP-13 ownership check and host gate implemented with tests. Not deployed: needs Cloudflare Pages project, Access application and Supabase project."
+}

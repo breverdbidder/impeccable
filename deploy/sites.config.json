@@ -1,0 +1,8 @@
+{
+  "comment": "Seed registry used until Supabase is connected. A site stays unverified, and nothing may fetch it, until ownership is proven. RentalIQ is merged into dealdeed.app: one site, served by the rentaliq Pages project.",
+  "sites": [
+    { "id": "biddeed", "hostname": "biddeed.ai", "name": "BidDeed.AI", "github_repo": "breverdbidder/biddeed-web", "verified_at": null },
+    { "id": "dealdeed", "hostname": "dealdeed.app", "name": "DealDeed (includes RentalIQ)", "github_repo": "breverdbidder/rentaliq", "verified_at": null },
+    { "id": "zonewise", "hostname": null, "name": "ZoneWise", "github_repo": "breverdbidder/zonewise-web", "verified_at": null }
+  ]
+}
