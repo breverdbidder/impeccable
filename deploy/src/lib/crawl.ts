@@ -49,9 +49,11 @@ export function parsePage(html: string, pageUrl: string): PageFacts {
     if (m[1]!.toLowerCase() === "meta" && /^(robots|googlebot)$/i.test(attr(tag, "name") ?? "") && /noindex/i.test(attr(tag, "content") ?? "")) noindex = true;
   }
   const links = new Set<string>();
-  for (const m of head.matchAll(/<a\b[^>]*>/gi)) {
+  // Anchors written inside scripts or templates are source text, not links on the page.
+  const markup = head.replace(/<(script|template|style|noscript)\b[\s\S]*?<\/\1>/gi, " ");
+  for (const m of markup.matchAll(/<a\b[^>]*>/gi)) {
     const href = attr(m[0], "href");
-    if (!href || /^(#|mailto:|tel:|javascript:|data:)/i.test(href)) continue;
+    if (!href || /^(#|mailto:|tel:|javascript:|data:)/i.test(href) || /\$\{|\{\{|%7B/i.test(href)) continue;
     try {
       const u = new URL(href.replace(/&amp;/g, "&"), pageUrl);
       u.hash = "";
@@ -146,6 +148,12 @@ export async function crawlTick(env: { DB: D1 }, sites: Site[], f: Fetcher = fet
     }
     const list = [...new Set([...urls].map((u) => crawlable(u, host)).filter((u): u is string => !!u))].slice(0, LIMITS.sitemapUrls);
     rep.sitemapUrls = list.length;
+    const otherHosts = [...new Set([...urls].map(safeHost).filter((h): h is string => !!h && h !== host))].slice(0, 5);
+    mark(Boolean(sitemapUrl) && urls.size > 0 && list.length === 0, { key: "sitemap:foreign", severity: "medium", title: `${host}: the sitemap lists ${urls.size} URLs and none are on this hostname${otherHosts.length ? ` (it lists ${otherHosts.join(", ")})` : ""}`, evidence: { sitemap: sitemapUrl, hosts: otherHosts } });
+
+    // A path that cannot exist should not answer 200. If it does, broken links are invisible.
+    const probe = await get(`${origin}/deploy-check-missing-page-${Math.floor(now / 86_400_000)}`);
+    if (probe) mark(probe.status === 200, { key: "site:soft404", severity: "medium", title: `${host} answers 200 for pages that do not exist, so broken links cannot be detected`, evidence: { url: `${origin}/deploy-check-missing-page`, status: probe.status } });
     mark(!sitemapUrl, { key: "sitemap:missing", severity: "medium", title: `${host}: no sitemap found`, evidence: { tried: [...new Set(candidates)] } });
     const before = prev?.sitemap_count ?? 0;
     const lost = before - list.length;

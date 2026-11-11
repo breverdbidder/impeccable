@@ -18,6 +18,10 @@ describe("parsers", () => {
       <script type="application/ld+json">{}</script></head><body><a href="/a#x">a</a><a href='https://other.com/z'>z</a><a href="mailto:x@y.z">m</a><a href=/bare>b</a></body></html>`, "https://a.com/p");
     expect(f).toEqual({ title: "Hi there", canonical: "https://a.com/p", noindex: true, hasJsonLd: true, links: ["https://a.com/a", "https://other.com/z", "https://a.com/bare"] });
   });
+  it("ignores anchors inside scripts and unrendered template placeholders", () => {
+    const f = parsePage('<body><a href="/real">r</a><script>const h = `<a href="${esc(a.url)}">x</a><a href="/in-script">y</a>`;</script><a href="/{{ slug }}">t</a><a href="/$%7Bx%7D">e</a></body>', "https://a.com/");
+    expect(f.links).toEqual(["https://a.com/real"]);
+  });
   it("only queues same-host https pages", () => {
     expect(crawlable("https://a.com/x?utm=1#h", "a.com")).toBe("https://a.com/x");
     expect(crawlable("https://sub.a.com/x", "a.com")).toBeNull();
@@ -115,6 +119,20 @@ describe("crawlTick", () => {
     raw.exec("UPDATE crawl_state SET sitemap_checked_at = '2026-11-09T00:00:00.000Z'");
     await crawlTick(env, await listSites(env), f);
     expect(raw.prepare("SELECT status FROM findings WHERE dedupe_key = 'sitemap:shrunk'").get()).toEqual({ status: "dismissed" });
+  });
+
+  it("flags a sitemap that lists only another hostname and a site that answers 200 for missing pages", async () => {
+    const { db, raw } = verified();
+    const { f } = site({
+      "/robots.txt": () => new Response(""),
+      "/sitemap.xml": () => new Response("<urlset><url><loc>https://www.biddeed.ai/</loc></url><url><loc>https://www.biddeed.ai/a</loc></url></urlset>"),
+      "/": () => html("Home"),
+    });
+    const spa = async (url: string) => (new URL(url).pathname.startsWith("/deploy-check-missing-page") ? html("Home") : f(url));
+    await crawlTick({ DB: db }, await listSites({ DB: db }), spa);
+    const rows = raw.prepare("SELECT dedupe_key AS k, title FROM findings ORDER BY dedupe_key").all();
+    expect(rows.map((r) => r.k)).toEqual(["site:soft404", "sitemap:foreign"]);
+    expect(rows[1]!.title).toBe("biddeed.ai: the sitemap lists 2 URLs and none are on this hostname (it lists www.biddeed.ai)");
   });
 
   it("stays inside the fetch budget and never follows a redirect off-site", async () => {
