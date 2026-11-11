@@ -1,0 +1,286 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Ploy Agent Tools API",
+    "version": "1.1.0",
+    "description": "Public tools for AI agents: search the Ploy website and docs, and estimate a website migration. No authentication."
+  },
+  "servers": [
+    {
+      "url": "https://ploy.ai"
+    }
+  ],
+  "paths": {
+    "/agent-tools/search": {
+      "get": {
+        "operationId": "searchPloy",
+        "summary": "Search the Ploy website and docs",
+        "description": "Search ploy.ai and docs.ploy.ai, the official Ploy website and documentation, by meaning. Use it for questions about Ploy features, pricing, setup, integrations, publishing, custom domains, analytics and how-to steps. Returns the 5 best matching page sections with title, section heading, URL and a text snippet. To read a whole page, fetch its URL with the header Accept: text/markdown.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "What to look up, in plain language (max 300 characters).",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "how do I connect a custom domain"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The 5 best matching page sections from ploy.ai and docs.ploy.ai.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Search is temporarily unavailable."
+          }
+        }
+      }
+    },
+    "/agent-tools/migration-estimate": {
+      "get": {
+        "operationId": "estimateMigrationCost",
+        "summary": "Estimate website migration cost and time",
+        "description": "Uses the same live scanner and estimate model as the Ploy migration cost calculator. The upstream scan has a six-second budget. If the full browser scan is still running after page enumeration succeeds, the API returns a marked partial estimate from the evidence already collected. It never produces an estimate when page enumeration returns zero. Estimates are directional, not vendor quotes.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "description": "Public website URL or bare domain to analyze.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "example.com"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Complete or partial estimate returned after no more than six seconds of upstream scanning.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EstimateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid URL."
+          },
+          "422": {
+            "description": "The scanner could not enumerate any pages, so no estimate was produced."
+          },
+          "500": {
+            "description": "Unexpected API failure."
+          },
+          "502": {
+            "description": "The importer failed or returned no usable site evidence within six seconds."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SearchResponse": {
+        "type": "object",
+        "required": [
+          "query",
+          "queryId",
+          "results"
+        ],
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "queryId": {
+            "type": "string",
+            "description": "Id of this search, also carried in result URLs."
+          },
+          "results": {
+            "type": "array",
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "required": [
+                "title",
+                "heading",
+                "url",
+                "site",
+                "snippet",
+                "score"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "Page title."
+                },
+                "heading": {
+                  "type": "string",
+                  "description": "Section heading within the page."
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Page URL. Fetch it with Accept: text/markdown for the full page."
+                },
+                "site": {
+                  "type": "string",
+                  "enum": [
+                    "ploy.ai",
+                    "docs.ploy.ai"
+                  ]
+                },
+                "snippet": {
+                  "type": "string",
+                  "description": "Up to 500 characters of the matching section."
+                },
+                "score": {
+                  "type": "number",
+                  "description": "Meaning similarity to the query, 0 to 1. Higher is closer."
+                }
+              }
+            }
+          },
+          "fullPages": {
+            "type": "string"
+          }
+        }
+      },
+      "EstimateResponse": {
+        "type": "object",
+        "required": [
+          "version",
+          "inputUrl",
+          "finalUrl",
+          "scannedAt",
+          "scan",
+          "site",
+          "estimate",
+          "recommendation",
+          "methodology",
+          "links"
+        ],
+        "properties": {
+          "version": {
+            "type": "string",
+            "const": "1.0"
+          },
+          "inputUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "finalUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "scannedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "scan": {
+            "type": "object",
+            "required": [
+              "status"
+            ],
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "complete",
+                  "partial"
+                ],
+                "description": "Complete when the full browser scan finished; partial when the response budget elapsed after useful evidence was collected."
+              },
+              "warning": {
+                "type": "string"
+              }
+            }
+          },
+          "site": {
+            "type": "object",
+            "properties": {
+              "platform": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "platformConfidence": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "pageCount": {
+                "type": "integer"
+              },
+              "cmsItems": {
+                "type": "integer"
+              },
+              "redirects": {
+                "type": "integer"
+              },
+              "forms": {
+                "type": "integer"
+              },
+              "locales": {
+                "type": "integer"
+              }
+            }
+          },
+          "estimate": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string",
+                "const": "USD"
+              },
+              "agencyCostLow": {
+                "type": "number"
+              },
+              "agencyCostHigh": {
+                "type": "number"
+              },
+              "agencyWeeksLow": {
+                "type": "number"
+              },
+              "agencyWeeksHigh": {
+                "type": "number"
+              },
+              "manualHours": {
+                "type": "number"
+              },
+              "ployMigrationMinutes": {
+                "type": "number"
+              }
+            }
+          },
+          "recommendation": {
+            "type": "object",
+            "description": "The same recommendation card content shown in the calculator UI."
+          },
+          "methodology": {
+            "type": "object"
+          },
+          "links": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

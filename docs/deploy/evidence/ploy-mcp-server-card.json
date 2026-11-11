@@ -1,0 +1,46 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/mcp-server-card/v1.json",
+  "version": "1.0",
+  "serverInfo": {
+    "name": "ploy",
+    "title": "Ploy MCP",
+    "version": "2026-10-15"
+  },
+  "description": "The Ploy MCP is a remote MCP server (Streamable HTTP, OAuth sign-in, no API key) that connects Claude, ChatGPT, Codex, Cursor, Grok and other AI tools to a Ploy workspace. From the assistant, you can start and continue chats with Ploy's Agent, read sites, forms, documents and visitors, manage site databases, and publish your site.",
+  "websiteUrl": "https://ploy.ai/mcp",
+  "documentationUrl": "https://docs.ploy.ai/mcp",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://ploy.ai/api/mcp"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://ploy.ai/api/mcp"
+    }
+  ],
+  "capabilities": {
+    "tools": {}
+  },
+  "authentication": {
+    "required": true,
+    "schemes": [
+      "oauth2"
+    ],
+    "authorizationServer": "https://ploy.ai/api/auth",
+    "protectedResourceMetadata": "https://ploy.ai/.well-known/oauth-protected-resource/api/mcp",
+    "scopes": [
+      "ploy:data:read",
+      "ploy:chat",
+      "ploy:data:write",
+      "ploy:site:publish",
+      "offline_access"
+    ],
+    "dynamicClientRegistration": true,
+    "apiKey": false
+  },
+  "publisher": {
+    "name": "Ploy",
+    "url": "https://ploy.ai"
+  }
+}

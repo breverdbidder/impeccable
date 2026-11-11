@@ -1,0 +1,38 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://ploy.ai/api/mcp",
+      "service-desc": [
+        {
+          "href": "https://ploy.ai/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "Ploy MCP server card"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://docs.ploy.ai/mcp",
+          "type": "text/html",
+          "title": "Connect AI tools to Ploy with the Ploy MCP"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://ploy.ai/.well-known/oauth-protected-resource/api/mcp",
+          "type": "application/json",
+          "title": "Ploy MCP OAuth protected resource metadata"
+        }
+      ]
+    },
+    {
+      "anchor": "https://ploy.ai/",
+      "service-desc": [
+        {
+          "href": "https://ploy.ai/agent-tools/openapi.json",
+          "type": "application/vnd.oai.openapi+json",
+          "title": "Ploy Agent Tools API (site search, migration estimate)"
+        }
+      ]
+    }
+  ]
+}

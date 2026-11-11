@@ -1,0 +1,1 @@
+{"resource":"https://ploy.ai/api/mcp","authorization_servers":["https://ploy.ai/api/auth"],"scopes_supported":["ploy:data:read","ploy:chat","ploy:data:write","ploy:site:publish","offline_access"],"bearer_methods_supported":["header"],"resource_name":"Ploy"}
