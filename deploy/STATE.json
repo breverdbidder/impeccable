@@ -1,6 +1,6 @@
 {
-  "checkpoint": "CP-15",
-  "status": "not_started",
+  "checkpoint": "CP-16",
+  "status": "in_progress",
   "parity": 0,
-  "notes": "Live and monitoring: all three sites verified by DNS TXT on 2026-11-11 (biddeed.ai, dealdeed.app, zonewise.ai). Uptime and crawl run every 5 minutes; CP-14 exit met on live sites. First live finding: dealdeed.app answers 200 for missing pages. Next: CP-15 Lighthouse and visual diff after each deploy."
+  "notes": "Live: uptime, crawl and browser page checks on biddeed.ai, dealdeed.app and zonewise.ai every 5 minutes. First page check recorded for biddeed.ai (largest paint 0.9 s). Open findings: dealdeed.app answers 200 for missing pages (fix on branch claude/real-404-page in breverdbidder/rentaliq, not merged); zonewise.ai sitemap lists www.zonewise.ai. Not built: true Lighthouse score, direct deploy trigger. Home and Monitors exist; CP-16 remaining work is filters on the feed."
 }
