@@ -19,7 +19,7 @@ Deploy is an internal agent that watches every website we own, tells us what cha
 | --- | --- | --- |
 | biddeed.ai | breverdbidder/biddeed-web | Cloudflare Pages |
 | dealdeed.app (RentalIQ is merged into it) | breverdbidder/rentaliq | Cloudflare Pages, project `rentaliq` |
-| ZoneWise (hostname to confirm) | breverdbidder/zonewise-web | Cloudflare Pages |
+| zonewise.ai | breverdbidder/zonewise-web | Cloudflare Pages |
 
 Repositories are matched by name and still need confirming when each site is connected.
 

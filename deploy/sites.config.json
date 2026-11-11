@@ -17,7 +17,7 @@
     },
     {
       "id": "zonewise",
-      "hostname": null,
+      "hostname": "zonewise.ai",
       "name": "ZoneWise",
       "github_repo": "breverdbidder/zonewise-web",
       "verified_at": null
