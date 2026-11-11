@@ -2,5 +2,5 @@
   "checkpoint": "CP-15",
   "status": "not_started",
   "parity": 0,
-  "notes": "Live: Worker deploy-internal on workers.dev behind Cloudflare Access (owner-only), D1 migrated through 0002, uptime and crawl on a 5-minute cron, Monitors page. CP-14 code is done; its exit test on a live site waits for ownership verification. No site is verified yet. Next: CP-15 Lighthouse and visual diff after each deploy (needs a browser, so GitHub Actions or Browser Rendering)."
+  "notes": "Live and monitoring: all three sites verified by DNS TXT on 2026-11-11 (biddeed.ai, dealdeed.app, zonewise.ai). Uptime and crawl run every 5 minutes; CP-14 exit met on live sites. First live finding: dealdeed.app answers 200 for missing pages. Next: CP-15 Lighthouse and visual diff after each deploy."
 }
