@@ -2,5 +2,5 @@
   "checkpoint": "CP-13",
   "status": "in_progress",
   "parity": 0,
-  "notes": "CP-10 code complete, not deployed. CP-11 done: D1 database deploy-internal created and migrated. CP-12 Access check implemented, Access application not created. CP-13 implemented; no site verified yet. CP-14 uptime cron written. Next: deploy the Worker, turn on Access, set ACCESS_TEAM_DOMAIN and ACCESS_AUD, publish ownership proofs."
+  "notes": "Live: Worker deploy-internal on workers.dev behind Cloudflare Access (owner-only), D1 database migrated, uptime cron every 5 minutes. No site is verified yet, so nothing is monitored. Next: owner signs in and confirms the app loads, publishes ownership proofs, supplies ZoneWise's hostname; then CP-14 crawl job."
 }
