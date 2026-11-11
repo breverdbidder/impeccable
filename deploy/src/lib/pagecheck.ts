@@ -10,6 +10,8 @@ export type Capture = {
   status: number | null; finalUrl: string;
   ttfb: number | null; lcp: number | null; cls: number | null; load: number | null;
   bytes: number | null; requests: number | null; consoleErrors: number;
+  /** The first few error messages, so a finding can say what is wrong and not only how many. */
+  consoleMessages?: string[];
   png: Uint8Array | null;
 };
 export interface CheckBrowser {
@@ -82,7 +84,8 @@ export async function pageCheckTick(env: { DB: D1; SHOTS: ShotStore }, sites: Si
     const lcp = cap.lcp;
     mark(lcp !== null && lcp > THRESHOLDS.lcpNeedsWork, "perf:lcp:/", lcp !== null && lcp > THRESHOLDS.lcpPoor ? "high" : "medium", `${host}: largest content took ${((lcp ?? 0) / 1000).toFixed(1)} s to appear (good is under 2.5 s)`, { ...ev, lcp_ms: lcp });
     mark(cap.cls !== null && cap.cls > THRESHOLDS.clsPoor, "perf:cls:/", "medium", `${host}: the layout shifts while loading (score ${cap.cls?.toFixed(2)}, good is under 0.1)`, { ...ev, cls: cap.cls });
-    mark(cap.consoleErrors > 0, "page:console:/", "low", `${host}: the home page logs ${cap.consoleErrors} console error${cap.consoleErrors === 1 ? "" : "s"}`, ev);
+    const first = cap.consoleMessages?.[0];
+    mark(cap.consoleErrors > 0, "page:console:/", "low", `${host}: the home page logs ${cap.consoleErrors} console error${cap.consoleErrors === 1 ? "" : "s"}${first ? `. First: ${first}` : ""}`, { ...ev, messages: cap.consoleMessages ?? [] });
     mark(diff !== null && diff >= THRESHOLDS.diffPct, "visual:changed:/", "medium", `${host}: the home page looks different, ${diff}% of pixels changed since the last check`, { ...ev, diff_pct: diff });
   }
 

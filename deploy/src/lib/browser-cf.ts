@@ -13,8 +13,10 @@ export async function openCloudflareBrowser(binding: unknown): Promise<CheckBrow
       await page.setViewport({ width: 1280, height: 800 });
       await page.setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome Safari/537.36 deploy-internal-pagecheck/0.1");
       let consoleErrors = 0;
-      page.on("console", (m) => { if (m.type() === "error") consoleErrors++; });
-      page.on("pageerror", () => { consoleErrors++; });
+      const consoleMessages: string[] = [];
+      const note = (text: string, where?: string) => { consoleErrors++; if (consoleMessages.length < 5) consoleMessages.push((text + (where ? ` (${where})` : "")).replace(/\s+/g, " ").slice(0, 240)); };
+      page.on("console", (m) => { if (m.type() === "error") note(m.text(), m.location()?.url); });
+      page.on("pageerror", (e) => note(String((e as Error)?.message ?? e)));
       await page.evaluateOnNewDocument(() => {
         const w = window as unknown as { __dp: { lcp: number | null; cls: number } };
         w.__dp = { lcp: null, cls: 0 };
@@ -39,7 +41,7 @@ export async function openCloudflareBrowser(binding: unknown): Promise<CheckBrow
       const out: Capture = {
         status: res ? res.status() : null, finalUrl: page.url(),
         ttfb: m.ttfb === null ? null : Math.round(m.ttfb), lcp: m.lcp === null ? null : Math.round(m.lcp), cls: m.cls === null ? null : Math.round(m.cls * 1000) / 1000,
-        load: m.load === null ? null : Math.round(m.load), bytes: m.bytes, requests: m.requests, consoleErrors, png: new Uint8Array(png),
+        load: m.load === null ? null : Math.round(m.load), bytes: m.bytes, requests: m.requests, consoleErrors, consoleMessages, png: new Uint8Array(png),
       };
       await page.close();
       return out;

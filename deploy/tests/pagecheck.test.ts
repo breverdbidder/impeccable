@@ -61,7 +61,7 @@ describe("pageCheckTick", () => {
   });
 
   it("re-checks after a deploy changes the page and reports a visual change, slow paint, layout shift and console errors", async () => {
-    const r = rig([{}, { lcp: 4600, cls: 0.4, consoleErrors: 2, png: png(2) }], 12.345);
+    const r = rig([{}, { lcp: 4600, cls: 0.4, consoleErrors: 2, consoleMessages: ["Failed to load resource: 404 (https://biddeed.ai/favicon.ico)", "x"], png: png(2) }], 12.345);
     await r.run(T0);
     r.raw.exec("UPDATE page_check_state SET last_check = '2026-11-11T12:00:00.000Z', content_hash = 'before'");
     r.raw.exec("INSERT INTO pages (site_id, url, content_hash) VALUES ('biddeed', 'https://biddeed.ai/', 'after')");
@@ -74,6 +74,7 @@ describe("pageCheckTick", () => {
       { k: "visual:changed:/", severity: "medium", status: "open" },
     ]);
     expect(r.raw.prepare("SELECT title FROM findings WHERE dedupe_key = 'visual:changed:/'").get()).toEqual({ title: "biddeed.ai: the home page looks different, 12.35% of pixels changed since the last check" });
+    expect(r.raw.prepare("SELECT title FROM findings WHERE dedupe_key = 'page:console:/'").get()).toEqual({ title: "biddeed.ai: the home page logs 2 console errors. First: Failed to load resource: 404 (https://biddeed.ai/favicon.ico)" });
     expect(r.raw.prepare("SELECT content_hash FROM page_check_state").get()).toEqual({ content_hash: "after" });
   });
 
