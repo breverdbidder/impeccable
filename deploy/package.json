@@ -10,7 +10,8 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "deploy": "astro build && wrangler deploy",
-    "dev:worker": "astro build && wrangler dev"
+    "dev:worker": "astro build && wrangler dev",
+    "bundle": "astro build && esbuild src/worker-inline.ts --bundle --format=esm --minify --charset=ascii --loader:.html=text --loader:.json=json --target=es2022 --outfile=build/worker.js"
   },
   "dependencies": {
     "astro": "^7.4.10"
@@ -19,6 +20,7 @@
     "@types/node": "^26.6.6",
     "typescript": "^7.0.2",
     "vitest": "^5.1.0",
-    "wrangler": "^4"
+    "wrangler": "^4",
+    "esbuild": "*"
   }
 }
