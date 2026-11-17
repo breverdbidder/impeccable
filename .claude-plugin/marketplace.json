@@ -28,6 +28,18 @@
         "skills",
         "commands"
       ]
+    },
+    {
+      "name": "frontend-design",
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Generates creative, polished code that avoids generic AI aesthetics.",
+      "version": "1.1.1",
+      "author": {
+        "name": "Anthropic",
+        "email": "support@anthropic.com"
+      },
+      "source": "./plugins/frontend-design",
+      "category": "development",
+      "homepage": "https://github.com/anthropics/claude-plugins-official/tree/fd30cee3ecd5a8ee772733c5d20c0f2bae2da2f0/plugins/frontend-design"
     }
   ]
 }
