@@ -1,0 +1,10 @@
+{
+  "name": "reverse-api-engineer",
+  "description": "Reverse engineer a website's private HTTP API into a typed, runnable client with the reverse-api-engineer CLI",
+  "version": "0.16.0",
+  "author": {
+    "name": "kalil0321",
+    "url": "https://github.com/kalil0321"
+  },
+  "license": "MIT"
+}
