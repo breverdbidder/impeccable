@@ -40,6 +40,18 @@
       "source": "./plugins/frontend-design",
       "category": "development",
       "homepage": "https://github.com/anthropics/claude-plugins-official/tree/fd30cee3ecd5a8ee772733c5d20c0f2bae2da2f0/plugins/frontend-design"
+    },
+    {
+      "name": "reverse-api-engineer",
+      "description": "Reverse engineer a website's private HTTP API into a typed, runnable client (Python, TypeScript, Go and 7 more) with the reverse-api-engineer CLI.",
+      "version": "0.16.0",
+      "author": {
+        "name": "kalil0321",
+        "url": "https://github.com/kalil0321"
+      },
+      "source": "./plugins/reverse-api-engineer",
+      "category": "development",
+      "homepage": "https://github.com/kalil0321/reverse-api-engineer/tree/e3aae749746f076f78f9642d83eeb3c7af9bac44/skills/reverse-api-engineer"
     }
   ]
 }

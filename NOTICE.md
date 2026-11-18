@@ -18,3 +18,12 @@ The `skill/reference/ios.md` and `skill/reference/android.md` platform reference
 **Upstream commit:** fd30cee3ecd5a8ee772733c5d20c0f2bae2da2f0
 **Original license:** Apache License 2.0
 **Author:** Anthropic
+
+## reverse-api-engineer
+
+`plugins/reverse-api-engineer/skills/reverse-api-engineer/` is an unmodified copy of the `reverse-api-engineer` skill, packaged as a Claude Code plugin (`.claude-plugin/plugin.json` and `README.md` added) so this repo's marketplace can serve it. Its `LICENSE` ships with it.
+
+**Original work:** https://github.com/kalil0321/reverse-api-engineer/tree/e3aae749746f076f78f9642d83eeb3c7af9bac44/skills/reverse-api-engineer
+**Upstream commit:** e3aae749746f076f78f9642d83eeb3c7af9bac44
+**Original license:** MIT
+**Author:** kalil0321
